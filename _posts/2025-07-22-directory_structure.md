@@ -1,54 +1,24 @@
 ---
-title: "1.3 Create Initial Directory Structure"
-date: 2025-07-22
+title: "1.1 Recommended Directory Structure"
+date: 2025-07-19
 ---
 
-*Preview*
 
 ```
 ~/ocr/
 │
-├── dev\_ws/
+├── dev_ws/
+│   ├── build/
+│   ├── install/
+│   ├── log/
 │   └── src/
+│       └── differential_drive_robot/
 │
 ├── ocr-docker/
+│   ├── Dockerfile
+│   ├── README.md
+│   └── docker-compose.yml
 │
-└── training\_ws/
-└── src/
-```
-
-1\. Create `ocr` folder and cd into it
-
-```bash
-mkdir ~/ocr && cd ~/ocr
-```
-
-2\. Create the `dev_ws` and `src` folder inside it (ROS packages will be installed in `src` later)
-
-```bash
-mkdir -p dev_ws/src
-```
-
-3\. Create `training_ws` folder and `src` folder inside it
-
-```bash
-mkdir -p training_ws/src
-```
-
-4\. Create `ocr-docker` folder
-
-```bash
-mkdir ocr-docker
-```
-
-5\. Verify that folders have been created inside `ocr`
-
-```bash
-ls
-```
-
-<!-- Expected output: -->
-
-```output
-dev_ws  ocr-docker  training_ws
+└── training_ws/
+       └── src/
 ```
