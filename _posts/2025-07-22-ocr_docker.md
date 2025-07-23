@@ -3,7 +3,7 @@ title: "1.4 OCR Docker"
 date: 2025-07-22
 ---
 
-# ocr-docker
+<!-- # 1.4 OCR Docker -->
 
 <div class="important">
   <strong>Important:</strong> If you have already installed the container, skip to 
