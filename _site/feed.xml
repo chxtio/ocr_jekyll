@@ -1,4 +1,6 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.9.0">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2025-07-22T23:02:22-07:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">OC Robotics</title><subtitle>Write an awesome description for your new site here. You can edit this line in _config.yml. It will appear in your document head meta (for Google search results) and in your feed.xml site description.</subtitle><author><name>Your Name</name><email>your-email@example.com</email></author><entry><title type="html">1.3 Create Initial Directory Structure</title><link href="http://localhost:4000/2025/07/22/iniitial_directory_structure.html" rel="alternate" type="text/html" title="1.3 Create Initial Directory Structure" /><published>2025-07-22T00:00:00-07:00</published><updated>2025-07-22T00:00:00-07:00</updated><id>http://localhost:4000/2025/07/22/iniitial_directory_structure</id><content type="html" xml:base="http://localhost:4000/2025/07/22/iniitial_directory_structure.html"><![CDATA[<p><em>Preview</em></p>
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.9.0">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2025-07-22T23:19:43-07:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">OC Robotics</title><subtitle>Write an awesome description for your new site here. You can edit this line in _config.yml. It will appear in your document head meta (for Google search results) and in your feed.xml site description.</subtitle><author><name>Your Name</name><email>your-email@example.com</email></author><entry><title type="html">1.3 Create Initial Directory Structure</title><link href="http://localhost:4000/2025/07/22/iniitial_directory_structure.html" rel="alternate" type="text/html" title="1.3 Create Initial Directory Structure" /><published>2025-07-22T00:00:00-07:00</published><updated>2025-07-22T00:00:00-07:00</updated><id>http://localhost:4000/2025/07/22/iniitial_directory_structure</id><content type="html" xml:base="http://localhost:4000/2025/07/22/iniitial_directory_structure.html"><![CDATA[<h1 id="13-create-initial-directory-structure">1.3 Create Initial Directory Structure</h1>
+
+<p><em>Preview</em></p>
 
 <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>~/ocr/
 │
@@ -39,13 +41,14 @@
 <!-- Expected output: -->
 
 <pre><code class="language-output">dev_ws  ocr-docker  training_ws
-</code></pre>]]></content><author><name>Your Name</name><email>your-email@example.com</email></author><summary type="html"><![CDATA[Preview ~/ocr/ │ ├── dev\_ws/ │ └── src/ │ ├── ocr-docker/ │ └── training\_ws/ └── src/ 1. Create ocr folder and cd into it mkdir ~/ocr &amp;&amp; cd ~/ocr 2. Create the dev_ws and src folder inside it (ROS packages will be installed in src later) mkdir -p dev_ws/src 3. Create training_ws folder and src folder inside it mkdir -p training_ws/src 4. Create ocr-docker folder mkdir ocr-docker 5. Verify that folders have been created inside ocr ls dev_ws ocr-docker training_ws]]></summary></entry><entry><title type="html">1.4 OCR Docker</title><link href="http://localhost:4000/2025/07/22/ocr_docker.html" rel="alternate" type="text/html" title="1.4 OCR Docker" /><published>2025-07-22T00:00:00-07:00</published><updated>2025-07-22T00:00:00-07:00</updated><id>http://localhost:4000/2025/07/22/ocr_docker</id><content type="html" xml:base="http://localhost:4000/2025/07/22/ocr_docker.html"><![CDATA[<div class="important">
+</code></pre>]]></content><author><name>Your Name</name><email>your-email@example.com</email></author><summary type="html"><![CDATA[1.3 Create Initial Directory Structure Preview ~/ocr/ │ ├── dev\_ws/ │ └── src/ │ ├── ocr-docker/ │ └── training\_ws/ └── src/ 1. Create ocr folder and cd into it mkdir ~/ocr &amp;&amp; cd ~/ocr 2. Create the dev_ws and src folder inside it (ROS packages will be installed in src later) mkdir -p dev_ws/src 3. Create training_ws folder and src folder inside it mkdir -p training_ws/src 4. Create ocr-docker folder mkdir ocr-docker 5. Verify that folders have been created inside ocr ls dev_ws ocr-docker training_ws]]></summary></entry><entry><title type="html">1.4 OCR Docker</title><link href="http://localhost:4000/2025/07/22/ocr_docker.html" rel="alternate" type="text/html" title="1.4 OCR Docker" /><published>2025-07-22T00:00:00-07:00</published><updated>2025-07-22T00:00:00-07:00</updated><id>http://localhost:4000/2025/07/22/ocr_docker</id><content type="html" xml:base="http://localhost:4000/2025/07/22/ocr_docker.html"><![CDATA[<h1 id="ocr-docker">ocr-docker</h1>
+
+<div class="important">
   <strong>Important:</strong> If you have already installed the container, skip to 
   <a href="#step-2-run-the-docker-container">Step 2: Run the docker container</a>.
 </div>
 <p><br /></p>
 
-<!-- # ocr-docker -->
 <!-- > [!IMPORTANT]
 > 
 > If you have already installed the container, skip to [Step 2: Run the docker container](#step-2-run-the-docker-container). -->
@@ -163,7 +166,7 @@ docker-pr 1001 root    4u  IPv6  26542      0t0  TCP *:6080 (LISTEN)
 </ul>
 
 <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">sudo kill</span> <span class="nt">-9</span> 995 1001
-</code></pre></div></div>]]></content><author><name>Your Name</name><email>your-email@example.com</email></author><summary type="html"><![CDATA[Important: If you have already installed the container, skip to Step 2: Run the docker container. Step 1: Install the container Install and open Docker Desktop Clone the repo and cd into it cd ocr git clone https://github.com/oc-robotics/ocr-docker.git cd ocr-docker Make sure the volume is mounted correctly in docker-compose.yml The default path assumes the following file structure ~/ocr/ │ ├── dev_ws/ │ ├── build/ │ ├── install/ │ ├── log/ │ └── src/ │ └── differential_drive_robot/ │ ├── ocr-docker/ │ ├── Dockerfile │ ├── README.md │ └── docker-compose.yml │ └── training_ws/ Pull the base image from Docker Hub docker pull mwoodward6/nekton:humble Build the custom image docker build -t ocr-docker:humble . Step 2: Run the docker container Start the container in the background (detached mode) docker-compose up -d Open an interactive bash shell inside the container to run commands docker exec -it ocr-humble-nekton-og bash Browse http://localhost:6080/ to access the remote desktop via VNC Stop the container exit # Exit the interactive shell docker-compose stop If you need to remove the container docker-compose down Troubleshooting If you encounter an error due to port 6080 being in use, check which processes are using it sudo lsof -i :6080 Sample output COMMAND PID USER FD TYPE DEVICE SIZE/OFF NODE NAME docker-pr 995 root 4u IPv4 27629 0t0 TCP *:6080 (LISTEN) docker-pr 1001 root 4u IPv6 26542 0t0 TCP *:6080 (LISTEN) Stop the processes sudo kill -9 995 1001]]></summary></entry><entry><title type="html">1.2 Setting Up Git, GitHub, and SSH</title><link href="http://localhost:4000/2025/07/20/git_ssh_test.html" rel="alternate" type="text/html" title="1.2 Setting Up Git, GitHub, and SSH" /><published>2025-07-20T00:00:00-07:00</published><updated>2025-07-20T00:00:00-07:00</updated><id>http://localhost:4000/2025/07/20/git_ssh_test</id><content type="html" xml:base="http://localhost:4000/2025/07/20/git_ssh_test.html"><![CDATA[<!-- # Setting Up Git, GitHub, and SSH -->
+</code></pre></div></div>]]></content><author><name>Your Name</name><email>your-email@example.com</email></author><summary type="html"><![CDATA[ocr-docker Important: If you have already installed the container, skip to Step 2: Run the docker container. Step 1: Install the container Install and open Docker Desktop Clone the repo and cd into it cd ocr git clone https://github.com/oc-robotics/ocr-docker.git cd ocr-docker Make sure the volume is mounted correctly in docker-compose.yml The default path assumes the following file structure ~/ocr/ │ ├── dev_ws/ │ ├── build/ │ ├── install/ │ ├── log/ │ └── src/ │ └── differential_drive_robot/ │ ├── ocr-docker/ │ ├── Dockerfile │ ├── README.md │ └── docker-compose.yml │ └── training_ws/ Pull the base image from Docker Hub docker pull mwoodward6/nekton:humble Build the custom image docker build -t ocr-docker:humble . Step 2: Run the docker container Start the container in the background (detached mode) docker-compose up -d Open an interactive bash shell inside the container to run commands docker exec -it ocr-humble-nekton-og bash Browse http://localhost:6080/ to access the remote desktop via VNC Stop the container exit # Exit the interactive shell docker-compose stop If you need to remove the container docker-compose down Troubleshooting If you encounter an error due to port 6080 being in use, check which processes are using it sudo lsof -i :6080 Sample output COMMAND PID USER FD TYPE DEVICE SIZE/OFF NODE NAME docker-pr 995 root 4u IPv4 27629 0t0 TCP *:6080 (LISTEN) docker-pr 1001 root 4u IPv6 26542 0t0 TCP *:6080 (LISTEN) Stop the processes sudo kill -9 995 1001]]></summary></entry><entry><title type="html">1.2 Setting Up Git, GitHub, and SSH</title><link href="http://localhost:4000/2025/07/20/git_ssh_test.html" rel="alternate" type="text/html" title="1.2 Setting Up Git, GitHub, and SSH" /><published>2025-07-20T00:00:00-07:00</published><updated>2025-07-20T00:00:00-07:00</updated><id>http://localhost:4000/2025/07/20/git_ssh_test</id><content type="html" xml:base="http://localhost:4000/2025/07/20/git_ssh_test.html"><![CDATA[<!-- # Setting Up Git, GitHub, and SSH -->
 
 <!-- Resources
 - [HowToForge | Installing and using Git and GitHub on Ubuntu Linux](https://www.howtoforge.com/tutorial/install-git-and-github-on-ubuntu/) 
@@ -424,4 +427,422 @@ git push origin master</li>
 │
 └── training_ws/
        └── src/
-</code></pre></div></div>]]></content><author><name>Your Name</name><email>your-email@example.com</email></author><summary type="html"><![CDATA[~/ocr/ │ ├── dev_ws/ │ ├── build/ │ ├── install/ │ ├── log/ │ └── src/ │ └── differential_drive_robot/ │ ├── ocr-docker/ │ ├── Dockerfile │ ├── README.md │ └── docker-compose.yml │ └── training_ws/ └── src/]]></summary></entry></feed>
+</code></pre></div></div>]]></content><author><name>Your Name</name><email>your-email@example.com</email></author><summary type="html"><![CDATA[~/ocr/ │ ├── dev_ws/ │ ├── build/ │ ├── install/ │ ├── log/ │ └── src/ │ └── differential_drive_robot/ │ ├── ocr-docker/ │ ├── Dockerfile │ ├── README.md │ └── docker-compose.yml │ └── training_ws/ └── src/]]></summary></entry><entry><title type="html">Software Setup (Merged)</title><link href="http://localhost:4000/2025/07/18/Combined.html" rel="alternate" type="text/html" title="Software Setup (Merged)" /><published>2025-07-18T00:00:00-07:00</published><updated>2025-07-18T00:00:00-07:00</updated><id>http://localhost:4000/2025/07/18/Combined</id><content type="html" xml:base="http://localhost:4000/2025/07/18/Combined.html"><![CDATA[<h1 id="11-recommended-directory-structure">1.1 Recommended Directory Structure</h1>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>~/ocr/
+│
+├── dev_ws/
+│   ├── build/
+│   ├── install/
+│   ├── log/
+│   └── src/
+│       └── differential_drive_robot/
+│
+├── ocr-docker/
+│   ├── Dockerfile
+│   ├── README.md
+│   └── docker-compose.yml
+│
+└── training_ws/
+       └── src/
+</code></pre></div></div>
+
+<h1 id="12-setting-up-git-github-and-ssh">1.2 Setting Up Git, GitHub, and SSH</h1>
+
+<h2 id="install-git">Install Git</h2>
+
+<h3 id="installing-on-windows">Installing on Windows</h3>
+
+<ul>
+  <li>
+    <p>Install <a href="https://gitforwindows.org/">Git for Windows</a>, which provides Git Bash (terminal emulator for running Git commands)</p>
+  </li>
+  <li>Or, install using Windows Powershell~~
+    <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>winget <span class="nb">install</span> <span class="nt">--id</span> Git.Git <span class="nt">-e</span> <span class="nt">--source</span> winget
+</code></pre></div>    </div>
+  </li>
+  <li>You can also install Linux for Windows via <a href="https://learn.microsoft.com/en-us/windows/wsl/install">WSL (Windows Subsystem for Linux)</a>
+    <ul>
+      <li>Once setup, Git can be installed using the Linux package manager</li>
+    </ul>
+  </li>
+</ul>
+
+<h3 id="installing-on-linux">Installing on Linux</h3>
+<p>https://git-scm.com/book/en/v2/Getting-Started-Installing-Git</p>
+<ul>
+  <li>Install Git
+    <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">sudo </span>apt <span class="nb">install </span>git
+</code></pre></div>    </div>
+  </li>
+</ul>
+
+<h2 id="configure-git">Configure Git</h2>
+<ul>
+  <li>
+    <p>Configure Git, replacing <code class="language-plaintext highlighter-rouge">"Your name"</code> and <code class="language-plaintext highlighter-rouge">"your.email@example.com"</code> with your info (including the quotes) to link your local Git profile with GitHub</p>
+
+    <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>git config <span class="nt">--global</span> user.name <span class="s2">"Your Name"</span>
+git config <span class="nt">--global</span> user.email <span class="s2">"your.email@example.com"</span>
+</code></pre></div>    </div>
+  </li>
+  <li>
+    <p>Verify configuration</p>
+
+    <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>git config <span class="nt">--get</span> user.name
+git config <span class="nt">--get</span> user.email
+<span class="c"># List all settings</span>
+git config <span class="nt">--list</span>
+</code></pre></div>    </div>
+  </li>
+</ul>
+
+<h2 id="basic-git-workflow-example">Basic Git Workflow Example</h2>
+<h3 id="creating-a-local-repository">Creating a local repository</h3>
+<ul>
+  <li>
+    <p>Create a local repository <code class="language-plaintext highlighter-rouge">myTest</code> and change the current working directory to <code class="language-plaintext highlighter-rouge">myTest</code>:</p>
+
+    <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">mkdir </span>myTest <span class="o">&amp;&amp;</span> <span class="nb">cd </span>myTest
+</code></pre></div>    </div>
+  </li>
+  <li>Initialize a <code class="language-plaintext highlighter-rouge">.git</code> subdirectory in the current working directory
+    <ul>
+      <li>Contains a hidden <code class="language-plaintext highlighter-rouge">.git</code> folder with subdirectories for objects, refs, and template files</li>
+      <li>A HEAD file is also created which will point to the currently checked out commit</li>
+    </ul>
+
+    <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>git init
+</code></pre></div>    </div>
+
+    <ul>
+      <li>If successful, you’ll see a message like:</li>
+    </ul>
+
+    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Initialized empty Git repository in /home/user/Mytest/.git/
+</code></pre></div>    </div>
+  </li>
+  <li>Check the current state of the working directory and the staging area.
+    <ul>
+      <li>Shows which changes have been staged, which haven’t, and which files aren’t being tracked by Git.
+        <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>git status
+</code></pre></div>        </div>
+      </li>
+    </ul>
+  </li>
+  <li>Create a README file to describe the repository:
+    <ul>
+      <li>We will use nano (<code class="language-plaintext highlighter-rouge">sudo apt install nano</code>), a simple, user-friendly text editor for the command line
+        <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>nano README.md
+<span class="c"># Add some text, example:</span>
+This is a git repo
+<span class="c"># Save the file by pressing CTRL + X, then Y, then press Enter</span>
+</code></pre></div>        </div>
+      </li>
+    </ul>
+  </li>
+  <li>
+    <p>Optional: Create a <code class="language-plaintext highlighter-rouge">sample.c</code> file:</p>
+
+    <div class="language-c highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">#include</span><span class="cpf">&lt;stdio.h&gt;</span><span class="cp">
+</span><span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
+<span class="p">{</span>
+    <span class="n">printf</span><span class="p">(</span><span class="s">"hello world"</span><span class="p">);</span>
+    <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div>    </div>
+  </li>
+</ul>
+
+<h3 id="staging-files-in-the-git-index">Staging Files in the Git Index</h3>
+
+<ul>
+  <li>
+    <p>Create and add files to the index.</p>
+
+    <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>git add README.md
+git add sample.c
+</code></pre></div>    </div>
+    <h3 id="committing-changes-made-to-the-index">Committing changes made to the index</h3>
+  </li>
+  <li>
+    <p>Commit the changes with a message:</p>
+
+    <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>git commit <span class="nt">-m</span> <span class="s2">"Initial commit"</span>
+</code></pre></div>    </div>
+    <h2 id="creating-a-repository-on-github">Creating a repository on GitHub</h2>
+  </li>
+  <li>
+    <p>Create a repository on GitHub with the same name as your local repository (e.g., “Mytest”).
+<img src="https://i.imgur.com/6hpahg2.png" alt="picture 0" /></p>
+  </li>
+  <li>
+    <p>Connect your local repository to the GitHub repository (Replace <code class="language-plaintext highlighter-rouge">'user_name'</code> with your GitHub username):</p>
+  </li>
+</ul>
+
+<p><em>Using HTTPS:</em></p>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  git remote add origin https://github.com/user_name/Mytest.git
+</code></pre></div></div>
+<p><em>Or using SSH (recommended if you have an <a href="#creating-an-ssh-key">SSH key</a> set up):</em></p>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>git remote add origin git@github.com:user_name/Mytest.git
+</code></pre></div></div>
+
+<h2 id="pushing-files-from-a-local-repository-to-a-github-repository">Pushing files from a local repository to a GitHub repository</h2>
+<ul>
+  <li>Push the local repository contents to GitHub
+    <ul>
+      <li>The first time running this command, you need to link the local <code class="language-plaintext highlighter-rouge">master</code> branch to the <code class="language-plaintext highlighter-rouge">master</code> branch on remote repository (<code class="language-plaintext highlighter-rouge">origin</code>)</li>
+    </ul>
+  </li>
+</ul>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>git push <span class="nt">-u</span> origin master
+<span class="c"># Can also use `git push --set-upstream origin master`</span>
+
+<span class="c"># Note: Some repositories may use 'main' as the default branch instead of 'master'.</span>
+<span class="c"># In that case, use the following command:</span>
+<span class="c"># git push --set-upstream origin main</span>
+</code></pre></div></div>
+
+<ul>
+  <li>For subsequent pushes
+  ```bash
+git push origin master</li>
+</ul>
+
+<h1 id="or-if-your-default-branch-is-main">Or if your default branch is ‘main’:</h1>
+<h1 id="git-push-origin-main">git push origin main</h1>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  - You may get a `permission denied` error when pushing to GitHub if SSH keys aren't set properly (See [Creating an SSH Key](#creating-an-ssh-key))
+
+- Enable colorful output with git
+
+  ```bash
+  git config --global color.ui auto
+</code></pre></div></div>
+<hr />
+<h2 id="creating-an-ssh-key">Creating an SSH Key</h2>
+<p><a href="https://www.theodinproject.com/lessons/foundations-setting-up-git#step-23-create-an-ssh-key">Create an SSH key</a>
+<img src="https://www.ssh.com/hubfs/Imported_Blog_Media/SSH_simplified_protocol_diagram-2.png" alt="ssh diagram" /></p>
+
+<p>An SSH key is a cryptographically secure identifier. It’s like a really long password used to identify your machine, which can be used by GitHub without having to type in your username and password every time.</p>
+
+<ul>
+  <li><a href="https://docs.github.com/en/authentication/connecting-to-github-with-ssh/checking-for-existing-ssh-keys">Check for Existing SSH Keys</a>
+    <ul>
+      <li>Check for the presence of Ed25519 algorithm SSH keys</li>
+      <li>An error indicates you do not have an existing SSH key pair in the default location.
+        <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">ls</span> ~/.ssh/id_ed25519.pub
+</code></pre></div>        </div>
+      </li>
+    </ul>
+  </li>
+  <li><a href="https://docs.github.com/en/authentication/connecting-to-github-with-ssh/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent">Generate a New SSH Key on Your Local Machine and Add it to the SSH Agent</a>
+    <ul>
+      <li>Run the following command in the terminal to create a new SSH key using your GitHub email as a label:
+        <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>ssh-keygen <span class="nt">-t</span> ed25519 <span class="nt">-C</span> <span class="s2">"your.email@example.com"</span>
+</code></pre></div>        </div>
+      </li>
+      <li>When you’re prompted to “Enter a file in which to save the key”, you can press Enter to accept the default file location
+        <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>&gt; Enter file in which to save the key (/c/Users/YOU/.ssh/id_ALGORITHM):[Press enter]
+</code></pre></div>        </div>
+        <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>&gt; Generating public/private ed25519 key pair.
+</code></pre></div>        </div>
+      </li>
+      <li>Show the SSH key and copy it to your clipboard:
+        <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">cat</span> ~/.ssh/id_ed25519.pub
+</code></pre></div>        </div>
+      </li>
+    </ul>
+  </li>
+  <li><strong>Link SSH Key with GitHub to enable authentication for Git operations over SSH</strong>
+    <ul>
+      <li>In GitHub, navigate to <a href="https://github.com/settings/ssh/new"><strong>Settings -&gt; SSH and GPG keys -&gt; New SSH Key</strong></a>:</li>
+      <li>Name the key with a useful description of where it came from.</li>
+      <li>
+        <p>Use the output of <code class="language-plaintext highlighter-rouge">cat ~/.ssh/id_ed25519.pub</code> and paste it the Key section
+  <img src="https://i.imgur.com/gdfbJKj.png" alt="picture 2" /></p>
+      </li>
+      <li>Confirm that your SSH key is connected to your GitHub account
+        <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  ssh <span class="nt">-T</span> git@github.com
+</code></pre></div>        </div>
+      </li>
+      <li>if successful, you should see:
+        <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  Hi username! You've successfully authenticated, but GitHub does not provide shell access.
+</code></pre></div>        </div>
+      </li>
+    </ul>
+  </li>
+</ul>
+
+<h1 id="13-create-initial-directory-structure">1.3 Create Initial Directory Structure</h1>
+
+<p><em>Preview</em></p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>~/ocr/
+│
+├── dev\_ws/
+│   └── src/
+│
+├── ocr-docker/
+│
+└── training\_ws/
+└── src/
+</code></pre></div></div>
+
+<p>1. Create <code class="language-plaintext highlighter-rouge">ocr</code> folder and cd into it</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">mkdir</span> ~/ocr <span class="o">&amp;&amp;</span> <span class="nb">cd</span> ~/ocr
+</code></pre></div></div>
+
+<p>2. Create the <code class="language-plaintext highlighter-rouge">dev_ws</code> and <code class="language-plaintext highlighter-rouge">src</code> folder inside it (ROS packages will be installed in <code class="language-plaintext highlighter-rouge">src</code> later)</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">mkdir</span> <span class="nt">-p</span> dev_ws/src
+</code></pre></div></div>
+
+<p>3. Create <code class="language-plaintext highlighter-rouge">training_ws</code> folder and <code class="language-plaintext highlighter-rouge">src</code> folder inside it</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">mkdir</span> <span class="nt">-p</span> training_ws/src
+</code></pre></div></div>
+
+<p>4. Create <code class="language-plaintext highlighter-rouge">ocr-docker</code> folder</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">mkdir </span>ocr-docker
+</code></pre></div></div>
+
+<p>5. Verify that folders have been created inside <code class="language-plaintext highlighter-rouge">ocr</code></p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">ls</span>
+</code></pre></div></div>
+
+<!-- Expected output: -->
+
+<pre><code class="language-output">dev_ws  ocr-docker  training_ws
+</code></pre>
+
+<h1 id="ocr-docker">ocr-docker</h1>
+
+<div class="important">
+  <strong>Important:</strong> If you have already installed the container, skip to 
+  <a href="#step-2-run-the-docker-container">Step 2: Run the docker container</a>.
+</div>
+<p><br /></p>
+
+<!-- > [!IMPORTANT]
+> 
+> If you have already installed the container, skip to [Step 2: Run the docker container](#step-2-run-the-docker-container). -->
+
+<h2 id="step-1-install-the-container">Step 1: Install the container</h2>
+
+<ul>
+  <li>
+    <p>Install and open <a href="https://docs.docker.com/desktop/">Docker Desktop</a></p>
+  </li>
+  <li>
+    <p>Clone the repo and cd into it</p>
+  </li>
+</ul>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">cd </span>ocr
+git clone https://github.com/oc-robotics/ocr-docker.git
+<span class="nb">cd </span>ocr-docker
+</code></pre></div></div>
+
+<ul>
+  <li>Make sure the volume is mounted correctly in <code class="language-plaintext highlighter-rouge">docker-compose.yml</code>
+    <ul>
+      <li>The default path assumes the following file structure</li>
+    </ul>
+  </li>
+</ul>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>~/ocr/
+│
+├── dev_ws/
+│   ├── build/
+│   ├── install/
+│   ├── log/
+│   └── src/
+│       └── differential_drive_robot/
+│
+├── ocr-docker/
+│   ├── Dockerfile
+│   ├── README.md
+│   └── docker-compose.yml
+│
+└── training_ws/
+</code></pre></div></div>
+
+<ul>
+  <li>Pull the base image from Docker Hub</li>
+</ul>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>docker pull mwoodward6/nekton:humble
+</code></pre></div></div>
+<ul>
+  <li>Build the custom image</li>
+</ul>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>docker build <span class="nt">-t</span> ocr-docker:humble <span class="nb">.</span>
+</code></pre></div></div>
+
+<h2 id="step-2-run-the-docker-container">Step 2: Run the docker container</h2>
+<ul>
+  <li>Start the container in the background (detached mode)</li>
+</ul>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>docker-compose up <span class="nt">-d</span>
+</code></pre></div></div>
+
+<ul>
+  <li>Open an interactive bash shell inside the container to run commands</li>
+</ul>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>docker <span class="nb">exec</span> <span class="nt">-it</span> ocr-humble-nekton-og bash
+</code></pre></div></div>
+
+<ul>
+  <li>Browse <a href="http://localhost:6080/">http://localhost:6080/</a> to access the remote desktop via VNC</li>
+</ul>
+
+<p><img src="https://ubuntu-mate.community/uploads/default/original/3X/e/5/e5b38828e447662a0035affe589d1f563d22984a.png" alt="novnc" width="300" /></p>
+
+<ul>
+  <li>Stop the container</li>
+</ul>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">exit</span> <span class="c"># Exit the interactive shell</span>
+docker-compose stop
+</code></pre></div></div>
+
+<ul>
+  <li>If you need to remove the container</li>
+</ul>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>docker-compose down
+</code></pre></div></div>
+
+<h2 id="troubleshooting">Troubleshooting</h2>
+<!-- ### Fix "ports not available" error -->
+
+<ul>
+  <li>If you encounter an error due to port 6080 being in use, check which processes are using it</li>
+</ul>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">sudo </span>lsof <span class="nt">-i</span> :6080
+</code></pre></div></div>
+
+<ul>
+  <li>Sample output</li>
+</ul>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>COMMAND    PID USER   FD   TYPE DEVICE SIZE/OFF NODE NAME
+docker-pr  995 root    4u  IPv4  27629      0t0  TCP *:6080 (LISTEN)
+docker-pr 1001 root    4u  IPv6  26542      0t0  TCP *:6080 (LISTEN)
+</code></pre></div></div>
+<ul>
+  <li>Stop the processes</li>
+</ul>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">sudo kill</span> <span class="nt">-9</span> 995 1001
+</code></pre></div></div>]]></content><author><name>Your Name</name><email>your-email@example.com</email></author><summary type="html"><![CDATA[1.1 Recommended Directory Structure ~/ocr/ │ ├── dev_ws/ │ ├── build/ │ ├── install/ │ ├── log/ │ └── src/ │ └── differential_drive_robot/ │ ├── ocr-docker/ │ ├── Dockerfile │ ├── README.md │ └── docker-compose.yml │ └── training_ws/ └── src/ 1.2 Setting Up Git, GitHub, and SSH Install Git Installing on Windows Install Git for Windows, which provides Git Bash (terminal emulator for running Git commands) Or, install using Windows Powershell~~ winget install --id Git.Git -e --source winget You can also install Linux for Windows via WSL (Windows Subsystem for Linux) Once setup, Git can be installed using the Linux package manager Installing on Linux https://git-scm.com/book/en/v2/Getting-Started-Installing-Git Install Git sudo apt install git Configure Git Configure Git, replacing "Your name" and "your.email@example.com" with your info (including the quotes) to link your local Git profile with GitHub git config --global user.name "Your Name" git config --global user.email "your.email@example.com" Verify configuration git config --get user.name git config --get user.email # List all settings git config --list Basic Git Workflow Example Creating a local repository Create a local repository myTest and change the current working directory to myTest: mkdir myTest &amp;&amp; cd myTest Initialize a .git subdirectory in the current working directory Contains a hidden .git folder with subdirectories for objects, refs, and template files A HEAD file is also created which will point to the currently checked out commit git init If successful, you’ll see a message like: Initialized empty Git repository in /home/user/Mytest/.git/ Check the current state of the working directory and the staging area. Shows which changes have been staged, which haven’t, and which files aren’t being tracked by Git. git status Create a README file to describe the repository: We will use nano (sudo apt install nano), a simple, user-friendly text editor for the command line nano README.md # Add some text, example: This is a git repo # Save the file by pressing CTRL + X, then Y, then press Enter Optional: Create a sample.c file: #include&lt;stdio.h&gt; int main() { printf("hello world"); return 0; } Staging Files in the Git Index Create and add files to the index. git add README.md git add sample.c Committing changes made to the index Commit the changes with a message: git commit -m "Initial commit" Creating a repository on GitHub Create a repository on GitHub with the same name as your local repository (e.g., “Mytest”). Connect your local repository to the GitHub repository (Replace 'user_name' with your GitHub username): Using HTTPS: git remote add origin https://github.com/user_name/Mytest.git Or using SSH (recommended if you have an SSH key set up): git remote add origin git@github.com:user_name/Mytest.git Pushing files from a local repository to a GitHub repository Push the local repository contents to GitHub The first time running this command, you need to link the local master branch to the master branch on remote repository (origin) git push -u origin master # Can also use `git push --set-upstream origin master` # Note: Some repositories may use 'main' as the default branch instead of 'master'. # In that case, use the following command: # git push --set-upstream origin main For subsequent pushes ```bash git push origin master Or if your default branch is ‘main’: git push origin main - You may get a `permission denied` error when pushing to GitHub if SSH keys aren't set properly (See [Creating an SSH Key](#creating-an-ssh-key)) - Enable colorful output with git ```bash git config --global color.ui auto Creating an SSH Key Create an SSH key An SSH key is a cryptographically secure identifier. It’s like a really long password used to identify your machine, which can be used by GitHub without having to type in your username and password every time. Check for Existing SSH Keys Check for the presence of Ed25519 algorithm SSH keys An error indicates you do not have an existing SSH key pair in the default location. ls ~/.ssh/id_ed25519.pub Generate a New SSH Key on Your Local Machine and Add it to the SSH Agent Run the following command in the terminal to create a new SSH key using your GitHub email as a label: ssh-keygen -t ed25519 -C "your.email@example.com" When you’re prompted to “Enter a file in which to save the key”, you can press Enter to accept the default file location &gt; Enter file in which to save the key (/c/Users/YOU/.ssh/id_ALGORITHM):[Press enter] &gt; Generating public/private ed25519 key pair. Show the SSH key and copy it to your clipboard: cat ~/.ssh/id_ed25519.pub Link SSH Key with GitHub to enable authentication for Git operations over SSH In GitHub, navigate to Settings -&gt; SSH and GPG keys -&gt; New SSH Key: Name the key with a useful description of where it came from. Use the output of cat ~/.ssh/id_ed25519.pub and paste it the Key section Confirm that your SSH key is connected to your GitHub account ssh -T git@github.com if successful, you should see: Hi username! You've successfully authenticated, but GitHub does not provide shell access. 1.3 Create Initial Directory Structure Preview ~/ocr/ │ ├── dev\_ws/ │ └── src/ │ ├── ocr-docker/ │ └── training\_ws/ └── src/ 1. Create ocr folder and cd into it mkdir ~/ocr &amp;&amp; cd ~/ocr 2. Create the dev_ws and src folder inside it (ROS packages will be installed in src later) mkdir -p dev_ws/src 3. Create training_ws folder and src folder inside it mkdir -p training_ws/src 4. Create ocr-docker folder mkdir ocr-docker 5. Verify that folders have been created inside ocr ls dev_ws ocr-docker training_ws ocr-docker Important: If you have already installed the container, skip to Step 2: Run the docker container. Step 1: Install the container Install and open Docker Desktop Clone the repo and cd into it cd ocr git clone https://github.com/oc-robotics/ocr-docker.git cd ocr-docker Make sure the volume is mounted correctly in docker-compose.yml The default path assumes the following file structure ~/ocr/ │ ├── dev_ws/ │ ├── build/ │ ├── install/ │ ├── log/ │ └── src/ │ └── differential_drive_robot/ │ ├── ocr-docker/ │ ├── Dockerfile │ ├── README.md │ └── docker-compose.yml │ └── training_ws/ Pull the base image from Docker Hub docker pull mwoodward6/nekton:humble Build the custom image docker build -t ocr-docker:humble . Step 2: Run the docker container Start the container in the background (detached mode) docker-compose up -d Open an interactive bash shell inside the container to run commands docker exec -it ocr-humble-nekton-og bash Browse http://localhost:6080/ to access the remote desktop via VNC Stop the container exit # Exit the interactive shell docker-compose stop If you need to remove the container docker-compose down Troubleshooting If you encounter an error due to port 6080 being in use, check which processes are using it sudo lsof -i :6080 Sample output COMMAND PID USER FD TYPE DEVICE SIZE/OFF NODE NAME docker-pr 995 root 4u IPv4 27629 0t0 TCP *:6080 (LISTEN) docker-pr 1001 root 4u IPv6 26542 0t0 TCP *:6080 (LISTEN) Stop the processes sudo kill -9 995 1001]]></summary></entry></feed>

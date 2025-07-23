@@ -3,14 +3,14 @@ title: "1.4 OCR Docker"
 date: 2025-07-22
 ---
 
+# ocr-docker
+
 <div class="important">
   <strong>Important:</strong> If you have already installed the container, skip to 
   <a href="#step-2-run-the-docker-container">Step 2: Run the docker container</a>.
 </div>
 <br/>
 
-
-<!-- # ocr-docker -->
 <!-- > [!IMPORTANT]
 > 
 > If you have already installed the container, skip to [Step 2: Run the docker container](#step-2-run-the-docker-container). -->
