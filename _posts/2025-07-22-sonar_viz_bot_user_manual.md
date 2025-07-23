@@ -3,7 +3,7 @@ title: "Sonar Viz Bot User Manual"
 date: 2025-07-10
 ---
 
-# Table of Contents
+<!-- # Table of Contents
 
 - [1. Software Setup](#1-software-setup)
     - [1.0 Join the Github Organizations](#10-join-the-github-organizations)
@@ -15,7 +15,11 @@ date: 2025-07-10
     - [1.6 Raspberry Pi Setup](#16-raspberry-pi-setup)
 - [2. Electrical Setup](#2-electrical-setup)
     - [2.1 Software](#21-software)
-    - [2.2 L293D Motor Driver](#22-l293d-motor-driver)
+    - [2.2 L293D Motor Driver](#22-l293d-motor-driver) -->
+
+# Timeline
+
+![picture 47](https://i.imgur.com/HjTRo7Q.png)  
 
 # 1. Software Setup
 The configuration of Git, GitHub, and SSH and the software environment setup is described. To streamline the development process, we have created a Docker container with Ubuntu 22.04, ROS2 Humble, and dependencies. 
