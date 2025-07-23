@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.9.0">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2025-07-23T06:35:11-07:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">OC Robotics</title><subtitle>Write an awesome description for your new site here. You can edit this line in _config.yml. It will appear in your document head meta (for Google search results) and in your feed.xml site description.</subtitle><author><name>Your Name</name><email>your-email@example.com</email></author><entry><title type="html">1.5 Differential Drive Robot</title><link href="http://localhost:4000/2025/07/23/differential-drive-robot.html" rel="alternate" type="text/html" title="1.5 Differential Drive Robot" /><published>2025-07-23T00:00:00-07:00</published><updated>2025-07-23T00:00:00-07:00</updated><id>http://localhost:4000/2025/07/23/differential-drive-robot</id><content type="html" xml:base="http://localhost:4000/2025/07/23/differential-drive-robot.html"><![CDATA[<h1 id="15-differential-drive-robot">1.5 Differential Drive Robot</h1>
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.9.0">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2025-07-23T06:58:16-07:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">OC Robotics</title><subtitle>Write an awesome description for your new site here. You can edit this line in _config.yml. It will appear in your document head meta (for Google search results) and in your feed.xml site description.</subtitle><author><name>Your Name</name><email>your-email@example.com</email></author><entry><title type="html">1.5 Differential Drive Robot</title><link href="http://localhost:4000/2025/07/23/differential-drive-robot.html" rel="alternate" type="text/html" title="1.5 Differential Drive Robot" /><published>2025-07-23T00:00:00-07:00</published><updated>2025-07-23T00:00:00-07:00</updated><id>http://localhost:4000/2025/07/23/differential-drive-robot</id><content type="html" xml:base="http://localhost:4000/2025/07/23/differential-drive-robot.html"><![CDATA[<h1 id="15-differential-drive-robot">1.5 Differential Drive Robot</h1>
 
 <ul>
   <li>Open a terminal (run Terminator in NoVNC) and cd into <code class="language-plaintext highlighter-rouge">dev_ws/src</code></li>
@@ -49,7 +49,96 @@
 </ul>
 
 <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>ros2 run teleop_twist_keyboard teleop_twist_keyboard <span class="nt">--ros-args</span> <span class="nt">-r</span> /cmd_vel:<span class="o">=</span>/diff_cont/cmd_vel_unstamped
-</code></pre></div></div>]]></content><author><name>Your Name</name><email>your-email@example.com</email></author><summary type="html"><![CDATA[1.5 Differential Drive Robot Open a terminal (run Terminator in NoVNC) and cd into dev_ws/src cd dev_ws/src Build the package colcon build --symlink-install Source the setup source install/setup.bash Run the Gazebo simulation ros2 launch differential_drive_robot launch_sim.launch.py Visualize in Rviz rviz2 -d src/differential_drive_robot/config/diff-drive.rviz Drive the Robot with Keyboard Input (open a new terminal inside Terminator and run the following command line) ros2 run teleop_twist_keyboard teleop_twist_keyboard Note: If using ros2_control plugin, /cmd_vel must be remapped as follows: ros2 run teleop_twist_keyboard teleop_twist_keyboard --ros-args -r /cmd_vel:=/diff_cont/cmd_vel_unstamped]]></summary></entry><entry><title type="html">1.6 Raspberry Pi Setup</title><link href="http://localhost:4000/2025/07/23/raspberry_pi_setup.html" rel="alternate" type="text/html" title="1.6 Raspberry Pi Setup" /><published>2025-07-23T00:00:00-07:00</published><updated>2025-07-23T00:00:00-07:00</updated><id>http://localhost:4000/2025/07/23/raspberry_pi_setup</id><content type="html" xml:base="http://localhost:4000/2025/07/23/raspberry_pi_setup.html"><![CDATA[<!-- # Raspberry Pi Setup -->
+</code></pre></div></div>]]></content><author><name>Your Name</name><email>your-email@example.com</email></author><summary type="html"><![CDATA[1.5 Differential Drive Robot Open a terminal (run Terminator in NoVNC) and cd into dev_ws/src cd dev_ws/src Build the package colcon build --symlink-install Source the setup source install/setup.bash Run the Gazebo simulation ros2 launch differential_drive_robot launch_sim.launch.py Visualize in Rviz rviz2 -d src/differential_drive_robot/config/diff-drive.rviz Drive the Robot with Keyboard Input (open a new terminal inside Terminator and run the following command line) ros2 run teleop_twist_keyboard teleop_twist_keyboard Note: If using ros2_control plugin, /cmd_vel must be remapped as follows: ros2 run teleop_twist_keyboard teleop_twist_keyboard --ros-args -r /cmd_vel:=/diff_cont/cmd_vel_unstamped]]></summary></entry><entry><title type="html">Electrical Setup</title><link href="http://localhost:4000/2025/07/23/electrical_setup.html" rel="alternate" type="text/html" title="Electrical Setup" /><published>2025-07-23T00:00:00-07:00</published><updated>2025-07-23T00:00:00-07:00</updated><id>http://localhost:4000/2025/07/23/electrical_setup</id><content type="html" xml:base="http://localhost:4000/2025/07/23/electrical_setup.html"><![CDATA[<h2 id="software">Software</h2>
+
+<ul>
+  <li>Install <a href="https://www.arduino.cc/en/software/">Arduino IDE</a></li>
+</ul>
+
+<h2 id="l293d-motor-driver">L293D Motor Driver</h2>
+
+<ul>
+  <li>Wire the <a href="https://www.tinkercad.com/things/ehT2Jv0teTn-l293d-motor-driver?sharecode=ptKgyQ0MTZuHiNs5623u1GnzgUm6TEFuzgF3rDnG1LI">circuit</a> for the motor driver.</li>
+</ul>
+
+<p><img src="https://i.imgur.com/1gINfhA.png" alt="picture 0" /></p>
+
+<ul>
+  <li>Upload the following <code class="language-plaintext highlighter-rouge">L293D_motor_driver.ino</code> sketch to the Arduino</li>
+</ul>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// L293D Motor Driver pins for right motor (Motor A)</span>
+<span class="kd">const</span> <span class="nx">int</span> <span class="nx">ENA</span> <span class="o">=</span> <span class="mi">11</span><span class="p">;</span>    <span class="c1">// PWM speed control for right motor</span>
+<span class="kd">const</span> <span class="nx">int</span> <span class="nx">IN1</span> <span class="o">=</span> <span class="mi">13</span><span class="p">;</span>    <span class="c1">// Direction control 1 for right motor</span>
+<span class="kd">const</span> <span class="nx">int</span> <span class="nx">IN2</span> <span class="o">=</span> <span class="mi">12</span><span class="p">;</span>    <span class="c1">// Direction control 2 for right motor</span>
+ 
+<span class="c1">// L293D Motor Driver pins for left motor (Motor B)</span>
+<span class="kd">const</span> <span class="nx">int</span> <span class="nx">ENB</span> <span class="o">=</span> <span class="mi">10</span><span class="p">;</span>    <span class="c1">// PWM speed control for left motor</span>
+<span class="kd">const</span> <span class="nx">int</span> <span class="nx">IN3</span> <span class="o">=</span> <span class="mi">8</span><span class="p">;</span>     <span class="c1">// Direction control 1 for left motor</span>
+<span class="kd">const</span> <span class="nx">int</span> <span class="nx">IN4</span> <span class="o">=</span> <span class="mi">9</span><span class="p">;</span>     <span class="c1">// Direction control 2 for left motor</span>
+ 
+<span class="kd">const</span> <span class="nx">int</span> <span class="nx">switchPin</span> <span class="o">=</span> <span class="mi">7</span><span class="p">;</span> <span class="c1">// Switch to turn robot on/off</span>
+ 
+<span class="nx">int</span> <span class="nx">motorSpeed</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="c1">// Starting motor speed</span>
+ 
+<span class="k">void</span> <span class="nx">setup</span><span class="p">()</span> <span class="p">{</span>
+    <span class="nx">pinMode</span><span class="p">(</span><span class="nx">switchPin</span><span class="p">,</span> <span class="nx">INPUT_PULLUP</span><span class="p">);</span>
+ 
+    <span class="nx">pinMode</span><span class="p">(</span><span class="nx">IN1</span><span class="p">,</span> <span class="nx">OUTPUT</span><span class="p">);</span>
+    <span class="nx">pinMode</span><span class="p">(</span><span class="nx">IN2</span><span class="p">,</span> <span class="nx">OUTPUT</span><span class="p">);</span>
+    <span class="nx">pinMode</span><span class="p">(</span><span class="nx">ENA</span><span class="p">,</span> <span class="nx">OUTPUT</span><span class="p">);</span>
+ 
+    <span class="nx">pinMode</span><span class="p">(</span><span class="nx">IN3</span><span class="p">,</span> <span class="nx">OUTPUT</span><span class="p">);</span>
+    <span class="nx">pinMode</span><span class="p">(</span><span class="nx">IN4</span><span class="p">,</span> <span class="nx">OUTPUT</span><span class="p">);</span>
+    <span class="nx">pinMode</span><span class="p">(</span><span class="nx">ENB</span><span class="p">,</span> <span class="nx">OUTPUT</span><span class="p">);</span>
+ 
+    <span class="nx">Serial</span><span class="p">.</span><span class="nx">begin</span><span class="p">(</span><span class="mi">9600</span><span class="p">);</span>
+    <span class="nx">Serial</span><span class="p">.</span><span class="nx">println</span><span class="p">(</span><span class="dl">"</span><span class="s2">To infinity and beyond!</span><span class="dl">"</span><span class="p">);</span>
+    <span class="nx">motorSpeed</span> <span class="o">=</span> <span class="mi">255</span><span class="p">;</span>
+    <span class="nx">Serial</span><span class="p">.</span><span class="nx">print</span><span class="p">(</span><span class="dl">"</span><span class="s2">Motor Speed: </span><span class="dl">"</span><span class="p">);</span>
+    <span class="nx">Serial</span><span class="p">.</span><span class="nx">println</span><span class="p">(</span><span class="nx">motorSpeed</span><span class="p">);</span>
+<span class="p">}</span>
+ 
+<span class="k">void</span> <span class="nx">loop</span><span class="p">()</span> <span class="p">{</span>
+    <span class="nx">motorSpeed</span> <span class="o">=</span> <span class="mi">255</span><span class="p">;</span>
+    <span class="c1">// if (digitalRead(switchPin) == LOW) { // Switch ON (pressed)</span>
+    <span class="k">if</span> <span class="p">(</span><span class="nx">digitalRead</span><span class="p">(</span><span class="nx">switchPin</span><span class="p">)</span> <span class="o">==</span> <span class="nx">HIGH</span><span class="p">)</span> <span class="p">{</span> <span class="c1">// Switch OFF </span>
+        <span class="nx">rightMotor</span><span class="p">(</span><span class="nx">motorSpeed</span><span class="p">);</span>
+        <span class="nx">leftMotor</span><span class="p">(</span><span class="nx">motorSpeed</span><span class="p">);</span>
+    <span class="p">}</span> <span class="k">else</span> <span class="p">{</span> <span class="c1">// Switch OFF</span>
+        <span class="nx">rightMotor</span><span class="p">(</span><span class="mi">0</span><span class="p">);</span>
+        <span class="nx">leftMotor</span><span class="p">(</span><span class="mi">0</span><span class="p">);</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+ 
+<span class="k">void</span> <span class="nx">rightMotor</span><span class="p">(</span><span class="nx">int</span> <span class="nx">speed</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">if</span> <span class="p">(</span><span class="nx">speed</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
+        <span class="nx">digitalWrite</span><span class="p">(</span><span class="nx">IN1</span><span class="p">,</span> <span class="nx">HIGH</span><span class="p">);</span>
+        <span class="nx">digitalWrite</span><span class="p">(</span><span class="nx">IN2</span><span class="p">,</span> <span class="nx">LOW</span><span class="p">);</span>
+    <span class="p">}</span> <span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="nx">speed</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
+        <span class="nx">digitalWrite</span><span class="p">(</span><span class="nx">IN1</span><span class="p">,</span> <span class="nx">LOW</span><span class="p">);</span>
+        <span class="nx">digitalWrite</span><span class="p">(</span><span class="nx">IN2</span><span class="p">,</span> <span class="nx">HIGH</span><span class="p">);</span>
+    <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+        <span class="nx">digitalWrite</span><span class="p">(</span><span class="nx">IN1</span><span class="p">,</span> <span class="nx">LOW</span><span class="p">);</span>
+        <span class="nx">digitalWrite</span><span class="p">(</span><span class="nx">IN2</span><span class="p">,</span> <span class="nx">LOW</span><span class="p">);</span>
+    <span class="p">}</span>
+    <span class="nx">analogWrite</span><span class="p">(</span><span class="nx">ENA</span><span class="p">,</span> <span class="nx">abs</span><span class="p">(</span><span class="nx">speed</span><span class="p">));</span>
+<span class="p">}</span>
+ 
+<span class="k">void</span> <span class="nx">leftMotor</span><span class="p">(</span><span class="nx">int</span> <span class="nx">speed</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">if</span> <span class="p">(</span><span class="nx">speed</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
+        <span class="nx">digitalWrite</span><span class="p">(</span><span class="nx">IN3</span><span class="p">,</span> <span class="nx">HIGH</span><span class="p">);</span>
+        <span class="nx">digitalWrite</span><span class="p">(</span><span class="nx">IN4</span><span class="p">,</span> <span class="nx">LOW</span><span class="p">);</span>
+    <span class="p">}</span> <span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="nx">speed</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
+        <span class="nx">digitalWrite</span><span class="p">(</span><span class="nx">IN3</span><span class="p">,</span> <span class="nx">LOW</span><span class="p">);</span>
+        <span class="nx">digitalWrite</span><span class="p">(</span><span class="nx">IN4</span><span class="p">,</span> <span class="nx">HIGH</span><span class="p">);</span>
+    <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+        <span class="nx">digitalWrite</span><span class="p">(</span><span class="nx">IN3</span><span class="p">,</span> <span class="nx">LOW</span><span class="p">);</span>
+        <span class="nx">digitalWrite</span><span class="p">(</span><span class="nx">IN4</span><span class="p">,</span> <span class="nx">LOW</span><span class="p">);</span>
+    <span class="p">}</span>
+    <span class="nx">analogWrite</span><span class="p">(</span><span class="nx">ENB</span><span class="p">,</span> <span class="nx">abs</span><span class="p">(</span><span class="nx">speed</span><span class="p">));</span>
+<span class="p">}</span>
+</code></pre></div></div>]]></content><author><name>Your Name</name><email>your-email@example.com</email></author><summary type="html"><![CDATA[Software Install Arduino IDE L293D Motor Driver Wire the circuit for the motor driver. Upload the following L293D_motor_driver.ino sketch to the Arduino // L293D Motor Driver pins for right motor (Motor A) const int ENA = 11; // PWM speed control for right motor const int IN1 = 13; // Direction control 1 for right motor const int IN2 = 12; // Direction control 2 for right motor // L293D Motor Driver pins for left motor (Motor B) const int ENB = 10; // PWM speed control for left motor const int IN3 = 8; // Direction control 1 for left motor const int IN4 = 9; // Direction control 2 for left motor const int switchPin = 7; // Switch to turn robot on/off int motorSpeed = 0; // Starting motor speed void setup() { pinMode(switchPin, INPUT_PULLUP); pinMode(IN1, OUTPUT); pinMode(IN2, OUTPUT); pinMode(ENA, OUTPUT); pinMode(IN3, OUTPUT); pinMode(IN4, OUTPUT); pinMode(ENB, OUTPUT); Serial.begin(9600); Serial.println("To infinity and beyond!"); motorSpeed = 255; Serial.print("Motor Speed: "); Serial.println(motorSpeed); } void loop() { motorSpeed = 255; // if (digitalRead(switchPin) == LOW) { // Switch ON (pressed) if (digitalRead(switchPin) == HIGH) { // Switch OFF rightMotor(motorSpeed); leftMotor(motorSpeed); } else { // Switch OFF rightMotor(0); leftMotor(0); } } void rightMotor(int speed) { if (speed &gt; 0) { digitalWrite(IN1, HIGH); digitalWrite(IN2, LOW); } else if (speed &lt; 0) { digitalWrite(IN1, LOW); digitalWrite(IN2, HIGH); } else { digitalWrite(IN1, LOW); digitalWrite(IN2, LOW); } analogWrite(ENA, abs(speed)); } void leftMotor(int speed) { if (speed &gt; 0) { digitalWrite(IN3, HIGH); digitalWrite(IN4, LOW); } else if (speed &lt; 0) { digitalWrite(IN3, LOW); digitalWrite(IN4, HIGH); } else { digitalWrite(IN3, LOW); digitalWrite(IN4, LOW); } analogWrite(ENB, abs(speed)); }]]></summary></entry><entry><title type="html">1.6 Raspberry Pi Setup</title><link href="http://localhost:4000/2025/07/23/raspberry_pi_setup.html" rel="alternate" type="text/html" title="1.6 Raspberry Pi Setup" /><published>2025-07-23T00:00:00-07:00</published><updated>2025-07-23T00:00:00-07:00</updated><id>http://localhost:4000/2025/07/23/raspberry_pi_setup</id><content type="html" xml:base="http://localhost:4000/2025/07/23/raspberry_pi_setup.html"><![CDATA[<!-- # Raspberry Pi Setup -->
 
 <p>This setup uses a Raspberry Pi 4. The OS must be configured by flashing the microSD card with Ubuntu 22.04 (see more) and installing ROS2 Humble.</p>
 
@@ -232,7 +321,7 @@ git clone https://github.com/oc-robotics/ocr-docker.git
   <li>Browse <a href="http://localhost:6080/">http://localhost:6080/</a> to access the remote desktop via VNC</li>
 </ul>
 
-<p><img src="https://ubuntu-mate.community/uploads/default/original/3X/e/5/e5b38828e447662a0035affe589d1f563d22984a.png" alt="novnc" width="300" /></p>
+<p><img src="https://i.imgur.com/h7OSLJJ.png" alt="picture 45" /></p>
 
 <ul>
   <li>Stop the container</li>
@@ -683,7 +772,7 @@ git clone https://github.com/oc-robotics/ocr-docker.git
   <li>Browse <a href="http://localhost:6080/">http://localhost:6080/</a> to access the remote desktop via VNC</li>
 </ul>
 
-<p><img src="https://ubuntu-mate.community/uploads/default/original/3X/e/5/e5b38828e447662a0035affe589d1f563d22984a.png" alt="novnc" width="300" /></p>
+<p><img src="https://i.imgur.com/h7OSLJJ.png" alt="picture 45" /></p>
 
 <ul>
   <li>Stop the container</li>

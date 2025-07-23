@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1"><!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>Electrical Setup | OC Robotics</title>
+<meta name="generator" content="Jekyll v3.9.0" />
+<meta property="og:title" content="Electrical Setup" />
+<meta name="author" content="Your Name" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="Software Install Arduino IDE L293D Motor Driver Wire the circuit for the motor driver. Upload the following L293D_motor_driver.ino sketch to the Arduino // L293D Motor Driver pins for right motor (Motor A) const int ENA = 11; // PWM speed control for right motor const int IN1 = 13; // Direction control 1 for right motor const int IN2 = 12; // Direction control 2 for right motor // L293D Motor Driver pins for left motor (Motor B) const int ENB = 10; // PWM speed control for left motor const int IN3 = 8; // Direction control 1 for left motor const int IN4 = 9; // Direction control 2 for left motor const int switchPin = 7; // Switch to turn robot on/off int motorSpeed = 0; // Starting motor speed void setup() { pinMode(switchPin, INPUT_PULLUP); pinMode(IN1, OUTPUT); pinMode(IN2, OUTPUT); pinMode(ENA, OUTPUT); pinMode(IN3, OUTPUT); pinMode(IN4, OUTPUT); pinMode(ENB, OUTPUT); Serial.begin(9600); Serial.println(&quot;To infinity and beyond!&quot;); motorSpeed = 255; Serial.print(&quot;Motor Speed: &quot;); Serial.println(motorSpeed); } void loop() { motorSpeed = 255; // if (digitalRead(switchPin) == LOW) { // Switch ON (pressed) if (digitalRead(switchPin) == HIGH) { // Switch OFF rightMotor(motorSpeed); leftMotor(motorSpeed); } else { // Switch OFF rightMotor(0); leftMotor(0); } } void rightMotor(int speed) { if (speed &gt; 0) { digitalWrite(IN1, HIGH); digitalWrite(IN2, LOW); } else if (speed &lt; 0) { digitalWrite(IN1, LOW); digitalWrite(IN2, HIGH); } else { digitalWrite(IN1, LOW); digitalWrite(IN2, LOW); } analogWrite(ENA, abs(speed)); } void leftMotor(int speed) { if (speed &gt; 0) { digitalWrite(IN3, HIGH); digitalWrite(IN4, LOW); } else if (speed &lt; 0) { digitalWrite(IN3, LOW); digitalWrite(IN4, HIGH); } else { digitalWrite(IN3, LOW); digitalWrite(IN4, LOW); } analogWrite(ENB, abs(speed)); }" />
+<meta property="og:description" content="Software Install Arduino IDE L293D Motor Driver Wire the circuit for the motor driver. Upload the following L293D_motor_driver.ino sketch to the Arduino // L293D Motor Driver pins for right motor (Motor A) const int ENA = 11; // PWM speed control for right motor const int IN1 = 13; // Direction control 1 for right motor const int IN2 = 12; // Direction control 2 for right motor // L293D Motor Driver pins for left motor (Motor B) const int ENB = 10; // PWM speed control for left motor const int IN3 = 8; // Direction control 1 for left motor const int IN4 = 9; // Direction control 2 for left motor const int switchPin = 7; // Switch to turn robot on/off int motorSpeed = 0; // Starting motor speed void setup() { pinMode(switchPin, INPUT_PULLUP); pinMode(IN1, OUTPUT); pinMode(IN2, OUTPUT); pinMode(ENA, OUTPUT); pinMode(IN3, OUTPUT); pinMode(IN4, OUTPUT); pinMode(ENB, OUTPUT); Serial.begin(9600); Serial.println(&quot;To infinity and beyond!&quot;); motorSpeed = 255; Serial.print(&quot;Motor Speed: &quot;); Serial.println(motorSpeed); } void loop() { motorSpeed = 255; // if (digitalRead(switchPin) == LOW) { // Switch ON (pressed) if (digitalRead(switchPin) == HIGH) { // Switch OFF rightMotor(motorSpeed); leftMotor(motorSpeed); } else { // Switch OFF rightMotor(0); leftMotor(0); } } void rightMotor(int speed) { if (speed &gt; 0) { digitalWrite(IN1, HIGH); digitalWrite(IN2, LOW); } else if (speed &lt; 0) { digitalWrite(IN1, LOW); digitalWrite(IN2, HIGH); } else { digitalWrite(IN1, LOW); digitalWrite(IN2, LOW); } analogWrite(ENA, abs(speed)); } void leftMotor(int speed) { if (speed &gt; 0) { digitalWrite(IN3, HIGH); digitalWrite(IN4, LOW); } else if (speed &lt; 0) { digitalWrite(IN3, LOW); digitalWrite(IN4, HIGH); } else { digitalWrite(IN3, LOW); digitalWrite(IN4, LOW); } analogWrite(ENB, abs(speed)); }" />
+<link rel="canonical" href="http://localhost:4000/2025/07/23/electrical_setup.html" />
+<meta property="og:url" content="http://localhost:4000/2025/07/23/electrical_setup.html" />
+<meta property="og:site_name" content="OC Robotics" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2025-07-23T00:00:00-07:00" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="Electrical Setup" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"Your Name"},"dateModified":"2025-07-23T00:00:00-07:00","datePublished":"2025-07-23T00:00:00-07:00","description":"Software Install Arduino IDE L293D Motor Driver Wire the circuit for the motor driver. Upload the following L293D_motor_driver.ino sketch to the Arduino // L293D Motor Driver pins for right motor (Motor A) const int ENA = 11; // PWM speed control for right motor const int IN1 = 13; // Direction control 1 for right motor const int IN2 = 12; // Direction control 2 for right motor // L293D Motor Driver pins for left motor (Motor B) const int ENB = 10; // PWM speed control for left motor const int IN3 = 8; // Direction control 1 for left motor const int IN4 = 9; // Direction control 2 for left motor const int switchPin = 7; // Switch to turn robot on/off int motorSpeed = 0; // Starting motor speed void setup() { pinMode(switchPin, INPUT_PULLUP); pinMode(IN1, OUTPUT); pinMode(IN2, OUTPUT); pinMode(ENA, OUTPUT); pinMode(IN3, OUTPUT); pinMode(IN4, OUTPUT); pinMode(ENB, OUTPUT); Serial.begin(9600); Serial.println(&quot;To infinity and beyond!&quot;); motorSpeed = 255; Serial.print(&quot;Motor Speed: &quot;); Serial.println(motorSpeed); } void loop() { motorSpeed = 255; // if (digitalRead(switchPin) == LOW) { // Switch ON (pressed) if (digitalRead(switchPin) == HIGH) { // Switch OFF rightMotor(motorSpeed); leftMotor(motorSpeed); } else { // Switch OFF rightMotor(0); leftMotor(0); } } void rightMotor(int speed) { if (speed &gt; 0) { digitalWrite(IN1, HIGH); digitalWrite(IN2, LOW); } else if (speed &lt; 0) { digitalWrite(IN1, LOW); digitalWrite(IN2, HIGH); } else { digitalWrite(IN1, LOW); digitalWrite(IN2, LOW); } analogWrite(ENA, abs(speed)); } void leftMotor(int speed) { if (speed &gt; 0) { digitalWrite(IN3, HIGH); digitalWrite(IN4, LOW); } else if (speed &lt; 0) { digitalWrite(IN3, LOW); digitalWrite(IN4, HIGH); } else { digitalWrite(IN3, LOW); digitalWrite(IN4, LOW); } analogWrite(ENB, abs(speed)); }","headline":"Electrical Setup","mainEntityOfPage":{"@type":"WebPage","@id":"http://localhost:4000/2025/07/23/electrical_setup.html"},"url":"http://localhost:4000/2025/07/23/electrical_setup.html"}</script>
+<!-- End Jekyll SEO tag -->
+<link rel="stylesheet" href="/assets/main.css"><link type="application/atom+xml" rel="alternate" href="http://localhost:4000/feed.xml" title="OC Robotics" /></head>
+<body><header class="site-header" role="banner">
+
+  <div class="wrapper"><a class="site-title" rel="author" href="/">OC Robotics</a><nav class="site-nav">
+        <input type="checkbox" id="nav-trigger" class="nav-trigger" />
+        <label for="nav-trigger">
+          <span class="menu-icon">
+            <svg viewBox="0 0 18 15" width="18px" height="15px">
+              <path d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.032C17.335,0,18,0.665,18,1.484L18,1.484z M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.032C17.335,6.031,18,6.696,18,7.516L18,7.516z M18,13.516C18,14.335,17.335,15,16.516,15H1.484 C0.665,15,0,14.335,0,13.516l0,0c0-0.82,0.665-1.483,1.484-1.483h15.032C17.335,12.031,18,12.695,18,13.516L18,13.516z"/>
+            </svg>
+          </span>
+        </label>
+
+        <div class="trigger"><a class="page-link" href="/about_new.html">About</a><a class="page-link" href="/posts/">All Posts</a></div>
+      </nav></div>
+</header>
+<main class="page-content" aria-label="Content">
+      <div class="wrapper">
+        <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+
+  <header class="post-header">
+    <h1 class="post-title p-name" itemprop="name headline">Electrical Setup</h1>
+    <p class="post-meta">
+      <time class="dt-published" datetime="2025-07-23T00:00:00-07:00" itemprop="datePublished">Jul 23, 2025
+      </time></p>
+  </header>
+
+  <div class="post-content e-content" itemprop="articleBody">
+    <h2 id="software">Software</h2>
+
+<ul>
+  <li>Install <a href="https://www.arduino.cc/en/software/">Arduino IDE</a></li>
+</ul>
+
+<h2 id="l293d-motor-driver">L293D Motor Driver</h2>
+
+<ul>
+  <li>Wire the <a href="https://www.tinkercad.com/things/ehT2Jv0teTn-l293d-motor-driver?sharecode=ptKgyQ0MTZuHiNs5623u1GnzgUm6TEFuzgF3rDnG1LI">circuit</a> for the motor driver.</li>
+</ul>
+
+<p><img src="https://i.imgur.com/1gINfhA.png" alt="picture 0" /></p>
+
+<ul>
+  <li>Upload the following <code class="language-plaintext highlighter-rouge">L293D_motor_driver.ino</code> sketch to the Arduino</li>
+</ul>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// L293D Motor Driver pins for right motor (Motor A)</span>
+<span class="kd">const</span> <span class="nx">int</span> <span class="nx">ENA</span> <span class="o">=</span> <span class="mi">11</span><span class="p">;</span>    <span class="c1">// PWM speed control for right motor</span>
+<span class="kd">const</span> <span class="nx">int</span> <span class="nx">IN1</span> <span class="o">=</span> <span class="mi">13</span><span class="p">;</span>    <span class="c1">// Direction control 1 for right motor</span>
+<span class="kd">const</span> <span class="nx">int</span> <span class="nx">IN2</span> <span class="o">=</span> <span class="mi">12</span><span class="p">;</span>    <span class="c1">// Direction control 2 for right motor</span>
+ 
+<span class="c1">// L293D Motor Driver pins for left motor (Motor B)</span>
+<span class="kd">const</span> <span class="nx">int</span> <span class="nx">ENB</span> <span class="o">=</span> <span class="mi">10</span><span class="p">;</span>    <span class="c1">// PWM speed control for left motor</span>
+<span class="kd">const</span> <span class="nx">int</span> <span class="nx">IN3</span> <span class="o">=</span> <span class="mi">8</span><span class="p">;</span>     <span class="c1">// Direction control 1 for left motor</span>
+<span class="kd">const</span> <span class="nx">int</span> <span class="nx">IN4</span> <span class="o">=</span> <span class="mi">9</span><span class="p">;</span>     <span class="c1">// Direction control 2 for left motor</span>
+ 
+<span class="kd">const</span> <span class="nx">int</span> <span class="nx">switchPin</span> <span class="o">=</span> <span class="mi">7</span><span class="p">;</span> <span class="c1">// Switch to turn robot on/off</span>
+ 
+<span class="nx">int</span> <span class="nx">motorSpeed</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="c1">// Starting motor speed</span>
+ 
+<span class="k">void</span> <span class="nx">setup</span><span class="p">()</span> <span class="p">{</span>
+    <span class="nx">pinMode</span><span class="p">(</span><span class="nx">switchPin</span><span class="p">,</span> <span class="nx">INPUT_PULLUP</span><span class="p">);</span>
+ 
+    <span class="nx">pinMode</span><span class="p">(</span><span class="nx">IN1</span><span class="p">,</span> <span class="nx">OUTPUT</span><span class="p">);</span>
+    <span class="nx">pinMode</span><span class="p">(</span><span class="nx">IN2</span><span class="p">,</span> <span class="nx">OUTPUT</span><span class="p">);</span>
+    <span class="nx">pinMode</span><span class="p">(</span><span class="nx">ENA</span><span class="p">,</span> <span class="nx">OUTPUT</span><span class="p">);</span>
+ 
+    <span class="nx">pinMode</span><span class="p">(</span><span class="nx">IN3</span><span class="p">,</span> <span class="nx">OUTPUT</span><span class="p">);</span>
+    <span class="nx">pinMode</span><span class="p">(</span><span class="nx">IN4</span><span class="p">,</span> <span class="nx">OUTPUT</span><span class="p">);</span>
+    <span class="nx">pinMode</span><span class="p">(</span><span class="nx">ENB</span><span class="p">,</span> <span class="nx">OUTPUT</span><span class="p">);</span>
+ 
+    <span class="nx">Serial</span><span class="p">.</span><span class="nx">begin</span><span class="p">(</span><span class="mi">9600</span><span class="p">);</span>
+    <span class="nx">Serial</span><span class="p">.</span><span class="nx">println</span><span class="p">(</span><span class="dl">"</span><span class="s2">To infinity and beyond!</span><span class="dl">"</span><span class="p">);</span>
+    <span class="nx">motorSpeed</span> <span class="o">=</span> <span class="mi">255</span><span class="p">;</span>
+    <span class="nx">Serial</span><span class="p">.</span><span class="nx">print</span><span class="p">(</span><span class="dl">"</span><span class="s2">Motor Speed: </span><span class="dl">"</span><span class="p">);</span>
+    <span class="nx">Serial</span><span class="p">.</span><span class="nx">println</span><span class="p">(</span><span class="nx">motorSpeed</span><span class="p">);</span>
+<span class="p">}</span>
+ 
+<span class="k">void</span> <span class="nx">loop</span><span class="p">()</span> <span class="p">{</span>
+    <span class="nx">motorSpeed</span> <span class="o">=</span> <span class="mi">255</span><span class="p">;</span>
+    <span class="c1">// if (digitalRead(switchPin) == LOW) { // Switch ON (pressed)</span>
+    <span class="k">if</span> <span class="p">(</span><span class="nx">digitalRead</span><span class="p">(</span><span class="nx">switchPin</span><span class="p">)</span> <span class="o">==</span> <span class="nx">HIGH</span><span class="p">)</span> <span class="p">{</span> <span class="c1">// Switch OFF </span>
+        <span class="nx">rightMotor</span><span class="p">(</span><span class="nx">motorSpeed</span><span class="p">);</span>
+        <span class="nx">leftMotor</span><span class="p">(</span><span class="nx">motorSpeed</span><span class="p">);</span>
+    <span class="p">}</span> <span class="k">else</span> <span class="p">{</span> <span class="c1">// Switch OFF</span>
+        <span class="nx">rightMotor</span><span class="p">(</span><span class="mi">0</span><span class="p">);</span>
+        <span class="nx">leftMotor</span><span class="p">(</span><span class="mi">0</span><span class="p">);</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+ 
+<span class="k">void</span> <span class="nx">rightMotor</span><span class="p">(</span><span class="nx">int</span> <span class="nx">speed</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">if</span> <span class="p">(</span><span class="nx">speed</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
+        <span class="nx">digitalWrite</span><span class="p">(</span><span class="nx">IN1</span><span class="p">,</span> <span class="nx">HIGH</span><span class="p">);</span>
+        <span class="nx">digitalWrite</span><span class="p">(</span><span class="nx">IN2</span><span class="p">,</span> <span class="nx">LOW</span><span class="p">);</span>
+    <span class="p">}</span> <span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="nx">speed</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
+        <span class="nx">digitalWrite</span><span class="p">(</span><span class="nx">IN1</span><span class="p">,</span> <span class="nx">LOW</span><span class="p">);</span>
+        <span class="nx">digitalWrite</span><span class="p">(</span><span class="nx">IN2</span><span class="p">,</span> <span class="nx">HIGH</span><span class="p">);</span>
+    <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+        <span class="nx">digitalWrite</span><span class="p">(</span><span class="nx">IN1</span><span class="p">,</span> <span class="nx">LOW</span><span class="p">);</span>
+        <span class="nx">digitalWrite</span><span class="p">(</span><span class="nx">IN2</span><span class="p">,</span> <span class="nx">LOW</span><span class="p">);</span>
+    <span class="p">}</span>
+    <span class="nx">analogWrite</span><span class="p">(</span><span class="nx">ENA</span><span class="p">,</span> <span class="nx">abs</span><span class="p">(</span><span class="nx">speed</span><span class="p">));</span>
+<span class="p">}</span>
+ 
+<span class="k">void</span> <span class="nx">leftMotor</span><span class="p">(</span><span class="nx">int</span> <span class="nx">speed</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">if</span> <span class="p">(</span><span class="nx">speed</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
+        <span class="nx">digitalWrite</span><span class="p">(</span><span class="nx">IN3</span><span class="p">,</span> <span class="nx">HIGH</span><span class="p">);</span>
+        <span class="nx">digitalWrite</span><span class="p">(</span><span class="nx">IN4</span><span class="p">,</span> <span class="nx">LOW</span><span class="p">);</span>
+    <span class="p">}</span> <span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="nx">speed</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
+        <span class="nx">digitalWrite</span><span class="p">(</span><span class="nx">IN3</span><span class="p">,</span> <span class="nx">LOW</span><span class="p">);</span>
+        <span class="nx">digitalWrite</span><span class="p">(</span><span class="nx">IN4</span><span class="p">,</span> <span class="nx">HIGH</span><span class="p">);</span>
+    <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+        <span class="nx">digitalWrite</span><span class="p">(</span><span class="nx">IN3</span><span class="p">,</span> <span class="nx">LOW</span><span class="p">);</span>
+        <span class="nx">digitalWrite</span><span class="p">(</span><span class="nx">IN4</span><span class="p">,</span> <span class="nx">LOW</span><span class="p">);</span>
+    <span class="p">}</span>
+    <span class="nx">analogWrite</span><span class="p">(</span><span class="nx">ENB</span><span class="p">,</span> <span class="nx">abs</span><span class="p">(</span><span class="nx">speed</span><span class="p">));</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+  </div><a class="u-url" href="/2025/07/23/electrical_setup.html" hidden></a>
+</article>
+
+      </div>
+    </main><footer class="site-footer h-card">
+  <data class="u-url" href="http://localhost:4000"></data>
+
+  <div class="wrapper">
+    <h2 class="footer-heading">OC Robotics</h2>
+
+    <div class="footer-col-wrapper">
+      <div class="footer-col footer-col-1">
+        <ul class="contact-list">
+          <li class="p-name">
+            Your Name
+          </li>
+          
+            <li><a class="u-email" href="mailto:your-email@example.com">your-email@example.com</a></li>
+          
+        </ul>
+      </div>
+
+      <div class="footer-col footer-col-2">
+        <ul class="social-media-list">
+          
+          
+            <li>
+              <a href="https://twitter.com/jekyllrb">
+                <svg class="svg-icon"><use xlink:href="/assets/minima-social-icons.svg#twitter"></use></svg>
+                <span class="username">jekyllrb</span>
+              </a>
+            </li>
+          
+          
+            <li>
+              <a href="https://github.com/chxtio/ocr_jekyll">
+                <svg class="svg-icon"><use xlink:href="/assets/minima-social-icons.svg#github"></use></svg>
+                <span>View Repo</span>
+              </a>
+            </li>
+          
+        </ul>
+      </div>
+
+      <div class="footer-col footer-col-3">
+        <p>Write an awesome description for your new site here. You can edit this line in _config.yml. It will appear in your document head meta (for Google search results) and in your feed.xml site description.</p>
+      </div>
+    </div>
+  </div>
+</footer>
+</body>
+
+</html>
