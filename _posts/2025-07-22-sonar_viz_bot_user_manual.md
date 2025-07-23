@@ -19,11 +19,16 @@ date: 2025-07-10
 
 # Project Introduction
 
-This instruction manual outlines the process of designing and building the *Sonar Viz Bot*- a training project intended to introduce new OCR members to the engineering design process. It aims to quickly develop the core skills and competencies for rookies to meaningfully contribute to club projects and eventually compete in the University Rover Challenge (URC).
+<!-- This instruction manual outlines the process of designing and building the *Sonar Viz Bot*- a training project intended to introduce new OCR members to the engineering design process. It aims to quickly develop the core skills and competencies for rookies to meaningfully contribute to club projects and eventually compete in the University Rover Challenge (URC). -->
+
+This instruction manual outlines the process of designing and building *Sonar Viz Bot*- a training project intended to help new OCR members quickly develop the core skills and competencies to meaningfully contribute to club projects... and eventually compete in the University Rover Challenge (URC)!
 
 
+<!-- <img src="https://i.imgur.com/QXUko01.png" width="400" > -->
 
-<img src="https://i.imgur.com/QXUko01.png" width="400">
+<div style="text-align: center;">
+  <img src="https://i.imgur.com/QXUko01.png" width="400">
+</div>
 
 
 # Timeline
