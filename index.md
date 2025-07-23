@@ -10,7 +10,7 @@ Welcome to the user manual for this project...
 ## Recent Posts
 
 <ul>
-  {% for post in site.posts %}
+  {% for post in site.posts reversed %}
     <li>
       <a href="{{site.baseurl}}{{ post.url }}">{{ post.title }}</a> – {{ post.date | date: "%B %d, %Y" }}
     </li>
