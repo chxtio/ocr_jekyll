@@ -379,28 +379,28 @@ docker-pr 1001 root    4u  IPv6  26542      0t0  TCP *:6080 (LISTEN)
   <li>Open a terminal (run Terminator in NoVNC) and cd into <code class="language-plaintext highlighter-rouge">dev_ws/src</code></li>
 </ul>
 
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>cd dev_ws/src
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">cd </span>dev_ws/src
 </code></pre></div></div>
 
 <ul>
   <li>Build the package</li>
 </ul>
 
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>colcon build --symlink-install
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>colcon build <span class="nt">--symlink-install</span>
 </code></pre></div></div>
 
 <ul>
   <li>Source the setup</li>
 </ul>
 
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>source install/setup.bash
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">source install</span>/setup.bash
 </code></pre></div></div>
 
 <ul>
   <li>Run the Gazebo simulation</li>
 </ul>
 
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>ros2 launch differential_drive_robot launch_sim.launch.py
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>ros2 launch differential_drive_robot launch_sim.launch.py
 </code></pre></div></div>
 
 <ul>
@@ -414,16 +414,15 @@ docker-pr 1001 root    4u  IPv6  26542      0t0  TCP *:6080 (LISTEN)
   <li>Drive the Robot with Keyboard Input (open a new terminal inside Terminator and run the following command line)</li>
 </ul>
 
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>ros2 run teleop_twist_keyboard teleop_twist_keyboard
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>ros2 run teleop_twist_keyboard teleop_twist_keyboard
 </code></pre></div></div>
 
 <ul>
   <li>Note: If using <code class="language-plaintext highlighter-rouge">ros2_control</code> plugin, /cmd_vel must be remapped as follows:</li>
 </ul>
 
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>ros2 run teleop_twist_keyboard teleop_twist_keyboard --ros-args -r /cmd_vel:=/diff_cont/cmd_vel_unstamped
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>ros2 run teleop_twist_keyboard teleop_twist_keyboard <span class="nt">--ros-args</span> <span class="nt">-r</span> /cmd_vel:<span class="o">=</span>/diff_cont/cmd_vel_unstamped
 </code></pre></div></div>
-
 
   </div><a class="u-url" href="/2025/07/18/Combined.html" hidden></a>
 </article>

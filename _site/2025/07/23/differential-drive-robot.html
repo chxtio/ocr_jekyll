@@ -8,8 +8,8 @@
 <meta property="og:title" content="1.5 Differential Drive Robot" />
 <meta name="author" content="Your Name" />
 <meta property="og:locale" content="en_US" />
-<meta name="description" content="Open a terminal (run Terminator in NoVNC) and cd into dev_ws/src cd dev_ws/src Build the package colcon build --symlink-install Source the setup source install/setup.bash Run the Gazebo simulation ros2 launch differential_drive_robot launch_sim.launch.py Visualize in Rviz rviz2 -d src/differential_drive_robot/config/diff-drive.rviz Drive the Robot with Keyboard Input (open a new terminal inside Terminator and run the following command line) ros2 run teleop_twist_keyboard teleop_twist_keyboard Note: If using ros2_control plugin, /cmd_vel must be remapped as follows: ros2 run teleop_twist_keyboard teleop_twist_keyboard --ros-args -r /cmd_vel:=/diff_cont/cmd_vel_unstamped" />
-<meta property="og:description" content="Open a terminal (run Terminator in NoVNC) and cd into dev_ws/src cd dev_ws/src Build the package colcon build --symlink-install Source the setup source install/setup.bash Run the Gazebo simulation ros2 launch differential_drive_robot launch_sim.launch.py Visualize in Rviz rviz2 -d src/differential_drive_robot/config/diff-drive.rviz Drive the Robot with Keyboard Input (open a new terminal inside Terminator and run the following command line) ros2 run teleop_twist_keyboard teleop_twist_keyboard Note: If using ros2_control plugin, /cmd_vel must be remapped as follows: ros2 run teleop_twist_keyboard teleop_twist_keyboard --ros-args -r /cmd_vel:=/diff_cont/cmd_vel_unstamped" />
+<meta name="description" content="1.5 Differential Drive Robot Open a terminal (run Terminator in NoVNC) and cd into dev_ws/src cd dev_ws/src Build the package colcon build --symlink-install Source the setup source install/setup.bash Run the Gazebo simulation ros2 launch differential_drive_robot launch_sim.launch.py Visualize in Rviz rviz2 -d src/differential_drive_robot/config/diff-drive.rviz Drive the Robot with Keyboard Input (open a new terminal inside Terminator and run the following command line) ros2 run teleop_twist_keyboard teleop_twist_keyboard Note: If using ros2_control plugin, /cmd_vel must be remapped as follows: ros2 run teleop_twist_keyboard teleop_twist_keyboard --ros-args -r /cmd_vel:=/diff_cont/cmd_vel_unstamped" />
+<meta property="og:description" content="1.5 Differential Drive Robot Open a terminal (run Terminator in NoVNC) and cd into dev_ws/src cd dev_ws/src Build the package colcon build --symlink-install Source the setup source install/setup.bash Run the Gazebo simulation ros2 launch differential_drive_robot launch_sim.launch.py Visualize in Rviz rviz2 -d src/differential_drive_robot/config/diff-drive.rviz Drive the Robot with Keyboard Input (open a new terminal inside Terminator and run the following command line) ros2 run teleop_twist_keyboard teleop_twist_keyboard Note: If using ros2_control plugin, /cmd_vel must be remapped as follows: ros2 run teleop_twist_keyboard teleop_twist_keyboard --ros-args -r /cmd_vel:=/diff_cont/cmd_vel_unstamped" />
 <link rel="canonical" href="http://localhost:4000/2025/07/23/differential-drive-robot.html" />
 <meta property="og:url" content="http://localhost:4000/2025/07/23/differential-drive-robot.html" />
 <meta property="og:site_name" content="OC Robotics" />
@@ -18,7 +18,7 @@
 <meta name="twitter:card" content="summary" />
 <meta property="twitter:title" content="1.5 Differential Drive Robot" />
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"Your Name"},"dateModified":"2025-07-23T00:00:00-07:00","datePublished":"2025-07-23T00:00:00-07:00","description":"Open a terminal (run Terminator in NoVNC) and cd into dev_ws/src cd dev_ws/src Build the package colcon build --symlink-install Source the setup source install/setup.bash Run the Gazebo simulation ros2 launch differential_drive_robot launch_sim.launch.py Visualize in Rviz rviz2 -d src/differential_drive_robot/config/diff-drive.rviz Drive the Robot with Keyboard Input (open a new terminal inside Terminator and run the following command line) ros2 run teleop_twist_keyboard teleop_twist_keyboard Note: If using ros2_control plugin, /cmd_vel must be remapped as follows: ros2 run teleop_twist_keyboard teleop_twist_keyboard --ros-args -r /cmd_vel:=/diff_cont/cmd_vel_unstamped","headline":"1.5 Differential Drive Robot","mainEntityOfPage":{"@type":"WebPage","@id":"http://localhost:4000/2025/07/23/differential-drive-robot.html"},"url":"http://localhost:4000/2025/07/23/differential-drive-robot.html"}</script>
+{"@context":"https://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"Your Name"},"dateModified":"2025-07-23T00:00:00-07:00","datePublished":"2025-07-23T00:00:00-07:00","description":"1.5 Differential Drive Robot Open a terminal (run Terminator in NoVNC) and cd into dev_ws/src cd dev_ws/src Build the package colcon build --symlink-install Source the setup source install/setup.bash Run the Gazebo simulation ros2 launch differential_drive_robot launch_sim.launch.py Visualize in Rviz rviz2 -d src/differential_drive_robot/config/diff-drive.rviz Drive the Robot with Keyboard Input (open a new terminal inside Terminator and run the following command line) ros2 run teleop_twist_keyboard teleop_twist_keyboard Note: If using ros2_control plugin, /cmd_vel must be remapped as follows: ros2 run teleop_twist_keyboard teleop_twist_keyboard --ros-args -r /cmd_vel:=/diff_cont/cmd_vel_unstamped","headline":"1.5 Differential Drive Robot","mainEntityOfPage":{"@type":"WebPage","@id":"http://localhost:4000/2025/07/23/differential-drive-robot.html"},"url":"http://localhost:4000/2025/07/23/differential-drive-robot.html"}</script>
 <!-- End Jekyll SEO tag -->
 <link rel="stylesheet" href="/assets/main.css"><link type="application/atom+xml" rel="alternate" href="http://localhost:4000/feed.xml" title="OC Robotics" /></head>
 <body><header class="site-header" role="banner">
@@ -48,34 +48,34 @@
   </header>
 
   <div class="post-content e-content" itemprop="articleBody">
-    <!-- # 1.5 Differential Drive Robot -->
+    <h1 id="15-differential-drive-robot">1.5 Differential Drive Robot</h1>
 
 <ul>
   <li>Open a terminal (run Terminator in NoVNC) and cd into <code class="language-plaintext highlighter-rouge">dev_ws/src</code></li>
 </ul>
 
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>cd dev_ws/src
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">cd </span>dev_ws/src
 </code></pre></div></div>
 
 <ul>
   <li>Build the package</li>
 </ul>
 
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>colcon build --symlink-install
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>colcon build <span class="nt">--symlink-install</span>
 </code></pre></div></div>
 
 <ul>
   <li>Source the setup</li>
 </ul>
 
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>source install/setup.bash
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">source install</span>/setup.bash
 </code></pre></div></div>
 
 <ul>
   <li>Run the Gazebo simulation</li>
 </ul>
 
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>ros2 launch differential_drive_robot launch_sim.launch.py
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>ros2 launch differential_drive_robot launch_sim.launch.py
 </code></pre></div></div>
 
 <ul>
@@ -89,16 +89,15 @@
   <li>Drive the Robot with Keyboard Input (open a new terminal inside Terminator and run the following command line)</li>
 </ul>
 
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>ros2 run teleop_twist_keyboard teleop_twist_keyboard
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>ros2 run teleop_twist_keyboard teleop_twist_keyboard
 </code></pre></div></div>
 
 <ul>
   <li>Note: If using <code class="language-plaintext highlighter-rouge">ros2_control</code> plugin, /cmd_vel must be remapped as follows:</li>
 </ul>
 
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>ros2 run teleop_twist_keyboard teleop_twist_keyboard --ros-args -r /cmd_vel:=/diff_cont/cmd_vel_unstamped
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>ros2 run teleop_twist_keyboard teleop_twist_keyboard <span class="nt">--ros-args</span> <span class="nt">-r</span> /cmd_vel:<span class="o">=</span>/diff_cont/cmd_vel_unstamped
 </code></pre></div></div>
-
 
   </div><a class="u-url" href="/2025/07/23/differential-drive-robot.html" hidden></a>
 </article>
