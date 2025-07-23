@@ -1,16 +1,18 @@
 ---
-# Feel free to add content and custom Front Matter to this file.
-# To modify the layout, see https://jekyllrb.com/docs/themes/#overriding-theme-defaults
-
-layout: home
-# title: test
+layout: page
+# title: "User Manual"
 ---
 
+# User Manual
 
+Welcome to the user manual for this project...
 
-Welcome to **OCR Jekyll** — a lightweight documentation site built with Jekyll + GitHub Pages.
+## Recent Posts
 
-Explore:
-- [User Manual]({{ site.baseurl }}/user-manual/)
-- [Project Repository](https://github.com/chxtio/ocr_jekyl)
-
+<ul>
+  {% for post in site.posts %}
+    <li>
+      <a href="{{site.baseurl}}{{ post.url }}">{{ post.title }}</a> – {{ post.date | date: "%B %d, %Y" }}
+    </li>
+  {% endfor %}
+</ul>
