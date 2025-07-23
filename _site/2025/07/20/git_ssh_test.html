@@ -1,9 +1,8 @@
 <!DOCTYPE html>
-<html lang="en-US">
-  <head>
-    <meta charset="UTF-8">
-
-<!-- Begin Jekyll SEO tag v2.8.0 -->
+<html lang="en"><head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1"><!-- Begin Jekyll SEO tag v2.8.0 -->
 <title>Setting Up Git, GitHub, and SSH | OC Robotics</title>
 <meta name="generator" content="Jekyll v3.9.0" />
 <meta property="og:title" content="Setting Up Git, GitHub, and SSH" />
@@ -20,39 +19,35 @@
 <script type="application/ld+json">
 {"@context":"https://schema.org","@type":"BlogPosting","dateModified":"2025-07-20T00:00:00-07:00","datePublished":"2025-07-20T00:00:00-07:00","description":"Install Git Installing on Windows Install Git for Windows, which provides Git Bash (terminal emulator for running Git commands) Or, install using Windows Powershell~~ winget install --id Git.Git -e --source winget You can also install Linux for Windows via WSL (Windows Subsystem for Linux) Once setup, Git can be installed using the Linux package manager Installing on Linux https://git-scm.com/book/en/v2/Getting-Started-Installing-Git Install Git sudo apt install git Configure Git Configure Git, replacing &quot;Your name&quot; and &quot;your.email@example.com&quot; with your info (including the quotes) to link your local Git profile with GitHub git config --global user.name &quot;Your Name&quot; git config --global user.email &quot;your.email@example.com&quot; Verify configuration git config --get user.name git config --get user.email # List all settings git config --list Basic Git Workflow Example Creating a local repository Create a local repository myTest and change the current working directory to myTest: mkdir myTest &amp;&amp; cd myTest Initialize a .git subdirectory in the current working directory Contains a hidden .git folder with subdirectories for objects, refs, and template files A HEAD file is also created which will point to the currently checked out commit git init If successful, you’ll see a message like: Initialized empty Git repository in /home/user/Mytest/.git/ Check the current state of the working directory and the staging area. Shows which changes have been staged, which haven’t, and which files aren’t being tracked by Git. git status Create a README file to describe the repository: We will use nano (sudo apt install nano), a simple, user-friendly text editor for the command line nano README.md # Add some text, example: This is a git repo # Save the file by pressing CTRL + X, then Y, then press Enter Optional: Create a sample.c file: #include&lt;stdio.h&gt; int main() { printf(&quot;hello world&quot;); return 0; } Staging Files in the Git Index Create and add files to the index. git add README.md git add sample.c Committing changes made to the index Commit the changes with a message: git commit -m &quot;Initial commit&quot; Creating a repository on GitHub Create a repository on GitHub with the same name as your local repository (e.g., “Mytest”). Connect your local repository to the GitHub repository (Replace &#39;user_name&#39; with your GitHub username): Using HTTPS: git remote add origin https://github.com/user_name/Mytest.git Or using SSH (recommended if you have an SSH key set up): git remote add origin git@github.com:user_name/Mytest.git Pushing files from a local repository to a GitHub repository Push the local repository contents to GitHub The first time running this command, you need to link the local master branch to the master branch on remote repository (origin) git push -u origin master # Can also use `git push --set-upstream origin master` # Note: Some repositories may use &#39;main&#39; as the default branch instead of &#39;master&#39;. # In that case, use the following command: # git push --set-upstream origin main For subsequent pushes ```bash git push origin master Or if your default branch is ‘main’: git push origin main - You may get a `permission denied` error when pushing to GitHub if SSH keys aren&#39;t set properly (See [Creating an SSH Key](#creating-an-ssh-key)) - Enable colorful output with git ```bash git config --global color.ui auto Creating an SSH Key Create an SSH key An SSH key is a cryptographically secure identifier. It’s like a really long password used to identify your machine, which can be used by GitHub without having to type in your username and password every time. Check for Existing SSH Keys Check for the presence of Ed25519 algorithm SSH keys An error indicates you do not have an existing SSH key pair in the default location. ls ~/.ssh/id_ed25519.pub Generate a New SSH Key on Your Local Machine and Add it to the SSH Agent Run the following command in the terminal to create a new SSH key using your GitHub email as a label: ssh-keygen -t ed25519 -C &quot;your.email@example.com&quot; When you’re prompted to “Enter a file in which to save the key”, you can press Enter to accept the default file location &gt; Enter file in which to save the key (/c/Users/YOU/.ssh/id_ALGORITHM):[Press enter] &gt; Generating public/private ed25519 key pair. Show the SSH key and copy it to your clipboard: cat ~/.ssh/id_ed25519.pub Link SSH Key with GitHub to enable authentication for Git operations over SSH In GitHub, navigate to Settings -&gt; SSH and GPG keys -&gt; New SSH Key: Name the key with a useful description of where it came from. Use the output of cat ~/.ssh/id_ed25519.pub and paste it the Key section Confirm that your SSH key is connected to your GitHub account ssh -T git@github.com if successful, you should see: Hi username! You&#39;ve successfully authenticated, but GitHub does not provide shell access.","headline":"Setting Up Git, GitHub, and SSH","mainEntityOfPage":{"@type":"WebPage","@id":"http://localhost:4000/ocr_jekyll/2025/07/20/git_ssh_test.html"},"url":"http://localhost:4000/ocr_jekyll/2025/07/20/git_ssh_test.html"}</script>
 <!-- End Jekyll SEO tag -->
+<link rel="stylesheet" href="/ocr_jekyll/assets/main.css"><link type="application/atom+xml" rel="alternate" href="http://localhost:4000/ocr_jekyll/feed.xml" title="OC Robotics" /></head>
+<body><header class="site-header" role="banner">
 
-    <link rel="preconnect" href="https://fonts.gstatic.com">
-    <link rel="preload" href="https://fonts.googleapis.com/css?family=Open+Sans:400,700&display=swap" as="style" type="text/css" crossorigin>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="theme-color" content="#157878">
-    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <link rel="stylesheet" href="/ocr_jekyll/assets/css/style.css?v=11143a995bc02f439f8b308720cb8085b0d164b1">
-    <!-- start custom head snippets, customize with your own _includes/head-custom.html file -->
+  <div class="wrapper"><a class="site-title" rel="author" href="/ocr_jekyll/">OC Robotics</a><nav class="site-nav">
+        <input type="checkbox" id="nav-trigger" class="nav-trigger" />
+        <label for="nav-trigger">
+          <span class="menu-icon">
+            <svg viewBox="0 0 18 15" width="18px" height="15px">
+              <path d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.032C17.335,0,18,0.665,18,1.484L18,1.484z M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.032C17.335,6.031,18,6.696,18,7.516L18,7.516z M18,13.516C18,14.335,17.335,15,16.516,15H1.484 C0.665,15,0,14.335,0,13.516l0,0c0-0.82,0.665-1.483,1.484-1.483h15.032C17.335,12.031,18,12.695,18,13.516L18,13.516z"/>
+            </svg>
+          </span>
+        </label>
 
-<!-- Setup Google Analytics -->
+        <div class="trigger"><a class="page-link" href="/ocr_jekyll/about/">About</a><a class="page-link" href="/ocr_jekyll/user-manual/">User Manual</a></div>
+      </nav></div>
+</header>
+<main class="page-content" aria-label="Content">
+      <div class="wrapper">
+        <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
 
+  <header class="post-header">
+    <h1 class="post-title p-name" itemprop="name headline">Setting Up Git, GitHub, and SSH</h1>
+    <p class="post-meta">
+      <time class="dt-published" datetime="2025-07-20T00:00:00-07:00" itemprop="datePublished">Jul 20, 2025
+      </time></p>
+  </header>
 
-
-<!-- You can set your favicon here -->
-<!-- link rel="shortcut icon" type="image/x-icon" href="/ocr_jekyll/favicon.ico" -->
-
-<!-- end custom head snippets -->
-
-  </head>
-  <body>
-    <a id="skip-to-content" href="#content">Skip to the content.</a>
-
-    <header class="page-header" role="banner">
-      <h1 class="project-name">Setting Up Git, GitHub, and SSH</h1>
-      <h2 class="project-tagline">Write an awesome description for your new site here. You can edit this line in _config.yml. It will appear in your document head meta (for Google search results) and in your feed.xml site description.</h2>
-      
-        <a href="https://github.com/chxtio/ocr_jekyll" class="btn">View on GitHub</a>
-      
-      
-    </header>
-
-    <main id="content" class="main-content" role="main">
-      <!-- # Setting Up Git, GitHub, and SSH -->
+  <div class="post-content e-content" itemprop="articleBody">
+    <!-- # Setting Up Git, GitHub, and SSH -->
 
 <!-- Resources
 - [HowToForge | Installing and using Git and GitHub on Ubuntu Linux](https://www.howtoforge.com/tutorial/install-git-and-github-on-ubuntu/) 
@@ -299,13 +294,34 @@ git push origin master</li>
   </li>
 </ul>
 
+  </div><a class="u-url" href="/ocr_jekyll/2025/07/20/git_ssh_test.html" hidden></a>
+</article>
 
-      <footer class="site-footer">
-        
-          <span class="site-footer-owner"><a href="https://github.com/chxtio/ocr_jekyll">ocr_jekyll</a> is maintained by <a href="https://github.com/chxtio">chxtio</a>.</span>
-        
-        <span class="site-footer-credits">This page was generated by <a href="https://pages.github.com">GitHub Pages</a>.</span>
-      </footer>
-    </main>
-  </body>
+      </div>
+    </main><footer class="site-footer h-card">
+  <data class="u-url" href="/ocr_jekyll/"></data>
+
+  <div class="wrapper">
+
+    <h2 class="footer-heading">OC Robotics</h2>
+
+    <div class="footer-col-wrapper">
+      <div class="footer-col footer-col-1">
+        <ul class="contact-list">
+          <li class="p-name">OC Robotics</li><li><a class="u-email" href="mailto:your-email@example.com">your-email@example.com</a></li></ul>
+      </div>
+
+      <div class="footer-col footer-col-2"><ul class="social-media-list"><li><a href="https://github.com/jekyll"><svg class="svg-icon"><use xlink:href="/ocr_jekyll/assets/minima-social-icons.svg#github"></use></svg> <span class="username">jekyll</span></a></li><li><a href="https://www.twitter.com/jekyllrb"><svg class="svg-icon"><use xlink:href="/ocr_jekyll/assets/minima-social-icons.svg#twitter"></use></svg> <span class="username">jekyllrb</span></a></li></ul>
+</div>
+
+      <div class="footer-col footer-col-3">
+        <p>Write an awesome description for your new site here. You can edit this line in _config.yml. It will appear in your document head meta (for Google search results) and in your feed.xml site description.</p>
+      </div>
+    </div>
+
+  </div>
+
+</footer>
+</body>
+
 </html>
