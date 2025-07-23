@@ -10,15 +10,15 @@
 <meta property="og:locale" content="en_US" />
 <meta name="description" content="Write an awesome description for your new site here. You can edit this line in _config.yml. It will appear in your document head meta (for Google search results) and in your feed.xml site description." />
 <meta property="og:description" content="Write an awesome description for your new site here. You can edit this line in _config.yml. It will appear in your document head meta (for Google search results) and in your feed.xml site description." />
-<link rel="canonical" href="http://localhost:4000/temp/2025-07-22-Combined.html" />
-<meta property="og:url" content="http://localhost:4000/temp/2025-07-22-Combined.html" />
+<link rel="canonical" href="http://localhost:4000/temp/2025-07-22-software_setup.html" />
+<meta property="og:url" content="http://localhost:4000/temp/2025-07-22-software_setup.html" />
 <meta property="og:site_name" content="OC Robotics" />
 <meta property="og:type" content="article" />
 <meta property="article:published_time" content="2025-07-18T00:00:00-07:00" />
 <meta name="twitter:card" content="summary" />
 <meta property="twitter:title" content="Software Setup" />
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"Your Name"},"dateModified":"2025-07-18T00:00:00-07:00","datePublished":"2025-07-18T00:00:00-07:00","description":"Write an awesome description for your new site here. You can edit this line in _config.yml. It will appear in your document head meta (for Google search results) and in your feed.xml site description.","headline":"Software Setup","mainEntityOfPage":{"@type":"WebPage","@id":"http://localhost:4000/temp/2025-07-22-Combined.html"},"url":"http://localhost:4000/temp/2025-07-22-Combined.html"}</script>
+{"@context":"https://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"Your Name"},"dateModified":"2025-07-18T00:00:00-07:00","datePublished":"2025-07-18T00:00:00-07:00","description":"Write an awesome description for your new site here. You can edit this line in _config.yml. It will appear in your document head meta (for Google search results) and in your feed.xml site description.","headline":"Software Setup","mainEntityOfPage":{"@type":"WebPage","@id":"http://localhost:4000/temp/2025-07-22-software_setup.html"},"url":"http://localhost:4000/temp/2025-07-22-software_setup.html"}</script>
 <!-- End Jekyll SEO tag -->
 <link rel="stylesheet" href="/assets/main.css"><link type="application/atom+xml" rel="alternate" href="http://localhost:4000/feed.xml" title="OC Robotics" /></head>
 <body><header class="site-header" role="banner">
@@ -33,7 +33,7 @@
           </span>
         </label>
 
-        <div class="trigger"><a class="page-link" href="/temp/2025-07-22-Combined.html">Software Setup</a><a class="page-link" href="/temp/2025-07-22-electrical_setup.html">Electrical Setup</a><a class="page-link" href="/about_new.html">About</a><a class="page-link" href="/posts/">All Posts</a></div>
+        <div class="trigger"><a class="page-link" href="/temp/2025-07-22-electrical_setup.html">Electrical Setup</a><a class="page-link" href="/temp/2025-07-22-software_setup.html">Software Setup</a><a class="page-link" href="/about_new.html">About</a><a class="page-link" href="/posts/">All Posts</a></div>
       </nav></div>
 </header>
 <main class="page-content" aria-label="Content">
@@ -421,7 +421,7 @@ docker-pr 1001 root    4u  IPv6  26542      0t0  TCP *:6080 (LISTEN)
 <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>ros2 run teleop_twist_keyboard teleop_twist_keyboard <span class="nt">--ros-args</span> <span class="nt">-r</span> /cmd_vel:<span class="o">=</span>/diff_cont/cmd_vel_unstamped
 </code></pre></div></div>
 
-<h1 id="16-raspberry-pi-setup">1.6 Raspberry Pi Setup</h1>
+<h1 id="17-raspberry-pi-setup">1.7 Raspberry Pi Setup</h1>
 
 <p>This setup uses a Raspberry Pi 4. The OS must be configured by flashing the microSD card with Ubuntu 22.04 (see more) and installing ROS2 Humble.</p>
 
@@ -465,6 +465,66 @@ docker-pr 1001 root    4u  IPv6  26542      0t0  TCP *:6080 (LISTEN)
 </ul>
 
 <p><img src="https://piportal.digitalharbor.org/cbfe7e712c4ce6e2deed4e129812df9a/rpi-plug-in.gif" width="500" /></p>
+
+<h1 id="16-ros2_control">1.6 ros2_control</h1>
+
+<ul>
+  <li>Install dependencies
+    <ul>
+      <li><code class="language-plaintext highlighter-rouge">ros-humble-ros2-control</code>: Core control framework for robot hardware interfaces and controllers.</li>
+      <li><code class="language-plaintext highlighter-rouge">ros-humble-ros2-controllers</code>: Predefined controllers that can be used to control robot hardware.</li>
+      <li><code class="language-plaintext highlighter-rouge">gz_ros2_control</code>: Integration between ROS 2 control framework and Gazebo from source
+        <ul>
+          <li>Note: this will need to be compiled from source (see below)</li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+</ul>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">sudo </span>apt update
+<span class="nb">sudo </span>apt <span class="nb">install </span>ros-humble-ros2-control ros-humble-ros2-controllers
+</code></pre></div></div>
+
+<ul>
+  <li>Install the rosdep rules to resolve Gazebo Garden libraries</li>
+</ul>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">sudo </span>bash <span class="nt">-c</span> <span class="s1">'wget https://raw.githubusercontent.com/osrf/osrf-rosdep/master/gz/00-gazebo.list -O /etc/ros/rosdep/sources.list.d/00-gazebo.list'</span>
+rosdep update
+<span class="c"># check that resolve works</span>
+rosdep resolve gz-garden
+</code></pre></div></div>
+
+<ul>
+  <li>Compile <code class="language-plaintext highlighter-rouge">gz_ros2_control</code> from source</li>
+</ul>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># cd into dev_ws/src</span>
+<span class="nb">cd </span>src
+git clone https://github.com/federicociresola/gz_ros2_control.git <span class="nt">-b</span> humble-gz_garden
+rosdep <span class="nb">install</span> <span class="nt">-r</span> <span class="nt">--from-paths</span> <span class="nb">.</span> <span class="nt">--ignore-src</span> <span class="nt">--rosdistro</span> <span class="nv">$ROS_DISTRO</span> <span class="nt">-y</span>
+<span class="nb">cd</span> ..
+colcon build
+</code></pre></div></div>
+
+<ul>
+  <li>Run the Gazebo simulation</li>
+</ul>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>ros2 launch differential_drive_robot launch_sim.launch.py
+</code></pre></div></div>
+
+<ul>
+  <li>Enable <code class="language-plaintext highlighter-rouge">teleop_twist_keyboard</code> by remapping <code class="language-plaintext highlighter-rouge">/cmd_vel</code> topic to <code class="language-plaintext highlighter-rouge">/diff_cont/cmd_vel_unstamped</code>
+    <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>ros2 run teleop_twist_keyboard teleop_twist_keyboard <span class="nt">--ros-args</span> <span class="nt">-r</span> /cmd_vel:<span class="o">=</span>/diff_cont/cmd_vel_unstamped
+</code></pre></div>    </div>
+  </li>
+  <li>TODO: check if need to Install ros-gz-bridge</li>
+</ul>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">sudo </span>apt-get <span class="nb">install </span>ros-humble-ros-gz-bridge
+</code></pre></div></div>
 
 </main>
 
