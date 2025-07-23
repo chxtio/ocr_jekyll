@@ -11,9 +11,9 @@ date: 2025-07-22
 
 
 <!-- # ocr-docker -->
-> [!IMPORTANT]
+<!-- > [!IMPORTANT]
 > 
-> If you have already installed the container, skip to [Step 2: Run the docker container](#step-2-run-the-docker-container).
+> If you have already installed the container, skip to [Step 2: Run the docker container](#step-2-run-the-docker-container). -->
 
 ## Step 1: Install the container
 
