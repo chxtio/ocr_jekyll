@@ -8,7 +8,7 @@ date: 2025-07-23
 
 This setup uses a Raspberry Pi 4. The OS must be configured by flashing the microSD card with Ubuntu 22.04 (see more) and installing ROS2 Humble.
 
-![picture 43](https://i.imgur.com/xJMgVJ2.png)  
+<img src="https://i.imgur.com/xJMgVJ2.png" width="500">
 
 ## Setup
 
@@ -23,7 +23,7 @@ This setup uses a Raspberry Pi 4. The OS must be configured by flashing the micr
 
 ## Connecting Peripherals to the Raspberry Pi
 
-![picture 44](https://i.imgur.com/adBxdjT.png)  
+<img src="https://i.imgur.com/adBxdjT.png" width="500">
 
 - LCD Screen
 
@@ -34,4 +34,4 @@ This setup uses a Raspberry Pi 4. The OS must be configured by flashing the micr
 
 -    **Power**: Connect the USB-C port on the Raspberry Pi to a power bank or wall outlet.
 
-![rpi gif](https://piportal.digitalharbor.org/cbfe7e712c4ce6e2deed4e129812df9a/rpi-plug-in.gif)
+<img src="https://piportal.digitalharbor.org/cbfe7e712c4ce6e2deed4e129812df9a/rpi-plug-in.gif" width="500">
