@@ -1,19 +1,31 @@
 ---
-title: "Software Setup (Merged)"
-date: 2025-07-18
+title: "Sonar Viz Bot User Manual"
+date: 2025-07-10
 ---
 
 # Table of Contents
 
-- [1.1 Recommended Directory Structure](#11-recommended-directory-structure)
-- [1.2 Setting Up Git, GitHub, and SSH](#12-setting-up-git-github-and-ssh)
-- [1.3 Create Initial Directory Structure](#13-create-initial-directory-structure)
-- [1.4 OCR Docker](#14-ocr-docker)
-- [1.5 Differential Drive Robot](#15-differential-drive-robot)
-- [1.6 Raspberry Pi Setup](#16-raspberry-pi-setup)
+- [1. Software Setup](#1-software-setup)
+    - [1.0 Join the Github Organizations](#10-join-the-github-organizations)
+    - [1.1 Recommended Directory Structure](#11-recommended-directory-structure)
+    - [1.2 Setting Up Git, GitHub, and SSH](#12-setting-up-git-github-and-ssh)
+    - [1.3 Create Initial Directory Structure](#13-create-initial-directory-structure)
+    - [1.4 OCR Docker](#14-ocr-docker)
+    - [1.5 Differential Drive Robot](#15-differential-drive-robot)
+    - [1.6 Raspberry Pi Setup](#16-raspberry-pi-setup)
+- [2. Electrical Setup](#2-electrical-setup)
+    - [2.1 Software](#21-software)
+    - [2.2 L293D Motor Driver](#22-l293d-motor-driver)
 
 # 1. Software Setup
 The configuration of Git, GitHub, and SSH and the software environment setup is described. To streamline the development process, we have created a Docker container with Ubuntu 22.04, ROS2 Humble, and dependencies. 
+
+## 1.0 Join the Github Organizations
+
+- Add your GitHub username to the [discord thread](https://discord.com/channels/1204942703243173918/1337563694032359445/1339813815394766951)
+- You will be invited to the following
+  - https://github.com/oc-robotics
+  - https://github.com/Training-Dummy
 
 ## 1.1 Recommended Directory Structure
 
@@ -37,11 +49,11 @@ The configuration of Git, GitHub, and SSH and the software environment setup is 
 ```
 
 
-# 1.2 Setting Up Git, GitHub, and SSH
+## 1.2 Setting Up Git, GitHub, and SSH
 
-## Install Git
+### Install Git
 
-### *Mac*
+#### *Mac*
 - Install homebrew and follow the terminal instructions
 
 ```bash
@@ -54,7 +66,7 @@ The configuration of Git, GitHub, and SSH and the software environment setup is 
 brew install git
 ```
 
-### *Windows*
+#### *Windows*
 
 - Install [Git for Windows](https://gitforwindows.org/), which provides Git Bash (terminal emulator for running Git commands)
   
@@ -78,7 +90,7 @@ Write-Host "Done."
 - You can also install Linux for Windows via [WSL (Windows Subsystem for Linux)](https://learn.microsoft.com/en-us/windows/wsl/install)
   - Once setup, Git can be installed using the Linux package manager 
 
-### *Ubuntu*
+#### *Ubuntu*
 
 - Install Git
 
@@ -86,7 +98,7 @@ Write-Host "Done."
 sudo apt install git
 ```
 
-## Configure Git
+### Configure Git
 - Configure Git, replacing `"Your name"` and `"your.email@example.com"` with your info (including the quotes) to link your local Git profile with GitHub
 
 ```bash
@@ -101,7 +113,7 @@ git config --get user.name
 git config --get user.email
   ```
 
-## Set up SSH
+### Set up SSH
 - Create a new SSH key using your GitHub email as a label
 
 **Note: Press enter to skip through the 3 prompts that follow**
@@ -131,7 +143,7 @@ ssh -T git@github.com
 Hi username! You've successfully authenticated, but GitHub does not provide shell access.
 ```
 
-# 1.3 Create Initial Directory Structure
+## 1.3 Create Initial Directory Structure
 
 *Preview*
 
@@ -184,7 +196,7 @@ dev_ws  ocr-docker  training_ws
 ```
 
 
-# 1.4 OCR Docker
+## 1.4 OCR Docker
 
 <div class="important">
   <strong>Important:</strong> If you have already installed the container, skip to 
@@ -196,7 +208,7 @@ dev_ws  ocr-docker  training_ws
 > 
 > If you have already installed the container, skip to [Step 2: Run the docker container](#step-2-run-the-docker-container). -->
 
-## Step 1: Install the container
+### Step 1: Install the container
 
 - Install and open [Docker Desktop](https://docs.docker.com/desktop/)
 
@@ -240,7 +252,7 @@ docker pull mwoodward6/nekton:humble
 docker build -t ocr-docker:humble .
 ```
 
-## Step 2: Install any ROS pacakges 
+### Step 2: Install any ROS pacakges 
 
 - As an example, we will install [differential_drive_robot](https://github.com/oc-robotics/differential_drive_robot) in `src`
 
@@ -254,7 +266,7 @@ cd ~/ocr/dev_ws/src
 git clone git@github.com:oc-robotics/differential_drive_robot.git
 ```
 
-## Step 3: Run the docker container
+### Step 3: Run the docker container
 - Start the container in the background (detached mode)
 
 ```bash
@@ -284,7 +296,7 @@ docker-compose stop
 docker-compose down
 ```
 
-## Troubleshooting
+### Troubleshooting
 <!-- ### Fix "ports not available" error -->
 
 - If you encounter an error due to port 6080 being in use, check which processes are using it
@@ -306,7 +318,7 @@ docker-pr 1001 root    4u  IPv6  26542      0t0  TCP *:6080 (LISTEN)
 sudo kill -9 995 1001
 ```
 
-# 1.5 Differential Drive Robot
+## 1.5 Differential Drive Robot
 
 - Open a terminal (run Terminator in NoVNC) and cd into `dev_ws/src`
 
@@ -353,13 +365,14 @@ ros2 run teleop_twist_keyboard teleop_twist_keyboard
 ros2 run teleop_twist_keyboard teleop_twist_keyboard --ros-args -r /cmd_vel:=/diff_cont/cmd_vel_unstamped
 ```
 
-# 1.6 Raspberry Pi Setup
+
+## 1.6 Raspberry Pi Setup
 
 This setup uses a Raspberry Pi 4. The OS must be configured by flashing the microSD card with Ubuntu 22.04 (see more) and installing ROS2 Humble.
 
 <img src="https://i.imgur.com/xJMgVJ2.png" width="500">
 
-## Setup
+### Setup
 
 - Install [Rapberry Pi Imager](https://www.raspberrypi.com/software/)  
 -  Insert the microSD card and choose OS -> other general purpose SO -> **Ubuntu Desktop 22.04 LTS (64-bit)**
@@ -370,7 +383,7 @@ This setup uses a Raspberry Pi 4. The OS must be configured by flashing the micr
 
 - Todo: Set up SSH on the pi for remote connections
 
-## Connecting Peripherals to the Raspberry Pi
+### Connecting Peripherals to the Raspberry Pi
 
 <img src="https://i.imgur.com/adBxdjT.png" width="500">
 
@@ -384,3 +397,91 @@ This setup uses a Raspberry Pi 4. The OS must be configured by flashing the micr
 -    **Power**: Connect the USB-C port on the Raspberry Pi to a power bank or wall outlet.
 
 <img src="https://piportal.digitalharbor.org/cbfe7e712c4ce6e2deed4e129812df9a/rpi-plug-in.gif" width="500">
+
+# 2. Electrical Setup
+
+## 2.1 Software
+
+- Install [Arduino IDE](https://www.arduino.cc/en/software/)
+
+## 2.2 L293D Motor Driver
+
+- Wire the [circuit](https://www.tinkercad.com/things/ehT2Jv0teTn-l293d-motor-driver?sharecode=ptKgyQ0MTZuHiNs5623u1GnzgUm6TEFuzgF3rDnG1LI) for the motor driver
+
+![picture 0](https://i.imgur.com/1gINfhA.png)  
+
+- Upload the following `L293D_motor_driver.ino` sketch to the Arduino 
+
+```javascript
+// L293D Motor Driver pins for right motor (Motor A)
+const int ENA = 11;    // PWM speed control for right motor
+const int IN1 = 13;    // Direction control 1 for right motor
+const int IN2 = 12;    // Direction control 2 for right motor
+ 
+// L293D Motor Driver pins for left motor (Motor B)
+const int ENB = 10;    // PWM speed control for left motor
+const int IN3 = 8;     // Direction control 1 for left motor
+const int IN4 = 9;     // Direction control 2 for left motor
+ 
+const int switchPin = 7; // Switch to turn robot on/off
+ 
+int motorSpeed = 0; // Starting motor speed
+ 
+void setup() {
+    pinMode(switchPin, INPUT_PULLUP);
+ 
+    pinMode(IN1, OUTPUT);
+    pinMode(IN2, OUTPUT);
+    pinMode(ENA, OUTPUT);
+ 
+    pinMode(IN3, OUTPUT);
+    pinMode(IN4, OUTPUT);
+    pinMode(ENB, OUTPUT);
+ 
+    Serial.begin(9600);
+    Serial.println("To infinity and beyond!");
+    motorSpeed = 255;
+    Serial.print("Motor Speed: ");
+    Serial.println(motorSpeed);
+}
+ 
+void loop() {
+    motorSpeed = 255;
+    // if (digitalRead(switchPin) == LOW) { // Switch ON (pressed)
+    if (digitalRead(switchPin) == HIGH) { // Switch OFF 
+        rightMotor(motorSpeed);
+        leftMotor(motorSpeed);
+    } else { // Switch OFF
+        rightMotor(0);
+        leftMotor(0);
+    }
+}
+ 
+void rightMotor(int speed) {
+    if (speed > 0) {
+        digitalWrite(IN1, HIGH);
+        digitalWrite(IN2, LOW);
+    } else if (speed < 0) {
+        digitalWrite(IN1, LOW);
+        digitalWrite(IN2, HIGH);
+    } else {
+        digitalWrite(IN1, LOW);
+        digitalWrite(IN2, LOW);
+    }
+    analogWrite(ENA, abs(speed));
+}
+ 
+void leftMotor(int speed) {
+    if (speed > 0) {
+        digitalWrite(IN3, HIGH);
+        digitalWrite(IN4, LOW);
+    } else if (speed < 0) {
+        digitalWrite(IN3, LOW);
+        digitalWrite(IN4, HIGH);
+    } else {
+        digitalWrite(IN3, LOW);
+        digitalWrite(IN4, LOW);
+    }
+    analogWrite(ENB, abs(speed));
+}
+```
