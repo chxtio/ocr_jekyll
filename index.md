@@ -8,9 +8,9 @@ layout: home
 
 
 
-Welcome to **OCR Jekyll** — a lightweight Optical Character Recognition project built with Jekyll + GitHub Pages.
+Welcome to **OCR Jekyll** — a lightweight documentation site built with Jekyll + GitHub Pages.
 
 Explore:
-- [User Manual](/user-manual/)
+- [User Manual]({{ site.baseurl }}/user-manual/)
 - [Project Repository](https://github.com/chxtio/ocr_jekyl)
 
