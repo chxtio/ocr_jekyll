@@ -61,48 +61,32 @@ docker build -t ocr-docker:humble .
 
 ## Step 2: Run the docker container
 - Start the container in the background (detached mode)
+
 ```bash
 docker-compose up -d
 ```
 
 - Open an interactive bash shell inside the container to run commands 
+
 ```bash
 docker exec -it ocr-humble-nekton-og bash
 ```
 
-- Browse http://localhost:6080/ to access the remote desktop via VNC 
+- Browse [http://localhost:6080/](http://localhost:6080/) to access the remote desktop via VNC
+
+<img src="https://ubuntu-mate.community/uploads/default/original/3X/e/5/e5b38828e447662a0035affe589d1f563d22984a.png" alt="novnc" width="300" />
+
 
 
 - Stop the container
+
 ```bash
 exit # Exit the interactive shell
 docker-compose stop
 ```
 
 - If you need to remove the container
-```bash
-docker-compose down
-)
-- Start the container in the background (detached mode)
-```bash
-docker-compose up -d
-```
 
-- Open an interactive bash shell inside the container to run commands 
-```bash
-docker exec -it ocr-humble-nekton-og bash
-```
-
-- Browse http://localhost:6080/ to access the remote desktop via VNC 
-
-
-- Stop the container
-```bash
-exit # Exit the interactive shell
-docker-compose stop
-```
-
-- If you need to remove the container
 ```bash
 docker-compose down
 ```
