@@ -8,8 +8,8 @@
 <meta property="og:title" content="1.2 Setting Up Git, GitHub, and SSH" />
 <meta name="author" content="Your Name" />
 <meta property="og:locale" content="en_US" />
-<meta name="description" content="Install Git Installing on Windows Install Git for Windows, which provides Git Bash (terminal emulator for running Git commands) Or, install using Windows Powershell~~ winget install --id Git.Git -e --source winget You can also install Linux for Windows via WSL (Windows Subsystem for Linux) Once setup, Git can be installed using the Linux package manager Installing on Linux https://git-scm.com/book/en/v2/Getting-Started-Installing-Git Install Git sudo apt install git Configure Git Configure Git, replacing &quot;Your name&quot; and &quot;your.email@example.com&quot; with your info (including the quotes) to link your local Git profile with GitHub git config --global user.name &quot;Your Name&quot; git config --global user.email &quot;your.email@example.com&quot; Verify configuration git config --get user.name git config --get user.email # List all settings git config --list Basic Git Workflow Example Creating a local repository Create a local repository myTest and change the current working directory to myTest: mkdir myTest &amp;&amp; cd myTest Initialize a .git subdirectory in the current working directory Contains a hidden .git folder with subdirectories for objects, refs, and template files A HEAD file is also created which will point to the currently checked out commit git init If successful, you’ll see a message like: Initialized empty Git repository in /home/user/Mytest/.git/ Check the current state of the working directory and the staging area. Shows which changes have been staged, which haven’t, and which files aren’t being tracked by Git. git status Create a README file to describe the repository: We will use nano (sudo apt install nano), a simple, user-friendly text editor for the command line nano README.md # Add some text, example: This is a git repo # Save the file by pressing CTRL + X, then Y, then press Enter Optional: Create a sample.c file: #include&lt;stdio.h&gt; int main() { printf(&quot;hello world&quot;); return 0; } Staging Files in the Git Index Create and add files to the index. git add README.md git add sample.c Committing changes made to the index Commit the changes with a message: git commit -m &quot;Initial commit&quot; Creating a repository on GitHub Create a repository on GitHub with the same name as your local repository (e.g., “Mytest”). Connect your local repository to the GitHub repository (Replace &#39;user_name&#39; with your GitHub username): Using HTTPS: git remote add origin https://github.com/user_name/Mytest.git Or using SSH (recommended if you have an SSH key set up): git remote add origin git@github.com:user_name/Mytest.git Pushing files from a local repository to a GitHub repository Push the local repository contents to GitHub The first time running this command, you need to link the local master branch to the master branch on remote repository (origin) git push -u origin master # Can also use `git push --set-upstream origin master` # Note: Some repositories may use &#39;main&#39; as the default branch instead of &#39;master&#39;. # In that case, use the following command: # git push --set-upstream origin main For subsequent pushes ```bash git push origin master Or if your default branch is ‘main’: git push origin main - You may get a `permission denied` error when pushing to GitHub if SSH keys aren&#39;t set properly (See [Creating an SSH Key](#creating-an-ssh-key)) - Enable colorful output with git ```bash git config --global color.ui auto Creating an SSH Key Create an SSH key An SSH key is a cryptographically secure identifier. It’s like a really long password used to identify your machine, which can be used by GitHub without having to type in your username and password every time. Check for Existing SSH Keys Check for the presence of Ed25519 algorithm SSH keys An error indicates you do not have an existing SSH key pair in the default location. ls ~/.ssh/id_ed25519.pub Generate a New SSH Key on Your Local Machine and Add it to the SSH Agent Run the following command in the terminal to create a new SSH key using your GitHub email as a label: ssh-keygen -t ed25519 -C &quot;your.email@example.com&quot; When you’re prompted to “Enter a file in which to save the key”, you can press Enter to accept the default file location &gt; Enter file in which to save the key (/c/Users/YOU/.ssh/id_ALGORITHM):[Press enter] &gt; Generating public/private ed25519 key pair. Show the SSH key and copy it to your clipboard: cat ~/.ssh/id_ed25519.pub Link SSH Key with GitHub to enable authentication for Git operations over SSH In GitHub, navigate to Settings -&gt; SSH and GPG keys -&gt; New SSH Key: Name the key with a useful description of where it came from. Use the output of cat ~/.ssh/id_ed25519.pub and paste it the Key section Confirm that your SSH key is connected to your GitHub account ssh -T git@github.com if successful, you should see: Hi username! You&#39;ve successfully authenticated, but GitHub does not provide shell access." />
-<meta property="og:description" content="Install Git Installing on Windows Install Git for Windows, which provides Git Bash (terminal emulator for running Git commands) Or, install using Windows Powershell~~ winget install --id Git.Git -e --source winget You can also install Linux for Windows via WSL (Windows Subsystem for Linux) Once setup, Git can be installed using the Linux package manager Installing on Linux https://git-scm.com/book/en/v2/Getting-Started-Installing-Git Install Git sudo apt install git Configure Git Configure Git, replacing &quot;Your name&quot; and &quot;your.email@example.com&quot; with your info (including the quotes) to link your local Git profile with GitHub git config --global user.name &quot;Your Name&quot; git config --global user.email &quot;your.email@example.com&quot; Verify configuration git config --get user.name git config --get user.email # List all settings git config --list Basic Git Workflow Example Creating a local repository Create a local repository myTest and change the current working directory to myTest: mkdir myTest &amp;&amp; cd myTest Initialize a .git subdirectory in the current working directory Contains a hidden .git folder with subdirectories for objects, refs, and template files A HEAD file is also created which will point to the currently checked out commit git init If successful, you’ll see a message like: Initialized empty Git repository in /home/user/Mytest/.git/ Check the current state of the working directory and the staging area. Shows which changes have been staged, which haven’t, and which files aren’t being tracked by Git. git status Create a README file to describe the repository: We will use nano (sudo apt install nano), a simple, user-friendly text editor for the command line nano README.md # Add some text, example: This is a git repo # Save the file by pressing CTRL + X, then Y, then press Enter Optional: Create a sample.c file: #include&lt;stdio.h&gt; int main() { printf(&quot;hello world&quot;); return 0; } Staging Files in the Git Index Create and add files to the index. git add README.md git add sample.c Committing changes made to the index Commit the changes with a message: git commit -m &quot;Initial commit&quot; Creating a repository on GitHub Create a repository on GitHub with the same name as your local repository (e.g., “Mytest”). Connect your local repository to the GitHub repository (Replace &#39;user_name&#39; with your GitHub username): Using HTTPS: git remote add origin https://github.com/user_name/Mytest.git Or using SSH (recommended if you have an SSH key set up): git remote add origin git@github.com:user_name/Mytest.git Pushing files from a local repository to a GitHub repository Push the local repository contents to GitHub The first time running this command, you need to link the local master branch to the master branch on remote repository (origin) git push -u origin master # Can also use `git push --set-upstream origin master` # Note: Some repositories may use &#39;main&#39; as the default branch instead of &#39;master&#39;. # In that case, use the following command: # git push --set-upstream origin main For subsequent pushes ```bash git push origin master Or if your default branch is ‘main’: git push origin main - You may get a `permission denied` error when pushing to GitHub if SSH keys aren&#39;t set properly (See [Creating an SSH Key](#creating-an-ssh-key)) - Enable colorful output with git ```bash git config --global color.ui auto Creating an SSH Key Create an SSH key An SSH key is a cryptographically secure identifier. It’s like a really long password used to identify your machine, which can be used by GitHub without having to type in your username and password every time. Check for Existing SSH Keys Check for the presence of Ed25519 algorithm SSH keys An error indicates you do not have an existing SSH key pair in the default location. ls ~/.ssh/id_ed25519.pub Generate a New SSH Key on Your Local Machine and Add it to the SSH Agent Run the following command in the terminal to create a new SSH key using your GitHub email as a label: ssh-keygen -t ed25519 -C &quot;your.email@example.com&quot; When you’re prompted to “Enter a file in which to save the key”, you can press Enter to accept the default file location &gt; Enter file in which to save the key (/c/Users/YOU/.ssh/id_ALGORITHM):[Press enter] &gt; Generating public/private ed25519 key pair. Show the SSH key and copy it to your clipboard: cat ~/.ssh/id_ed25519.pub Link SSH Key with GitHub to enable authentication for Git operations over SSH In GitHub, navigate to Settings -&gt; SSH and GPG keys -&gt; New SSH Key: Name the key with a useful description of where it came from. Use the output of cat ~/.ssh/id_ed25519.pub and paste it the Key section Confirm that your SSH key is connected to your GitHub account ssh -T git@github.com if successful, you should see: Hi username! You&#39;ve successfully authenticated, but GitHub does not provide shell access." />
+<meta name="description" content="Install Git Mac Install homebrew and follow the terminal instructions /bin/bash -c &quot;$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)&quot; Install git brew install git Windows Install Git for Windows, which provides Git Bash (terminal emulator for running Git commands) Or- install using Windows Powershell winget install --id Git.Git -e --source winget Note: if the above command didn’t work, you may need to install winget first $progressPreference = &#39;silentlyContinue&#39; Write-Host &quot;Installing WinGet PowerShell module from PSGallery...&quot; Install-PackageProvider -Name NuGet -Force | Out-Null Install-Module -Name Microsoft.WinGet.Client -Force -Repository PSGallery | Out-Null Write-Host &quot;Using Repair-WinGetPackageManager cmdlet to bootstrap WinGet...&quot; Repair-WinGetPackageManager Write-Host &quot;Done.&quot; You can also install Linux for Windows via WSL (Windows Subsystem for Linux) Once setup, Git can be installed using the Linux package manager Ubuntu Install Git sudo apt install git Configure Git Configure Git, replacing &quot;Your name&quot; and &quot;your.email@example.com&quot; with your info (including the quotes) to link your local Git profile with GitHub git config --global user.name &quot;Your Name&quot; git config --global user.email &quot;your.email@example.com&quot; Verify configuration git config --get user.name git config --get user.email Set up SSH Create a new SSH key using your GitHub email as a label Note: Press enter to skip through the 3 prompts that follow ssh-keygen -t ed25519 -C &quot;your.email@example.com&quot; Copy the public key to your GitHub account (See example) cat ~/.ssh/id_ed25519.pub In GitHub, navigate to Settings -&gt; SSH and GPG keys -&gt; New SSH Key and paste it there (example) Confirm that your SSH key is connected to your GitHub account ssh -T git@github.com if successful, you should see: Hi username! You&#39;ve successfully authenticated, but GitHub does not provide shell access." />
+<meta property="og:description" content="Install Git Mac Install homebrew and follow the terminal instructions /bin/bash -c &quot;$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)&quot; Install git brew install git Windows Install Git for Windows, which provides Git Bash (terminal emulator for running Git commands) Or- install using Windows Powershell winget install --id Git.Git -e --source winget Note: if the above command didn’t work, you may need to install winget first $progressPreference = &#39;silentlyContinue&#39; Write-Host &quot;Installing WinGet PowerShell module from PSGallery...&quot; Install-PackageProvider -Name NuGet -Force | Out-Null Install-Module -Name Microsoft.WinGet.Client -Force -Repository PSGallery | Out-Null Write-Host &quot;Using Repair-WinGetPackageManager cmdlet to bootstrap WinGet...&quot; Repair-WinGetPackageManager Write-Host &quot;Done.&quot; You can also install Linux for Windows via WSL (Windows Subsystem for Linux) Once setup, Git can be installed using the Linux package manager Ubuntu Install Git sudo apt install git Configure Git Configure Git, replacing &quot;Your name&quot; and &quot;your.email@example.com&quot; with your info (including the quotes) to link your local Git profile with GitHub git config --global user.name &quot;Your Name&quot; git config --global user.email &quot;your.email@example.com&quot; Verify configuration git config --get user.name git config --get user.email Set up SSH Create a new SSH key using your GitHub email as a label Note: Press enter to skip through the 3 prompts that follow ssh-keygen -t ed25519 -C &quot;your.email@example.com&quot; Copy the public key to your GitHub account (See example) cat ~/.ssh/id_ed25519.pub In GitHub, navigate to Settings -&gt; SSH and GPG keys -&gt; New SSH Key and paste it there (example) Confirm that your SSH key is connected to your GitHub account ssh -T git@github.com if successful, you should see: Hi username! You&#39;ve successfully authenticated, but GitHub does not provide shell access." />
 <link rel="canonical" href="http://localhost:4000/2025/07/20/git_ssh_test.html" />
 <meta property="og:url" content="http://localhost:4000/2025/07/20/git_ssh_test.html" />
 <meta property="og:site_name" content="OC Robotics" />
@@ -18,7 +18,7 @@
 <meta name="twitter:card" content="summary" />
 <meta property="twitter:title" content="1.2 Setting Up Git, GitHub, and SSH" />
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"Your Name"},"dateModified":"2025-07-20T00:00:00-07:00","datePublished":"2025-07-20T00:00:00-07:00","description":"Install Git Installing on Windows Install Git for Windows, which provides Git Bash (terminal emulator for running Git commands) Or, install using Windows Powershell~~ winget install --id Git.Git -e --source winget You can also install Linux for Windows via WSL (Windows Subsystem for Linux) Once setup, Git can be installed using the Linux package manager Installing on Linux https://git-scm.com/book/en/v2/Getting-Started-Installing-Git Install Git sudo apt install git Configure Git Configure Git, replacing &quot;Your name&quot; and &quot;your.email@example.com&quot; with your info (including the quotes) to link your local Git profile with GitHub git config --global user.name &quot;Your Name&quot; git config --global user.email &quot;your.email@example.com&quot; Verify configuration git config --get user.name git config --get user.email # List all settings git config --list Basic Git Workflow Example Creating a local repository Create a local repository myTest and change the current working directory to myTest: mkdir myTest &amp;&amp; cd myTest Initialize a .git subdirectory in the current working directory Contains a hidden .git folder with subdirectories for objects, refs, and template files A HEAD file is also created which will point to the currently checked out commit git init If successful, you’ll see a message like: Initialized empty Git repository in /home/user/Mytest/.git/ Check the current state of the working directory and the staging area. Shows which changes have been staged, which haven’t, and which files aren’t being tracked by Git. git status Create a README file to describe the repository: We will use nano (sudo apt install nano), a simple, user-friendly text editor for the command line nano README.md # Add some text, example: This is a git repo # Save the file by pressing CTRL + X, then Y, then press Enter Optional: Create a sample.c file: #include&lt;stdio.h&gt; int main() { printf(&quot;hello world&quot;); return 0; } Staging Files in the Git Index Create and add files to the index. git add README.md git add sample.c Committing changes made to the index Commit the changes with a message: git commit -m &quot;Initial commit&quot; Creating a repository on GitHub Create a repository on GitHub with the same name as your local repository (e.g., “Mytest”). Connect your local repository to the GitHub repository (Replace &#39;user_name&#39; with your GitHub username): Using HTTPS: git remote add origin https://github.com/user_name/Mytest.git Or using SSH (recommended if you have an SSH key set up): git remote add origin git@github.com:user_name/Mytest.git Pushing files from a local repository to a GitHub repository Push the local repository contents to GitHub The first time running this command, you need to link the local master branch to the master branch on remote repository (origin) git push -u origin master # Can also use `git push --set-upstream origin master` # Note: Some repositories may use &#39;main&#39; as the default branch instead of &#39;master&#39;. # In that case, use the following command: # git push --set-upstream origin main For subsequent pushes ```bash git push origin master Or if your default branch is ‘main’: git push origin main - You may get a `permission denied` error when pushing to GitHub if SSH keys aren&#39;t set properly (See [Creating an SSH Key](#creating-an-ssh-key)) - Enable colorful output with git ```bash git config --global color.ui auto Creating an SSH Key Create an SSH key An SSH key is a cryptographically secure identifier. It’s like a really long password used to identify your machine, which can be used by GitHub without having to type in your username and password every time. Check for Existing SSH Keys Check for the presence of Ed25519 algorithm SSH keys An error indicates you do not have an existing SSH key pair in the default location. ls ~/.ssh/id_ed25519.pub Generate a New SSH Key on Your Local Machine and Add it to the SSH Agent Run the following command in the terminal to create a new SSH key using your GitHub email as a label: ssh-keygen -t ed25519 -C &quot;your.email@example.com&quot; When you’re prompted to “Enter a file in which to save the key”, you can press Enter to accept the default file location &gt; Enter file in which to save the key (/c/Users/YOU/.ssh/id_ALGORITHM):[Press enter] &gt; Generating public/private ed25519 key pair. Show the SSH key and copy it to your clipboard: cat ~/.ssh/id_ed25519.pub Link SSH Key with GitHub to enable authentication for Git operations over SSH In GitHub, navigate to Settings -&gt; SSH and GPG keys -&gt; New SSH Key: Name the key with a useful description of where it came from. Use the output of cat ~/.ssh/id_ed25519.pub and paste it the Key section Confirm that your SSH key is connected to your GitHub account ssh -T git@github.com if successful, you should see: Hi username! You&#39;ve successfully authenticated, but GitHub does not provide shell access.","headline":"1.2 Setting Up Git, GitHub, and SSH","mainEntityOfPage":{"@type":"WebPage","@id":"http://localhost:4000/2025/07/20/git_ssh_test.html"},"url":"http://localhost:4000/2025/07/20/git_ssh_test.html"}</script>
+{"@context":"https://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"Your Name"},"dateModified":"2025-07-20T00:00:00-07:00","datePublished":"2025-07-20T00:00:00-07:00","description":"Install Git Mac Install homebrew and follow the terminal instructions /bin/bash -c &quot;$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)&quot; Install git brew install git Windows Install Git for Windows, which provides Git Bash (terminal emulator for running Git commands) Or- install using Windows Powershell winget install --id Git.Git -e --source winget Note: if the above command didn’t work, you may need to install winget first $progressPreference = &#39;silentlyContinue&#39; Write-Host &quot;Installing WinGet PowerShell module from PSGallery...&quot; Install-PackageProvider -Name NuGet -Force | Out-Null Install-Module -Name Microsoft.WinGet.Client -Force -Repository PSGallery | Out-Null Write-Host &quot;Using Repair-WinGetPackageManager cmdlet to bootstrap WinGet...&quot; Repair-WinGetPackageManager Write-Host &quot;Done.&quot; You can also install Linux for Windows via WSL (Windows Subsystem for Linux) Once setup, Git can be installed using the Linux package manager Ubuntu Install Git sudo apt install git Configure Git Configure Git, replacing &quot;Your name&quot; and &quot;your.email@example.com&quot; with your info (including the quotes) to link your local Git profile with GitHub git config --global user.name &quot;Your Name&quot; git config --global user.email &quot;your.email@example.com&quot; Verify configuration git config --get user.name git config --get user.email Set up SSH Create a new SSH key using your GitHub email as a label Note: Press enter to skip through the 3 prompts that follow ssh-keygen -t ed25519 -C &quot;your.email@example.com&quot; Copy the public key to your GitHub account (See example) cat ~/.ssh/id_ed25519.pub In GitHub, navigate to Settings -&gt; SSH and GPG keys -&gt; New SSH Key and paste it there (example) Confirm that your SSH key is connected to your GitHub account ssh -T git@github.com if successful, you should see: Hi username! You&#39;ve successfully authenticated, but GitHub does not provide shell access.","headline":"1.2 Setting Up Git, GitHub, and SSH","mainEntityOfPage":{"@type":"WebPage","@id":"http://localhost:4000/2025/07/20/git_ssh_test.html"},"url":"http://localhost:4000/2025/07/20/git_ssh_test.html"}</script>
 <!-- End Jekyll SEO tag -->
 <link rel="stylesheet" href="/assets/main.css"><link type="application/atom+xml" rel="alternate" href="http://localhost:4000/feed.xml" title="OC Robotics" /></head>
 <body><header class="site-header" role="banner">
@@ -50,37 +50,46 @@
   <div class="post-content e-content" itemprop="articleBody">
     <!-- # Setting Up Git, GitHub, and SSH -->
 
-<!-- Resources
-- [HowToForge | Installing and using Git and GitHub on Ubuntu Linux](https://www.howtoforge.com/tutorial/install-git-and-github-on-ubuntu/) 
-- [TOP | Setting up Git](https://www.theodinproject.com/lessons/foundations-setting-up-git#introduction)  -->
-
-<!-- Table of Contents
-+ [Install Git](#install-git)
-  + [Installing on Windows](#installing-on-windows)
-  + [Installing on Linux](#installing-on-linux)
-+ [Configure Git](#configure-git)
-+ [Basic Git Workflow Example](#basic-git-workflow-example)
-  + [Creating a local repository](#creating-a-local-repository)
-  + [Staging Files in the Git Index](#staging-files-in-the-git-index)
-  + [Committing changes made to the index](#committing-changes-made-to-the-index)
-+ [Creating a repository on GitHub](#creating-a-repository-on-github)
-+ [Pushing files from a local repository to a GitHub repository](#pushing-files-from-a-local-repository-to-a-github-repository)
-+ [Creating an SSH Key](#creating-an-ssh-key) -->
-
-<!-- --- -->
-
 <h2 id="install-git">Install Git</h2>
 
-<h3 id="installing-on-windows">Installing on Windows</h3>
+<h3 id="mac"><em>Mac</em></h3>
+<ul>
+  <li>Install homebrew and follow the terminal instructions</li>
+</ul>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>/bin/bash <span class="nt">-c</span> <span class="s2">"</span><span class="si">$(</span>curl <span class="nt">-fsSL</span> https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh<span class="si">)</span><span class="s2">"</span>
+</code></pre></div></div>
+
+<ul>
+  <li>Install git</li>
+</ul>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>brew <span class="nb">install </span>git
+</code></pre></div></div>
+
+<h3 id="windows"><em>Windows</em></h3>
 
 <ul>
   <li>
     <p>Install <a href="https://gitforwindows.org/">Git for Windows</a>, which provides Git Bash (terminal emulator for running Git commands)</p>
   </li>
-  <li>Or, install using Windows Powershell~~
+  <li>Or- install using Windows Powershell
     <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>winget <span class="nb">install</span> <span class="nt">--id</span> Git.Git <span class="nt">-e</span> <span class="nt">--source</span> winget
 </code></pre></div>    </div>
   </li>
+  <li>Note: if the above command didn’t work, you may need to install <a href="https://chxtio.github.io/ocr_jekyll/">winget</a> first</li>
+</ul>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$progressPreference</span> <span class="o">=</span> <span class="s1">'silentlyContinue'</span>
+Write-Host <span class="s2">"Installing WinGet PowerShell module from PSGallery..."</span>
+Install-PackageProvider <span class="nt">-Name</span> NuGet <span class="nt">-Force</span> | Out-Null
+Install-Module <span class="nt">-Name</span> Microsoft.WinGet.Client <span class="nt">-Force</span> <span class="nt">-Repository</span> PSGallery | Out-Null
+Write-Host <span class="s2">"Using Repair-WinGetPackageManager cmdlet to bootstrap WinGet..."</span>
+Repair-WinGetPackageManager
+Write-Host <span class="s2">"Done."</span>
+</code></pre></div></div>
+
+<ul>
   <li>You can also install Linux for Windows via <a href="https://learn.microsoft.com/en-us/windows/wsl/install">WSL (Windows Subsystem for Linux)</a>
     <ul>
       <li>Once setup, Git can be installed using the Linux package manager</li>
@@ -88,212 +97,67 @@
   </li>
 </ul>
 
-<h3 id="installing-on-linux">Installing on Linux</h3>
-<p>https://git-scm.com/book/en/v2/Getting-Started-Installing-Git</p>
+<h3 id="ubuntu"><em>Ubuntu</em></h3>
+
 <ul>
-  <li>Install Git
-    <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">sudo </span>apt <span class="nb">install </span>git
-</code></pre></div>    </div>
-  </li>
+  <li>Install Git</li>
 </ul>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">sudo </span>apt <span class="nb">install </span>git
+</code></pre></div></div>
 
 <h2 id="configure-git">Configure Git</h2>
 <ul>
-  <li>
-    <p>Configure Git, replacing <code class="language-plaintext highlighter-rouge">"Your name"</code> and <code class="language-plaintext highlighter-rouge">"your.email@example.com"</code> with your info (including the quotes) to link your local Git profile with GitHub</p>
+  <li>Configure Git, replacing <code class="language-plaintext highlighter-rouge">"Your name"</code> and <code class="language-plaintext highlighter-rouge">"your.email@example.com"</code> with your info (including the quotes) to link your local Git profile with GitHub</li>
+</ul>
 
-    <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>git config <span class="nt">--global</span> user.name <span class="s2">"Your Name"</span>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>git config <span class="nt">--global</span> user.name <span class="s2">"Your Name"</span>
 git config <span class="nt">--global</span> user.email <span class="s2">"your.email@example.com"</span>
-</code></pre></div>    </div>
-  </li>
-  <li>
-    <p>Verify configuration</p>
+</code></pre></div></div>
 
-    <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>git config <span class="nt">--get</span> user.name
+<ul>
+  <li>Verify configuration</li>
+</ul>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>git config <span class="nt">--get</span> user.name
 git config <span class="nt">--get</span> user.email
-<span class="c"># List all settings</span>
-git config <span class="nt">--list</span>
-</code></pre></div>    </div>
-  </li>
-</ul>
-
-<h2 id="basic-git-workflow-example">Basic Git Workflow Example</h2>
-<h3 id="creating-a-local-repository">Creating a local repository</h3>
-<ul>
-  <li>
-    <p>Create a local repository <code class="language-plaintext highlighter-rouge">myTest</code> and change the current working directory to <code class="language-plaintext highlighter-rouge">myTest</code>:</p>
-
-    <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">mkdir </span>myTest <span class="o">&amp;&amp;</span> <span class="nb">cd </span>myTest
-</code></pre></div>    </div>
-  </li>
-  <li>Initialize a <code class="language-plaintext highlighter-rouge">.git</code> subdirectory in the current working directory
-    <ul>
-      <li>Contains a hidden <code class="language-plaintext highlighter-rouge">.git</code> folder with subdirectories for objects, refs, and template files</li>
-      <li>A HEAD file is also created which will point to the currently checked out commit</li>
-    </ul>
-
-    <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>git init
-</code></pre></div>    </div>
-
-    <ul>
-      <li>If successful, you’ll see a message like:</li>
-    </ul>
-
-    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Initialized empty Git repository in /home/user/Mytest/.git/
-</code></pre></div>    </div>
-  </li>
-  <li>Check the current state of the working directory and the staging area.
-    <ul>
-      <li>Shows which changes have been staged, which haven’t, and which files aren’t being tracked by Git.
-        <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>git status
-</code></pre></div>        </div>
-      </li>
-    </ul>
-  </li>
-  <li>Create a README file to describe the repository:
-    <ul>
-      <li>We will use nano (<code class="language-plaintext highlighter-rouge">sudo apt install nano</code>), a simple, user-friendly text editor for the command line
-        <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>nano README.md
-<span class="c"># Add some text, example:</span>
-This is a git repo
-<span class="c"># Save the file by pressing CTRL + X, then Y, then press Enter</span>
-</code></pre></div>        </div>
-      </li>
-    </ul>
-  </li>
-  <li>
-    <p>Optional: Create a <code class="language-plaintext highlighter-rouge">sample.c</code> file:</p>
-
-    <div class="language-c highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">#include</span><span class="cpf">&lt;stdio.h&gt;</span><span class="cp">
-</span><span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
-<span class="p">{</span>
-    <span class="n">printf</span><span class="p">(</span><span class="s">"hello world"</span><span class="p">);</span>
-    <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
-<span class="p">}</span>
-</code></pre></div>    </div>
-  </li>
-</ul>
-
-<h3 id="staging-files-in-the-git-index">Staging Files in the Git Index</h3>
-
-<ul>
-  <li>
-    <p>Create and add files to the index.</p>
-
-    <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>git add README.md
-git add sample.c
-</code></pre></div>    </div>
-    <h3 id="committing-changes-made-to-the-index">Committing changes made to the index</h3>
-  </li>
-  <li>
-    <p>Commit the changes with a message:</p>
-
-    <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>git commit <span class="nt">-m</span> <span class="s2">"Initial commit"</span>
-</code></pre></div>    </div>
-    <h2 id="creating-a-repository-on-github">Creating a repository on GitHub</h2>
-  </li>
-  <li>
-    <p>Create a repository on GitHub with the same name as your local repository (e.g., “Mytest”).
-<img src="https://i.imgur.com/6hpahg2.png" alt="picture 0" /></p>
-  </li>
-  <li>
-    <p>Connect your local repository to the GitHub repository (Replace <code class="language-plaintext highlighter-rouge">'user_name'</code> with your GitHub username):</p>
-  </li>
-</ul>
-
-<p><em>Using HTTPS:</em></p>
-<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  git remote add origin https://github.com/user_name/Mytest.git
-</code></pre></div></div>
-<p><em>Or using SSH (recommended if you have an <a href="#creating-an-ssh-key">SSH key</a> set up):</em></p>
-<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>git remote add origin git@github.com:user_name/Mytest.git
 </code></pre></div></div>
 
-<h2 id="pushing-files-from-a-local-repository-to-a-github-repository">Pushing files from a local repository to a GitHub repository</h2>
+<h2 id="set-up-ssh">Set up SSH</h2>
 <ul>
-  <li>Push the local repository contents to GitHub
-    <ul>
-      <li>The first time running this command, you need to link the local <code class="language-plaintext highlighter-rouge">master</code> branch to the <code class="language-plaintext highlighter-rouge">master</code> branch on remote repository (<code class="language-plaintext highlighter-rouge">origin</code>)</li>
-    </ul>
-  </li>
+  <li>Create a new SSH key using your GitHub email as a label</li>
 </ul>
 
-<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>git push <span class="nt">-u</span> origin master
-<span class="c"># Can also use `git push --set-upstream origin master`</span>
+<p><strong>Note: Press enter to skip through the 3 prompts that follow</strong></p>
 
-<span class="c"># Note: Some repositories may use 'main' as the default branch instead of 'master'.</span>
-<span class="c"># In that case, use the following command:</span>
-<span class="c"># git push --set-upstream origin main</span>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>ssh-keygen <span class="nt">-t</span> ed25519 <span class="nt">-C</span> <span class="s2">"your.email@example.com"</span>
 </code></pre></div></div>
 
 <ul>
-  <li>For subsequent pushes
-  ```bash
-git push origin master</li>
+  <li>Copy the public key to your GitHub account (See <a href="https://github.com/Training-Dummy/howtoforge_git_ubuntu/blob/master/README.md#creating-an-ssh-key">example</a>)</li>
 </ul>
 
-<h1 id="or-if-your-default-branch-is-main">Or if your default branch is ‘main’:</h1>
-<h1 id="git-push-origin-main">git push origin main</h1>
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  - You may get a `permission denied` error when pushing to GitHub if SSH keys aren't set properly (See [Creating an SSH Key](#creating-an-ssh-key))
-
-- Enable colorful output with git
-
-  ```bash
-  git config --global color.ui auto
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">cat</span> ~/.ssh/id_ed25519.pub
 </code></pre></div></div>
-<hr />
-<h2 id="creating-an-ssh-key">Creating an SSH Key</h2>
-<p><a href="https://www.theodinproject.com/lessons/foundations-setting-up-git#step-23-create-an-ssh-key">Create an SSH key</a>
-<img src="https://www.ssh.com/hubfs/Imported_Blog_Media/SSH_simplified_protocol_diagram-2.png" alt="ssh diagram" /></p>
-
-<p>An SSH key is a cryptographically secure identifier. It’s like a really long password used to identify your machine, which can be used by GitHub without having to type in your username and password every time.</p>
 
 <ul>
-  <li><a href="https://docs.github.com/en/authentication/connecting-to-github-with-ssh/checking-for-existing-ssh-keys">Check for Existing SSH Keys</a>
-    <ul>
-      <li>Check for the presence of Ed25519 algorithm SSH keys</li>
-      <li>An error indicates you do not have an existing SSH key pair in the default location.
-        <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">ls</span> ~/.ssh/id_ed25519.pub
-</code></pre></div>        </div>
-      </li>
-    </ul>
+  <li>
+    <p>In GitHub, navigate to <a href="https://github.com/settings/ssh/new"><strong>Settings -&gt; SSH and GPG keys -&gt; New SSH Key</strong></a> and paste it there (<a href="https://camo.githubusercontent.com/6d19b54f3f16f98804e3b33804d6eb2fa82fb2e796dbce825f8cba2f4b3f74a3/68747470733a2f2f692e696d6775722e636f6d2f676466624a4b6a2e706e67">example</a>)</p>
   </li>
-  <li><a href="https://docs.github.com/en/authentication/connecting-to-github-with-ssh/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent">Generate a New SSH Key on Your Local Machine and Add it to the SSH Agent</a>
-    <ul>
-      <li>Run the following command in the terminal to create a new SSH key using your GitHub email as a label:
-        <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>ssh-keygen <span class="nt">-t</span> ed25519 <span class="nt">-C</span> <span class="s2">"your.email@example.com"</span>
-</code></pre></div>        </div>
-      </li>
-      <li>When you’re prompted to “Enter a file in which to save the key”, you can press Enter to accept the default file location
-        <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>&gt; Enter file in which to save the key (/c/Users/YOU/.ssh/id_ALGORITHM):[Press enter]
-</code></pre></div>        </div>
-        <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>&gt; Generating public/private ed25519 key pair.
-</code></pre></div>        </div>
-      </li>
-      <li>Show the SSH key and copy it to your clipboard:
-        <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">cat</span> ~/.ssh/id_ed25519.pub
-</code></pre></div>        </div>
-      </li>
-    </ul>
-  </li>
-  <li><strong>Link SSH Key with GitHub to enable authentication for Git operations over SSH</strong>
-    <ul>
-      <li>In GitHub, navigate to <a href="https://github.com/settings/ssh/new"><strong>Settings -&gt; SSH and GPG keys -&gt; New SSH Key</strong></a>:</li>
-      <li>Name the key with a useful description of where it came from.</li>
-      <li>
-        <p>Use the output of <code class="language-plaintext highlighter-rouge">cat ~/.ssh/id_ed25519.pub</code> and paste it the Key section
-  <img src="https://i.imgur.com/gdfbJKj.png" alt="picture 2" /></p>
-      </li>
-      <li>Confirm that your SSH key is connected to your GitHub account
-        <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  ssh <span class="nt">-T</span> git@github.com
-</code></pre></div>        </div>
-      </li>
-      <li>if successful, you should see:
-        <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  Hi username! You've successfully authenticated, but GitHub does not provide shell access.
-</code></pre></div>        </div>
-      </li>
-    </ul>
+  <li>
+    <p>Confirm that your SSH key is connected to your GitHub account</p>
   </li>
 </ul>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>ssh <span class="nt">-T</span> git@github.com
+</code></pre></div></div>
+
+<ul>
+  <li>if successful, you should see:</li>
+</ul>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Hi username! You've successfully authenticated, but GitHub does not provide shell access.
+</code></pre></div></div>
 
   </div><a class="u-url" href="/2025/07/20/git_ssh_test.html" hidden></a>
 </article>
