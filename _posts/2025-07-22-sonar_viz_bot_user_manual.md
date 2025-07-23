@@ -17,6 +17,15 @@ date: 2025-07-10
     - [2.1 Software](#21-software)
     - [2.2 L293D Motor Driver](#22-l293d-motor-driver) -->
 
+# Project Introduction
+
+This instruction manual outlines the process of designing and building the *Sonar Viz Bot*- a training project intended to introduce new OCR members to the engineering design process. It aims to quickly develop the core skills and competencies for rookies to meaningfully contribute to club projects and eventually compete in the University Rover Challenge (URC).
+
+
+
+<img src="https://i.imgur.com/QXUko01.png" width="400">
+
+
 # Timeline
 
 ![picture 47](https://i.imgur.com/HjTRo7Q.png)  
