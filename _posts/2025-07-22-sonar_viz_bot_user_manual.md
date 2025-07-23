@@ -24,12 +24,12 @@ date: 2025-07-10
 # 1. Software Setup
 The configuration of Git, GitHub, and SSH and the software environment setup is described. To streamline the development process, we have created a Docker container with Ubuntu 22.04, ROS2 Humble, and dependencies. 
 
-## 1.0 Join the Github Organizations
+## 1.0 Join the Github Org
 
 - Add your GitHub username to the [discord thread](https://discord.com/channels/1204942703243173918/1337563694032359445/1339813815394766951)
 - You will be invited to the following
-  - https://github.com/oc-robotics
-  - https://github.com/Training-Dummy
+  - [https://github.com/oc-robotics](https://github.com/oc-robotics)
+  - [https://github.com/Training-Dummy](https://github.com/Training-Dummy)
 
 ## 1.1 Recommended Directory Structure
 
