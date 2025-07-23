@@ -1,16 +1,16 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.9.0">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2025-07-23T00:39:06-07:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">OC Robotics</title><subtitle>Write an awesome description for your new site here. You can edit this line in _config.yml. It will appear in your document head meta (for Google search results) and in your feed.xml site description.</subtitle><author><name>Your Name</name><email>your-email@example.com</email></author><entry><title type="html">1.3 Create Initial Directory Structure</title><link href="http://localhost:4000/2025/07/22/iniitial_directory_structure.html" rel="alternate" type="text/html" title="1.3 Create Initial Directory Structure" /><published>2025-07-22T00:00:00-07:00</published><updated>2025-07-22T00:00:00-07:00</updated><id>http://localhost:4000/2025/07/22/iniitial_directory_structure</id><content type="html" xml:base="http://localhost:4000/2025/07/22/iniitial_directory_structure.html"><![CDATA[<h1 id="13-create-initial-directory-structure">1.3 Create Initial Directory Structure</h1>
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.9.0">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2025-07-23T01:44:58-07:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">OC Robotics</title><subtitle>Write an awesome description for your new site here. You can edit this line in _config.yml. It will appear in your document head meta (for Google search results) and in your feed.xml site description.</subtitle><author><name>Your Name</name><email>your-email@example.com</email></author><entry><title type="html">1.3 Create Initial Directory Structure</title><link href="http://localhost:4000/2025/07/22/iniitial_directory_structure.html" rel="alternate" type="text/html" title="1.3 Create Initial Directory Structure" /><published>2025-07-22T00:00:00-07:00</published><updated>2025-07-22T00:00:00-07:00</updated><id>http://localhost:4000/2025/07/22/iniitial_directory_structure</id><content type="html" xml:base="http://localhost:4000/2025/07/22/iniitial_directory_structure.html"><![CDATA[<h1 id="13-create-initial-directory-structure">1.3 Create Initial Directory Structure</h1>
 
 <p><em>Preview</em></p>
 
 <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>~/ocr/
 │
-├── dev\_ws/
+├── dev_ws/
 │   └── src/
 │
 ├── ocr-docker/
 │
-└── training\_ws/
-└── src/
+├── training_ws/
+│   └── src/
 </code></pre></div></div>
 
 <p>1. Create <code class="language-plaintext highlighter-rouge">ocr</code> folder and cd into it</p>
@@ -41,7 +41,7 @@
 <!-- Expected output: -->
 
 <pre><code class="language-output">dev_ws  ocr-docker  training_ws
-</code></pre>]]></content><author><name>Your Name</name><email>your-email@example.com</email></author><summary type="html"><![CDATA[1.3 Create Initial Directory Structure Preview ~/ocr/ │ ├── dev\_ws/ │ └── src/ │ ├── ocr-docker/ │ └── training\_ws/ └── src/ 1. Create ocr folder and cd into it mkdir ~/ocr &amp;&amp; cd ~/ocr 2. Create the dev_ws and src folder inside it (ROS packages will be installed in src later) mkdir -p dev_ws/src 3. Create training_ws folder and src folder inside it mkdir -p training_ws/src 4. Create ocr-docker folder mkdir ocr-docker 5. Verify that folders have been created inside ocr ls dev_ws ocr-docker training_ws]]></summary></entry><entry><title type="html">1.4 OCR Docker</title><link href="http://localhost:4000/2025/07/22/ocr_docker.html" rel="alternate" type="text/html" title="1.4 OCR Docker" /><published>2025-07-22T00:00:00-07:00</published><updated>2025-07-22T00:00:00-07:00</updated><id>http://localhost:4000/2025/07/22/ocr_docker</id><content type="html" xml:base="http://localhost:4000/2025/07/22/ocr_docker.html"><![CDATA[<!-- # 1.4 OCR Docker -->
+</code></pre>]]></content><author><name>Your Name</name><email>your-email@example.com</email></author><summary type="html"><![CDATA[1.3 Create Initial Directory Structure Preview ~/ocr/ │ ├── dev_ws/ │ └── src/ │ ├── ocr-docker/ │ ├── training_ws/ │ └── src/ 1. Create ocr folder and cd into it mkdir ~/ocr &amp;&amp; cd ~/ocr 2. Create the dev_ws and src folder inside it (ROS packages will be installed in src later) mkdir -p dev_ws/src 3. Create training_ws folder and src folder inside it mkdir -p training_ws/src 4. Create ocr-docker folder mkdir ocr-docker 5. Verify that folders have been created inside ocr ls dev_ws ocr-docker training_ws]]></summary></entry><entry><title type="html">1.4 OCR Docker</title><link href="http://localhost:4000/2025/07/22/ocr_docker.html" rel="alternate" type="text/html" title="1.4 OCR Docker" /><published>2025-07-22T00:00:00-07:00</published><updated>2025-07-22T00:00:00-07:00</updated><id>http://localhost:4000/2025/07/22/ocr_docker</id><content type="html" xml:base="http://localhost:4000/2025/07/22/ocr_docker.html"><![CDATA[<!-- # 1.4 OCR Docker -->
 
 <div class="important">
   <strong>Important:</strong> If you have already installed the container, skip to 
@@ -60,7 +60,7 @@
     <p>Install and open <a href="https://docs.docker.com/desktop/">Docker Desktop</a></p>
   </li>
   <li>
-    <p>Clone the repo and cd into it</p>
+    <p>Clone the <a href="https://github.com/oc-robotics/ocr-docker">repo</a> and cd into it</p>
   </li>
 </ul>
 
@@ -68,16 +68,12 @@
 git clone https://github.com/oc-robotics/ocr-docker.git
 <span class="nb">cd </span>ocr-docker
 </code></pre></div></div>
+<!-- 
+- Make sure the volume is mounted correctly in `docker-compose.yml`
+    - The default path assumes the following file structure
 
-<ul>
-  <li>Make sure the volume is mounted correctly in <code class="language-plaintext highlighter-rouge">docker-compose.yml</code>
-    <ul>
-      <li>The default path assumes the following file structure</li>
-    </ul>
-  </li>
-</ul>
-
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>~/ocr/
+```
+~/ocr/
 │
 ├── dev_ws/
 │   ├── build/
@@ -92,7 +88,7 @@ git clone https://github.com/oc-robotics/ocr-docker.git
 │   └── docker-compose.yml
 │
 └── training_ws/
-</code></pre></div></div>
+``` -->
 
 <ul>
   <li>Pull the base image from Docker Hub</li>
@@ -107,7 +103,23 @@ git clone https://github.com/oc-robotics/ocr-docker.git
 <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>docker build <span class="nt">-t</span> ocr-docker:humble <span class="nb">.</span>
 </code></pre></div></div>
 
-<h2 id="step-2-run-the-docker-container">Step 2: Run the docker container</h2>
+<h2 id="step-2-install-any-ros-pacakges">Step 2: Install any ROS pacakges</h2>
+
+<ul>
+  <li>As an example, we will install <a href="https://github.com/oc-robotics/differential_drive_robot">differential_drive_robot</a> in <code class="language-plaintext highlighter-rouge">src</code></li>
+</ul>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">cd</span> ~/ocr/dev_ws/src
+</code></pre></div></div>
+
+<ul>
+  <li>Clone the repository</li>
+</ul>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>git clone git@github.com:oc-robotics/differential_drive_robot.git
+</code></pre></div></div>
+
+<h2 id="step-3-run-the-docker-container">Step 3: Run the docker container</h2>
 <ul>
   <li>Start the container in the background (detached mode)</li>
 </ul>
@@ -116,7 +128,7 @@ git clone https://github.com/oc-robotics/ocr-docker.git
 </code></pre></div></div>
 
 <ul>
-  <li>Open an interactive bash shell inside the container to run commands</li>
+  <li><em>Optional</em>: Open an interactive bash shell inside the container to run commands</li>
 </ul>
 
 <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>docker <span class="nb">exec</span> <span class="nt">-it</span> ocr-humble-nekton-og bash
@@ -166,7 +178,7 @@ docker-pr 1001 root    4u  IPv6  26542      0t0  TCP *:6080 (LISTEN)
 </ul>
 
 <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">sudo kill</span> <span class="nt">-9</span> 995 1001
-</code></pre></div></div>]]></content><author><name>Your Name</name><email>your-email@example.com</email></author><summary type="html"><![CDATA[Important: If you have already installed the container, skip to Step 2: Run the docker container. Step 1: Install the container Install and open Docker Desktop Clone the repo and cd into it cd ocr git clone https://github.com/oc-robotics/ocr-docker.git cd ocr-docker Make sure the volume is mounted correctly in docker-compose.yml The default path assumes the following file structure ~/ocr/ │ ├── dev_ws/ │ ├── build/ │ ├── install/ │ ├── log/ │ └── src/ │ └── differential_drive_robot/ │ ├── ocr-docker/ │ ├── Dockerfile │ ├── README.md │ └── docker-compose.yml │ └── training_ws/ Pull the base image from Docker Hub docker pull mwoodward6/nekton:humble Build the custom image docker build -t ocr-docker:humble . Step 2: Run the docker container Start the container in the background (detached mode) docker-compose up -d Open an interactive bash shell inside the container to run commands docker exec -it ocr-humble-nekton-og bash Browse http://localhost:6080/ to access the remote desktop via VNC Stop the container exit # Exit the interactive shell docker-compose stop If you need to remove the container docker-compose down Troubleshooting If you encounter an error due to port 6080 being in use, check which processes are using it sudo lsof -i :6080 Sample output COMMAND PID USER FD TYPE DEVICE SIZE/OFF NODE NAME docker-pr 995 root 4u IPv4 27629 0t0 TCP *:6080 (LISTEN) docker-pr 1001 root 4u IPv6 26542 0t0 TCP *:6080 (LISTEN) Stop the processes sudo kill -9 995 1001]]></summary></entry><entry><title type="html">1.2 Setting Up Git, GitHub, and SSH</title><link href="http://localhost:4000/2025/07/20/git_ssh_test.html" rel="alternate" type="text/html" title="1.2 Setting Up Git, GitHub, and SSH" /><published>2025-07-20T00:00:00-07:00</published><updated>2025-07-20T00:00:00-07:00</updated><id>http://localhost:4000/2025/07/20/git_ssh_test</id><content type="html" xml:base="http://localhost:4000/2025/07/20/git_ssh_test.html"><![CDATA[<!-- # Setting Up Git, GitHub, and SSH -->
+</code></pre></div></div>]]></content><author><name>Your Name</name><email>your-email@example.com</email></author><summary type="html"><![CDATA[Important: If you have already installed the container, skip to Step 2: Run the docker container. Step 1: Install the container Install and open Docker Desktop Clone the repo and cd into it cd ocr git clone https://github.com/oc-robotics/ocr-docker.git cd ocr-docker Pull the base image from Docker Hub docker pull mwoodward6/nekton:humble Build the custom image docker build -t ocr-docker:humble . Step 2: Install any ROS pacakges As an example, we will install differential_drive_robot in src cd ~/ocr/dev_ws/src Clone the repository git clone git@github.com:oc-robotics/differential_drive_robot.git Step 3: Run the docker container Start the container in the background (detached mode) docker-compose up -d Optional: Open an interactive bash shell inside the container to run commands docker exec -it ocr-humble-nekton-og bash Browse http://localhost:6080/ to access the remote desktop via VNC Stop the container exit # Exit the interactive shell docker-compose stop If you need to remove the container docker-compose down Troubleshooting If you encounter an error due to port 6080 being in use, check which processes are using it sudo lsof -i :6080 Sample output COMMAND PID USER FD TYPE DEVICE SIZE/OFF NODE NAME docker-pr 995 root 4u IPv4 27629 0t0 TCP *:6080 (LISTEN) docker-pr 1001 root 4u IPv6 26542 0t0 TCP *:6080 (LISTEN) Stop the processes sudo kill -9 995 1001]]></summary></entry><entry><title type="html">1.2 Setting Up Git, GitHub, and SSH</title><link href="http://localhost:4000/2025/07/20/git_ssh_test.html" rel="alternate" type="text/html" title="1.2 Setting Up Git, GitHub, and SSH" /><published>2025-07-20T00:00:00-07:00</published><updated>2025-07-20T00:00:00-07:00</updated><id>http://localhost:4000/2025/07/20/git_ssh_test</id><content type="html" xml:base="http://localhost:4000/2025/07/20/git_ssh_test.html"><![CDATA[<!-- # Setting Up Git, GitHub, and SSH -->
 
 <h2 id="install-git">Install Git</h2>
 

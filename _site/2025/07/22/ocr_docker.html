@@ -8,8 +8,8 @@
 <meta property="og:title" content="1.4 OCR Docker" />
 <meta name="author" content="Your Name" />
 <meta property="og:locale" content="en_US" />
-<meta name="description" content="Important: If you have already installed the container, skip to Step 2: Run the docker container. Step 1: Install the container Install and open Docker Desktop Clone the repo and cd into it cd ocr git clone https://github.com/oc-robotics/ocr-docker.git cd ocr-docker Make sure the volume is mounted correctly in docker-compose.yml The default path assumes the following file structure ~/ocr/ │ ├── dev_ws/ │ ├── build/ │ ├── install/ │ ├── log/ │ └── src/ │ └── differential_drive_robot/ │ ├── ocr-docker/ │ ├── Dockerfile │ ├── README.md │ └── docker-compose.yml │ └── training_ws/ Pull the base image from Docker Hub docker pull mwoodward6/nekton:humble Build the custom image docker build -t ocr-docker:humble . Step 2: Run the docker container Start the container in the background (detached mode) docker-compose up -d Open an interactive bash shell inside the container to run commands docker exec -it ocr-humble-nekton-og bash Browse http://localhost:6080/ to access the remote desktop via VNC Stop the container exit # Exit the interactive shell docker-compose stop If you need to remove the container docker-compose down Troubleshooting If you encounter an error due to port 6080 being in use, check which processes are using it sudo lsof -i :6080 Sample output COMMAND PID USER FD TYPE DEVICE SIZE/OFF NODE NAME docker-pr 995 root 4u IPv4 27629 0t0 TCP *:6080 (LISTEN) docker-pr 1001 root 4u IPv6 26542 0t0 TCP *:6080 (LISTEN) Stop the processes sudo kill -9 995 1001" />
-<meta property="og:description" content="Important: If you have already installed the container, skip to Step 2: Run the docker container. Step 1: Install the container Install and open Docker Desktop Clone the repo and cd into it cd ocr git clone https://github.com/oc-robotics/ocr-docker.git cd ocr-docker Make sure the volume is mounted correctly in docker-compose.yml The default path assumes the following file structure ~/ocr/ │ ├── dev_ws/ │ ├── build/ │ ├── install/ │ ├── log/ │ └── src/ │ └── differential_drive_robot/ │ ├── ocr-docker/ │ ├── Dockerfile │ ├── README.md │ └── docker-compose.yml │ └── training_ws/ Pull the base image from Docker Hub docker pull mwoodward6/nekton:humble Build the custom image docker build -t ocr-docker:humble . Step 2: Run the docker container Start the container in the background (detached mode) docker-compose up -d Open an interactive bash shell inside the container to run commands docker exec -it ocr-humble-nekton-og bash Browse http://localhost:6080/ to access the remote desktop via VNC Stop the container exit # Exit the interactive shell docker-compose stop If you need to remove the container docker-compose down Troubleshooting If you encounter an error due to port 6080 being in use, check which processes are using it sudo lsof -i :6080 Sample output COMMAND PID USER FD TYPE DEVICE SIZE/OFF NODE NAME docker-pr 995 root 4u IPv4 27629 0t0 TCP *:6080 (LISTEN) docker-pr 1001 root 4u IPv6 26542 0t0 TCP *:6080 (LISTEN) Stop the processes sudo kill -9 995 1001" />
+<meta name="description" content="Important: If you have already installed the container, skip to Step 2: Run the docker container. Step 1: Install the container Install and open Docker Desktop Clone the repo and cd into it cd ocr git clone https://github.com/oc-robotics/ocr-docker.git cd ocr-docker Pull the base image from Docker Hub docker pull mwoodward6/nekton:humble Build the custom image docker build -t ocr-docker:humble . Step 2: Install any ROS pacakges As an example, we will install differential_drive_robot in src cd ~/ocr/dev_ws/src Clone the repository git clone git@github.com:oc-robotics/differential_drive_robot.git Step 3: Run the docker container Start the container in the background (detached mode) docker-compose up -d Optional: Open an interactive bash shell inside the container to run commands docker exec -it ocr-humble-nekton-og bash Browse http://localhost:6080/ to access the remote desktop via VNC Stop the container exit # Exit the interactive shell docker-compose stop If you need to remove the container docker-compose down Troubleshooting If you encounter an error due to port 6080 being in use, check which processes are using it sudo lsof -i :6080 Sample output COMMAND PID USER FD TYPE DEVICE SIZE/OFF NODE NAME docker-pr 995 root 4u IPv4 27629 0t0 TCP *:6080 (LISTEN) docker-pr 1001 root 4u IPv6 26542 0t0 TCP *:6080 (LISTEN) Stop the processes sudo kill -9 995 1001" />
+<meta property="og:description" content="Important: If you have already installed the container, skip to Step 2: Run the docker container. Step 1: Install the container Install and open Docker Desktop Clone the repo and cd into it cd ocr git clone https://github.com/oc-robotics/ocr-docker.git cd ocr-docker Pull the base image from Docker Hub docker pull mwoodward6/nekton:humble Build the custom image docker build -t ocr-docker:humble . Step 2: Install any ROS pacakges As an example, we will install differential_drive_robot in src cd ~/ocr/dev_ws/src Clone the repository git clone git@github.com:oc-robotics/differential_drive_robot.git Step 3: Run the docker container Start the container in the background (detached mode) docker-compose up -d Optional: Open an interactive bash shell inside the container to run commands docker exec -it ocr-humble-nekton-og bash Browse http://localhost:6080/ to access the remote desktop via VNC Stop the container exit # Exit the interactive shell docker-compose stop If you need to remove the container docker-compose down Troubleshooting If you encounter an error due to port 6080 being in use, check which processes are using it sudo lsof -i :6080 Sample output COMMAND PID USER FD TYPE DEVICE SIZE/OFF NODE NAME docker-pr 995 root 4u IPv4 27629 0t0 TCP *:6080 (LISTEN) docker-pr 1001 root 4u IPv6 26542 0t0 TCP *:6080 (LISTEN) Stop the processes sudo kill -9 995 1001" />
 <link rel="canonical" href="http://localhost:4000/2025/07/22/ocr_docker.html" />
 <meta property="og:url" content="http://localhost:4000/2025/07/22/ocr_docker.html" />
 <meta property="og:site_name" content="OC Robotics" />
@@ -18,7 +18,7 @@
 <meta name="twitter:card" content="summary" />
 <meta property="twitter:title" content="1.4 OCR Docker" />
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"Your Name"},"dateModified":"2025-07-22T00:00:00-07:00","datePublished":"2025-07-22T00:00:00-07:00","description":"Important: If you have already installed the container, skip to Step 2: Run the docker container. Step 1: Install the container Install and open Docker Desktop Clone the repo and cd into it cd ocr git clone https://github.com/oc-robotics/ocr-docker.git cd ocr-docker Make sure the volume is mounted correctly in docker-compose.yml The default path assumes the following file structure ~/ocr/ │ ├── dev_ws/ │ ├── build/ │ ├── install/ │ ├── log/ │ └── src/ │ └── differential_drive_robot/ │ ├── ocr-docker/ │ ├── Dockerfile │ ├── README.md │ └── docker-compose.yml │ └── training_ws/ Pull the base image from Docker Hub docker pull mwoodward6/nekton:humble Build the custom image docker build -t ocr-docker:humble . Step 2: Run the docker container Start the container in the background (detached mode) docker-compose up -d Open an interactive bash shell inside the container to run commands docker exec -it ocr-humble-nekton-og bash Browse http://localhost:6080/ to access the remote desktop via VNC Stop the container exit # Exit the interactive shell docker-compose stop If you need to remove the container docker-compose down Troubleshooting If you encounter an error due to port 6080 being in use, check which processes are using it sudo lsof -i :6080 Sample output COMMAND PID USER FD TYPE DEVICE SIZE/OFF NODE NAME docker-pr 995 root 4u IPv4 27629 0t0 TCP *:6080 (LISTEN) docker-pr 1001 root 4u IPv6 26542 0t0 TCP *:6080 (LISTEN) Stop the processes sudo kill -9 995 1001","headline":"1.4 OCR Docker","mainEntityOfPage":{"@type":"WebPage","@id":"http://localhost:4000/2025/07/22/ocr_docker.html"},"url":"http://localhost:4000/2025/07/22/ocr_docker.html"}</script>
+{"@context":"https://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"Your Name"},"dateModified":"2025-07-22T00:00:00-07:00","datePublished":"2025-07-22T00:00:00-07:00","description":"Important: If you have already installed the container, skip to Step 2: Run the docker container. Step 1: Install the container Install and open Docker Desktop Clone the repo and cd into it cd ocr git clone https://github.com/oc-robotics/ocr-docker.git cd ocr-docker Pull the base image from Docker Hub docker pull mwoodward6/nekton:humble Build the custom image docker build -t ocr-docker:humble . Step 2: Install any ROS pacakges As an example, we will install differential_drive_robot in src cd ~/ocr/dev_ws/src Clone the repository git clone git@github.com:oc-robotics/differential_drive_robot.git Step 3: Run the docker container Start the container in the background (detached mode) docker-compose up -d Optional: Open an interactive bash shell inside the container to run commands docker exec -it ocr-humble-nekton-og bash Browse http://localhost:6080/ to access the remote desktop via VNC Stop the container exit # Exit the interactive shell docker-compose stop If you need to remove the container docker-compose down Troubleshooting If you encounter an error due to port 6080 being in use, check which processes are using it sudo lsof -i :6080 Sample output COMMAND PID USER FD TYPE DEVICE SIZE/OFF NODE NAME docker-pr 995 root 4u IPv4 27629 0t0 TCP *:6080 (LISTEN) docker-pr 1001 root 4u IPv6 26542 0t0 TCP *:6080 (LISTEN) Stop the processes sudo kill -9 995 1001","headline":"1.4 OCR Docker","mainEntityOfPage":{"@type":"WebPage","@id":"http://localhost:4000/2025/07/22/ocr_docker.html"},"url":"http://localhost:4000/2025/07/22/ocr_docker.html"}</script>
 <!-- End Jekyll SEO tag -->
 <link rel="stylesheet" href="/assets/main.css"><link type="application/atom+xml" rel="alternate" href="http://localhost:4000/feed.xml" title="OC Robotics" /></head>
 <body><header class="site-header" role="banner">
@@ -67,7 +67,7 @@
     <p>Install and open <a href="https://docs.docker.com/desktop/">Docker Desktop</a></p>
   </li>
   <li>
-    <p>Clone the repo and cd into it</p>
+    <p>Clone the <a href="https://github.com/oc-robotics/ocr-docker">repo</a> and cd into it</p>
   </li>
 </ul>
 
@@ -75,16 +75,12 @@
 git clone https://github.com/oc-robotics/ocr-docker.git
 <span class="nb">cd </span>ocr-docker
 </code></pre></div></div>
+<!-- 
+- Make sure the volume is mounted correctly in `docker-compose.yml`
+    - The default path assumes the following file structure
 
-<ul>
-  <li>Make sure the volume is mounted correctly in <code class="language-plaintext highlighter-rouge">docker-compose.yml</code>
-    <ul>
-      <li>The default path assumes the following file structure</li>
-    </ul>
-  </li>
-</ul>
-
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>~/ocr/
+```
+~/ocr/
 │
 ├── dev_ws/
 │   ├── build/
@@ -99,7 +95,7 @@ git clone https://github.com/oc-robotics/ocr-docker.git
 │   └── docker-compose.yml
 │
 └── training_ws/
-</code></pre></div></div>
+``` -->
 
 <ul>
   <li>Pull the base image from Docker Hub</li>
@@ -114,7 +110,23 @@ git clone https://github.com/oc-robotics/ocr-docker.git
 <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>docker build <span class="nt">-t</span> ocr-docker:humble <span class="nb">.</span>
 </code></pre></div></div>
 
-<h2 id="step-2-run-the-docker-container">Step 2: Run the docker container</h2>
+<h2 id="step-2-install-any-ros-pacakges">Step 2: Install any ROS pacakges</h2>
+
+<ul>
+  <li>As an example, we will install <a href="https://github.com/oc-robotics/differential_drive_robot">differential_drive_robot</a> in <code class="language-plaintext highlighter-rouge">src</code></li>
+</ul>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">cd</span> ~/ocr/dev_ws/src
+</code></pre></div></div>
+
+<ul>
+  <li>Clone the repository</li>
+</ul>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>git clone git@github.com:oc-robotics/differential_drive_robot.git
+</code></pre></div></div>
+
+<h2 id="step-3-run-the-docker-container">Step 3: Run the docker container</h2>
 <ul>
   <li>Start the container in the background (detached mode)</li>
 </ul>
@@ -123,7 +135,7 @@ git clone https://github.com/oc-robotics/ocr-docker.git
 </code></pre></div></div>
 
 <ul>
-  <li>Open an interactive bash shell inside the container to run commands</li>
+  <li><em>Optional</em>: Open an interactive bash shell inside the container to run commands</li>
 </ul>
 
 <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>docker <span class="nb">exec</span> <span class="nt">-it</span> ocr-humble-nekton-og bash

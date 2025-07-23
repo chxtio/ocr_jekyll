@@ -19,14 +19,14 @@ date: 2025-07-22
 
 - Install and open [Docker Desktop](https://docs.docker.com/desktop/)
 
-- Clone the repo and cd into it
+- Clone the [repo](https://github.com/oc-robotics/ocr-docker) and cd into it
 
 ```bash
 cd ocr
 git clone https://github.com/oc-robotics/ocr-docker.git
 cd ocr-docker
 ```
-
+<!-- 
 - Make sure the volume is mounted correctly in `docker-compose.yml`
     - The default path assumes the following file structure
 
@@ -46,7 +46,7 @@ cd ocr-docker
 │   └── docker-compose.yml
 │
 └── training_ws/
-```
+``` -->
 
 - Pull the base image from Docker Hub
 
@@ -59,14 +59,28 @@ docker pull mwoodward6/nekton:humble
 docker build -t ocr-docker:humble .
 ```
 
-## Step 2: Run the docker container
+## Step 2: Install any ROS pacakges 
+
+- As an example, we will install [differential_drive_robot](https://github.com/oc-robotics/differential_drive_robot) in `src`
+
+```bash
+cd ~/ocr/dev_ws/src
+```
+
+- Clone the repository 
+
+```bash
+git clone git@github.com:oc-robotics/differential_drive_robot.git
+```
+
+## Step 3: Run the docker container
 - Start the container in the background (detached mode)
 
 ```bash
 docker-compose up -d
 ```
 
-- Open an interactive bash shell inside the container to run commands 
+- *Optional*: Open an interactive bash shell inside the container to run commands 
 
 ```bash
 docker exec -it ocr-humble-nekton-og bash

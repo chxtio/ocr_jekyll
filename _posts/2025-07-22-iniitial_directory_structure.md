@@ -10,13 +10,13 @@ date: 2025-07-22
 ```
 ~/ocr/
 │
-├── dev\_ws/
+├── dev_ws/
 │   └── src/
 │
 ├── ocr-docker/
 │
-└── training\_ws/
-└── src/
+├── training_ws/
+│   └── src/
 ```
 
 1\. Create `ocr` folder and cd into it
