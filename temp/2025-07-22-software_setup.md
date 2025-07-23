@@ -10,7 +10,8 @@ date: 2025-07-18
 - [1.3 Create Initial Directory Structure](#13-create-initial-directory-structure)
 - [1.4 OCR Docker](#14-ocr-docker)
 - [1.5 Differential Drive Robot](#15-differential-drive-robot)
-- [1.6 Raspberry Pi Setup](#16-raspberry-pi-setup)
+- [1.6 ros2_control](#16-ros2_control)
+- [1.7 Raspberry Pi Setup](#17-raspberry-pi-setup)
 
 # 1. Software Setup
 The configuration of Git, GitHub, and SSH and the software environment setup is described. To streamline the development process, we have created a Docker container with Ubuntu 22.04, ROS2 Humble, and dependencies. 
@@ -353,38 +354,6 @@ ros2 run teleop_twist_keyboard teleop_twist_keyboard
 ros2 run teleop_twist_keyboard teleop_twist_keyboard --ros-args -r /cmd_vel:=/diff_cont/cmd_vel_unstamped
 ```
 
-# 1.7 Raspberry Pi Setup
-
-This setup uses a Raspberry Pi 4. The OS must be configured by flashing the microSD card with Ubuntu 22.04 (see more) and installing ROS2 Humble.
-
-<img src="https://i.imgur.com/xJMgVJ2.png" width="500">
-
-## Setup
-
-- Install [Rapberry Pi Imager](https://www.raspberrypi.com/software/)  
--  Insert the microSD card and choose OS -> other general purpose SO -> **Ubuntu Desktop 22.04 LTS (64-bit)**
-
-- Set up Ubuntu desktop
-
-- Follow the [instructions](https://random-restart.vercel.app/Software-Documentation/ROS/ROS2-Humble-Installation) for installing ROS2 Humble on the Raspberry Pi
-
-- Todo: Set up SSH on the pi for remote connections
-
-## Connecting Peripherals to the Raspberry Pi
-
-<img src="https://i.imgur.com/adBxdjT.png" width="500">
-
-- LCD Screen
-
-    - **Display**: Connect the micro-HDMI port on the Raspberry Pi to the HDMI port on the screen  
-    - **Power/touch screen**: Use a micro-USB cable to connect the LCD screen to a USB port on the Raspberry Pi (not just for power, but also for data)
-
-- Raspberry Pi
-
--    **Power**: Connect the USB-C port on the Raspberry Pi to a power bank or wall outlet.
-
-<img src="https://piportal.digitalharbor.org/cbfe7e712c4ce6e2deed4e129812df9a/rpi-plug-in.gif" width="500">
-
 
 # 1.6 ros2_control
 
@@ -419,7 +388,6 @@ cd ..
 colcon build
 ```
 
-
 - Run the Gazebo simulation
 
 ```bash
@@ -427,7 +395,9 @@ ros2 launch differential_drive_robot launch_sim.launch.py
 ```
 
 
-- Enable `teleop_twist_keyboard` by remapping `/cmd_vel` topic to `/diff_cont/cmd_vel_unstamped`
+- Run `teleop_twist_keyboard` 
+  - Note: `/cmd_vel` topic must be remapped  to `/diff_cont/cmd_vel_unstamped`
+
 ```bash
 ros2 run teleop_twist_keyboard teleop_twist_keyboard --ros-args -r /cmd_vel:=/diff_cont/cmd_vel_unstamped
 ```
@@ -437,3 +407,36 @@ ros2 run teleop_twist_keyboard teleop_twist_keyboard --ros-args -r /cmd_vel:=/di
 ```bash
 sudo apt-get install ros-humble-ros-gz-bridge
 ```
+
+# 1.7 Raspberry Pi Setup
+
+This setup uses a Raspberry Pi 4. The OS must be configured by flashing the microSD card with Ubuntu 22.04 (see more) and installing ROS2 Humble.
+
+<img src="https://i.imgur.com/xJMgVJ2.png" width="500">
+
+## Setup
+
+- Install [Rapberry Pi Imager](https://www.raspberrypi.com/software/)  
+-  Insert the microSD card and choose OS -> other general purpose SO -> **Ubuntu Desktop 22.04 LTS (64-bit)**
+
+- Set up Ubuntu desktop
+
+- Follow the [instructions](https://random-restart.vercel.app/Software-Documentation/ROS/ROS2-Humble-Installation) for installing ROS2 Humble on the Raspberry Pi
+
+- Todo: Set up SSH on the pi for remote connections
+
+## Connecting Peripherals to the Raspberry Pi
+
+<img src="https://i.imgur.com/adBxdjT.png" width="500">
+
+- LCD Screen
+
+    - **Display**: Connect the micro-HDMI port on the Raspberry Pi to the HDMI port on the screen  
+    - **Power/touch screen**: Use a micro-USB cable to connect the LCD screen to a USB port on the Raspberry Pi (not just for power, but also for data)
+
+- Raspberry Pi
+
+-    **Power**: Connect the USB-C port on the Raspberry Pi to a power bank or wall outlet.
+
+<img src="https://piportal.digitalharbor.org/cbfe7e712c4ce6e2deed4e129812df9a/rpi-plug-in.gif" width="500">
+

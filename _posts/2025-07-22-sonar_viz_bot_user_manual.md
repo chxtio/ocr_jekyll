@@ -384,7 +384,60 @@ ros2 run teleop_twist_keyboard teleop_twist_keyboard --ros-args -r /cmd_vel:=/di
 ```
 
 
-## 1.6 Raspberry Pi Setup
+# 1.6 ros2_control
+
+- Install dependencies
+  - `ros-humble-ros2-control`: Core control framework for robot hardware interfaces and controllers.
+  - `ros-humble-ros2-controllers`: Predefined controllers that can be used to control robot hardware.
+  - `gz_ros2_control`: Integration between ROS 2 control framework and Gazebo from source
+    - Note: this will need to be compiled from source (see below)
+
+```bash
+sudo apt update
+sudo apt install ros-humble-ros2-control ros-humble-ros2-controllers
+```
+
+- Install the rosdep rules to resolve Gazebo Garden libraries
+
+```bash
+sudo bash -c 'wget https://raw.githubusercontent.com/osrf/osrf-rosdep/master/gz/00-gazebo.list -O /etc/ros/rosdep/sources.list.d/00-gazebo.list'
+rosdep update
+# check that resolve works
+rosdep resolve gz-garden
+```
+
+- Compile `gz_ros2_control` from source
+
+```bash
+# cd into dev_ws/src
+cd src
+git clone https://github.com/federicociresola/gz_ros2_control.git -b humble-gz_garden
+rosdep install -r --from-paths . --ignore-src --rosdistro $ROS_DISTRO -y
+cd ..
+colcon build
+```
+
+- Run the Gazebo simulation
+
+```bash
+ros2 launch differential_drive_robot launch_sim.launch.py
+```
+
+
+- Run `teleop_twist_keyboard` 
+  - Note: `/cmd_vel` topic must be remapped  to `/diff_cont/cmd_vel_unstamped`
+
+```bash
+ros2 run teleop_twist_keyboard teleop_twist_keyboard --ros-args -r /cmd_vel:=/diff_cont/cmd_vel_unstamped
+```
+
+- TODO: check if need to Install ros-gz-bridge
+
+```bash
+sudo apt-get install ros-humble-ros-gz-bridge
+```
+
+## 1.7 Raspberry Pi Setup
 
 This setup uses a Raspberry Pi 4. The OS must be configured by flashing the microSD card with Ubuntu 22.04 (see more) and installing ROS2 Humble.
 
