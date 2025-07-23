@@ -29,6 +29,9 @@ source install/setup.bash
 ros2 launch differential_drive_robot launch_sim.launch.py
 ```
 
+![picture 42](https://i.imgur.com/SqxKbpF.png)  
+
+
 * Visualize in `Rviz`
 
 ```bash
@@ -46,3 +49,4 @@ ros2 run teleop_twist_keyboard teleop_twist_keyboard
 ```bash
 ros2 run teleop_twist_keyboard teleop_twist_keyboard --ros-args -r /cmd_vel:=/diff_cont/cmd_vel_unstamped
 ```
+
