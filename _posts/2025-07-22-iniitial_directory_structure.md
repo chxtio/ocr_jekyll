@@ -3,7 +3,7 @@ title: "1.3 Create Initial Directory Structure"
 date: 2025-07-22
 ---
 
-# 1.3 Create Initial Directory Structure
+<!-- # 1.3 Create Initial Directory Structure -->
 
 *Preview*
 

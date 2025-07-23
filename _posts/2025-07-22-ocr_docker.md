@@ -7,7 +7,7 @@ date: 2025-07-22
 
 <div class="important">
   <strong>Important:</strong> If you have already installed the container, skip to 
-  <a href="#step-2-run-the-docker-container">Step 2: Run the docker container</a>.
+  <a href="#step-3-run-the-docker-container">Step 3: Run the docker container</a>.
 </div>
 <br/>
 

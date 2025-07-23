@@ -3,7 +3,7 @@ title: "1.2 Setting Up Git, GitHub, and SSH"
 date: 2025-07-20
 ---
 
-<!-- # Setting Up Git, GitHub, and SSH -->
+<!-- # 1.2 Setting Up Git, GitHub, and SSH -->
 
 ## Install Git
 

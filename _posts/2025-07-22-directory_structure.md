@@ -3,6 +3,7 @@ title: "1.1 Recommended Directory Structure"
 date: 2025-07-19
 ---
 
+<!-- # 1.1 Recommended Directory Structure -->
 
 ```
 ~/ocr/
