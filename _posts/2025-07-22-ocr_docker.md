@@ -49,37 +49,15 @@ cd ocr-docker
 ```
 
 - Pull the base image from Docker Hub
+
 ```bash
 docker pull mwoodward6/nekton:humble
 ```
 - Build the custom image
+
 ```bash
 docker build -t ocr-docker:humble .
 ```
-
-```
-
-## Troubleshooting
-
-### Fix "ports not available" error
-- If you encounter an error due to port 6080 being in use, check which processes are using it
-
-```bash
-sudo lsof -i :6080
-```
-
-- Sample output
-  
-```
-COMMAND    PID USER   FD   TYPE DEVICE SIZE/OFF NODE NAME
-docker-pr  995 root    4u  IPv4  27629      0t0  TCP *:6080 (LISTEN)
-docker-pr 1001 root    4u  IPv6  26542      0t0  TCP *:6080 (LISTEN)
-```
-- Stop the processes
-```bash
-sudo kill -9 995 1001
-```
-
 
 ## Step 2: Run the docker container
 - Start the container in the background (detached mode)
@@ -127,4 +105,26 @@ docker-compose stop
 - If you need to remove the container
 ```bash
 docker-compose down
+```
+
+## Troubleshooting
+<!-- ### Fix "ports not available" error -->
+
+- If you encounter an error due to port 6080 being in use, check which processes are using it
+
+```bash
+sudo lsof -i :6080
+```
+
+- Sample output
+  
+```
+COMMAND    PID USER   FD   TYPE DEVICE SIZE/OFF NODE NAME
+docker-pr  995 root    4u  IPv4  27629      0t0  TCP *:6080 (LISTEN)
+docker-pr 1001 root    4u  IPv6  26542      0t0  TCP *:6080 (LISTEN)
+```
+- Stop the processes
+
+```bash
+sudo kill -9 995 1001
 ```

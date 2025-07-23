@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.9.0">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2025-07-22T22:26:30-07:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">OC Robotics</title><subtitle>Write an awesome description for your new site here. You can edit this line in _config.yml. It will appear in your document head meta (for Google search results) and in your feed.xml site description.</subtitle><author><name>Your Name</name><email>your-email@example.com</email></author><entry><title type="html">1.3 Create Initial Directory Structure</title><link href="http://localhost:4000/2025/07/22/directory_structure.html" rel="alternate" type="text/html" title="1.3 Create Initial Directory Structure" /><published>2025-07-22T00:00:00-07:00</published><updated>2025-07-22T00:00:00-07:00</updated><id>http://localhost:4000/2025/07/22/directory_structure</id><content type="html" xml:base="http://localhost:4000/2025/07/22/directory_structure.html"><![CDATA[<p><em>Preview</em></p>
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.9.0">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2025-07-22T22:42:35-07:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">OC Robotics</title><subtitle>Write an awesome description for your new site here. You can edit this line in _config.yml. It will appear in your document head meta (for Google search results) and in your feed.xml site description.</subtitle><author><name>Your Name</name><email>your-email@example.com</email></author><entry><title type="html">1.3 Create Initial Directory Structure</title><link href="http://localhost:4000/2025/07/22/directory_structure.html" rel="alternate" type="text/html" title="1.3 Create Initial Directory Structure" /><published>2025-07-22T00:00:00-07:00</published><updated>2025-07-22T00:00:00-07:00</updated><id>http://localhost:4000/2025/07/22/directory_structure</id><content type="html" xml:base="http://localhost:4000/2025/07/22/directory_structure.html"><![CDATA[<p><em>Preview</em></p>
 
 <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>~/ocr/
 │
@@ -94,40 +94,17 @@ git clone https://github.com/oc-robotics/ocr-docker.git
 </code></pre></div></div>
 
 <ul>
-  <li>Pull the base image from Docker Hub
-    <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>docker pull mwoodward6/nekton:humble
-</code></pre></div>    </div>
-  </li>
-  <li>Build the custom image
-    <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>docker build <span class="nt">-t</span> ocr-docker:humble <span class="nb">.</span>
-</code></pre></div>    </div>
-  </li>
+  <li>Pull the base image from Docker Hub</li>
 </ul>
 
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
-## Troubleshooting
-
-### Fix "ports not available" error
-- If you encounter an error due to port 6080 being in use, check which processes are using it
-
-```bash
-sudo lsof -i :6080
-</code></pre></div></div>
-
-<ul>
-  <li>Sample output</li>
-</ul>
-
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>COMMAND    PID USER   FD   TYPE DEVICE SIZE/OFF NODE NAME
-docker-pr  995 root    4u  IPv4  27629      0t0  TCP *:6080 (LISTEN)
-docker-pr 1001 root    4u  IPv6  26542      0t0  TCP *:6080 (LISTEN)
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>docker pull mwoodward6/nekton:humble
 </code></pre></div></div>
 <ul>
-  <li>Stop the processes
-    <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">sudo kill</span> <span class="nt">-9</span> 995 1001
-</code></pre></div>    </div>
-  </li>
+  <li>Build the custom image</li>
 </ul>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>docker build <span class="nt">-t</span> ocr-docker:humble <span class="nb">.</span>
+</code></pre></div></div>
 
 <h2 id="step-2-run-the-docker-container">Step 2: Run the docker container</h2>
 <ul>
@@ -171,7 +148,32 @@ docker-compose stop
     <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>docker-compose down
 </code></pre></div>    </div>
   </li>
-</ul>]]></content><author><name>Your Name</name><email>your-email@example.com</email></author><summary type="html"><![CDATA[Important: If you have already installed the container, skip to Step 2: Run the docker container. [!IMPORTANT] If you have already installed the container, skip to Step 2: Run the docker container. Step 1: Install the container Install and open Docker Desktop Clone the repo and cd into it cd ocr git clone https://github.com/oc-robotics/ocr-docker.git cd ocr-docker Make sure the volume is mounted correctly in docker-compose.yml The default path assumes the following file structure ~/ocr/ │ ├── dev_ws/ │ ├── build/ │ ├── install/ │ ├── log/ │ └── src/ │ └── differential_drive_robot/ │ ├── ocr-docker/ │ ├── Dockerfile │ ├── README.md │ └── docker-compose.yml │ └── training_ws/ Pull the base image from Docker Hub docker pull mwoodward6/nekton:humble Build the custom image docker build -t ocr-docker:humble . ## Troubleshooting ### Fix "ports not available" error - If you encounter an error due to port 6080 being in use, check which processes are using it ```bash sudo lsof -i :6080 Sample output COMMAND PID USER FD TYPE DEVICE SIZE/OFF NODE NAME docker-pr 995 root 4u IPv4 27629 0t0 TCP *:6080 (LISTEN) docker-pr 1001 root 4u IPv6 26542 0t0 TCP *:6080 (LISTEN) Stop the processes sudo kill -9 995 1001 Step 2: Run the docker container Start the container in the background (detached mode) docker-compose up -d Open an interactive bash shell inside the container to run commands docker exec -it ocr-humble-nekton-og bash Browse http://localhost:6080/ to access the remote desktop via VNC Stop the container exit # Exit the interactive shell docker-compose stop If you need to remove the container ```bash docker-compose down ) Start the container in the background (detached mode) docker-compose up -d Open an interactive bash shell inside the container to run commands docker exec -it ocr-humble-nekton-og bash Browse http://localhost:6080/ to access the remote desktop via VNC Stop the container exit # Exit the interactive shell docker-compose stop If you need to remove the container docker-compose down]]></summary></entry><entry><title type="html">1.2 Setting Up Git, GitHub, and SSH</title><link href="http://localhost:4000/2025/07/20/git_ssh_test.html" rel="alternate" type="text/html" title="1.2 Setting Up Git, GitHub, and SSH" /><published>2025-07-20T00:00:00-07:00</published><updated>2025-07-20T00:00:00-07:00</updated><id>http://localhost:4000/2025/07/20/git_ssh_test</id><content type="html" xml:base="http://localhost:4000/2025/07/20/git_ssh_test.html"><![CDATA[<!-- # Setting Up Git, GitHub, and SSH -->
+</ul>
+
+<h2 id="troubleshooting">Troubleshooting</h2>
+<!-- ### Fix "ports not available" error -->
+
+<ul>
+  <li>If you encounter an error due to port 6080 being in use, check which processes are using it</li>
+</ul>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">sudo </span>lsof <span class="nt">-i</span> :6080
+</code></pre></div></div>
+
+<ul>
+  <li>Sample output</li>
+</ul>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>COMMAND    PID USER   FD   TYPE DEVICE SIZE/OFF NODE NAME
+docker-pr  995 root    4u  IPv4  27629      0t0  TCP *:6080 (LISTEN)
+docker-pr 1001 root    4u  IPv6  26542      0t0  TCP *:6080 (LISTEN)
+</code></pre></div></div>
+<ul>
+  <li>Stop the processes</li>
+</ul>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">sudo kill</span> <span class="nt">-9</span> 995 1001
+</code></pre></div></div>]]></content><author><name>Your Name</name><email>your-email@example.com</email></author><summary type="html"><![CDATA[Important: If you have already installed the container, skip to Step 2: Run the docker container. [!IMPORTANT] If you have already installed the container, skip to Step 2: Run the docker container. Step 1: Install the container Install and open Docker Desktop Clone the repo and cd into it cd ocr git clone https://github.com/oc-robotics/ocr-docker.git cd ocr-docker Make sure the volume is mounted correctly in docker-compose.yml The default path assumes the following file structure ~/ocr/ │ ├── dev_ws/ │ ├── build/ │ ├── install/ │ ├── log/ │ └── src/ │ └── differential_drive_robot/ │ ├── ocr-docker/ │ ├── Dockerfile │ ├── README.md │ └── docker-compose.yml │ └── training_ws/ Pull the base image from Docker Hub docker pull mwoodward6/nekton:humble Build the custom image docker build -t ocr-docker:humble . Step 2: Run the docker container Start the container in the background (detached mode) docker-compose up -d Open an interactive bash shell inside the container to run commands docker exec -it ocr-humble-nekton-og bash Browse http://localhost:6080/ to access the remote desktop via VNC Stop the container exit # Exit the interactive shell docker-compose stop If you need to remove the container ```bash docker-compose down ) Start the container in the background (detached mode) docker-compose up -d Open an interactive bash shell inside the container to run commands docker exec -it ocr-humble-nekton-og bash Browse http://localhost:6080/ to access the remote desktop via VNC Stop the container exit # Exit the interactive shell docker-compose stop If you need to remove the container docker-compose down Troubleshooting If you encounter an error due to port 6080 being in use, check which processes are using it sudo lsof -i :6080 Sample output COMMAND PID USER FD TYPE DEVICE SIZE/OFF NODE NAME docker-pr 995 root 4u IPv4 27629 0t0 TCP *:6080 (LISTEN) docker-pr 1001 root 4u IPv6 26542 0t0 TCP *:6080 (LISTEN) Stop the processes sudo kill -9 995 1001]]></summary></entry><entry><title type="html">1.2 Setting Up Git, GitHub, and SSH</title><link href="http://localhost:4000/2025/07/20/git_ssh_test.html" rel="alternate" type="text/html" title="1.2 Setting Up Git, GitHub, and SSH" /><published>2025-07-20T00:00:00-07:00</published><updated>2025-07-20T00:00:00-07:00</updated><id>http://localhost:4000/2025/07/20/git_ssh_test</id><content type="html" xml:base="http://localhost:4000/2025/07/20/git_ssh_test.html"><![CDATA[<!-- # Setting Up Git, GitHub, and SSH -->
 
 <!-- Resources
 - [HowToForge | Installing and using Git and GitHub on Ubuntu Linux](https://www.howtoforge.com/tutorial/install-git-and-github-on-ubuntu/) 
