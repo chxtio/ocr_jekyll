@@ -40,19 +40,24 @@ This instruction manual outlines the process of designing and building the *Sona
 
 See the suggested list of components below.
 
-![picture 66](https://i.imgur.com/bg5kjuZ.png)  
+<div style="text-align: center;">
+  <img src="https://i.imgur.com/bSg7176.png" width="400">
+</div>
+
 
 ## Chassis Design
 
-The chassis should be modeled with CAD software. The chassis can be any reasonable dimension, but should stay within the build volume of the 3D printer you plan to use (Bambu Lab P1s ahs a build volume of 25.6 x 25.6 x 25.6 mm). For reference, the chassis shown in this manual is 20.5 x 13.0 x 5.5 cm.
+The chassis should be modeled using CAD software. It can be any reasonable size but must fit within the build volume of your 3D printer. For example, the Bambu Lab P1S has a build volume of 256 × 256 × 256 mm. For reference, the chassis shown in this manual measures 205 × 130 × 55 mm.
+
+![.](https://i.imgur.com/CSQIYHH.png)
 
 ![picture 64](https://i.imgur.com/qgng56N.png)  
 
-## Printing the Chassis
+## 3D Printing
 
 After designing the CAD of the chassis, save the file as `.stl`. Then slice and 3D print the chassis.
 
-![chassis](https://i.imgur.com/PoovXUC.png)
+<img src="https://i.imgur.com/PoovXUC.png" width="500">
 
 ## Wheel and Motor Mounting
 
