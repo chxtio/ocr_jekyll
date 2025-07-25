@@ -1,7 +1,9 @@
 ---
-title: "Mechanical Assembly"
+title: "Mechanical Setup"
 date: 2025-07-17
 ---
+
+# Mechanical Assembly
 
 See the suggested list of components below.
 

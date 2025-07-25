@@ -2,6 +2,7 @@
 title: "Electrical Setup"
 date: 2025-07-23
 ---
+# Electrical Setup
 
 ## Software
 
