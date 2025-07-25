@@ -40,9 +40,9 @@ After designing the CAD of the chassis, save the file as `.stl`. Then slice and 
   <img src="https://i.imgur.com/qgng56N.png" width="500">
 </div>
 
-<div style="text-align: center;">
+<!-- <div style="text-align: center;">
   <img src="https://i.imgur.com/eaGLd6G.png" width="500">
-</div>
+</div> -->
 
 ## Battery Placement
 
