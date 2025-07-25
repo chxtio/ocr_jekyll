@@ -14,7 +14,11 @@ See the suggested list of components below.
 
 The chassis should be modeled using CAD software. It can be any reasonable size but must fit within the build volume of your 3D printer. For example, the Bambu Lab P1S has a build volume of 256 × 256 × 256 mm. For reference, the chassis shown in this manual measures 205 × 130 × 55 mm.
 
-<img src="https://i.imgur.com/CSQIYHH.png" width="500">
+<div style="text-align: center;">
+  <img src="https://i.imgur.com/CSQIYHH.png" width="500">
+</div>
+
+
 ![picture 64](https://i.imgur.com/qgng56N.png)  
 
 ## 3D Printing
