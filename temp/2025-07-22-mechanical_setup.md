@@ -21,7 +21,7 @@ The chassis should be modeled using CAD software. It can be any reasonable size 
 </div>
 
 
-![picture 64](https://i.imgur.com/qgng56N.png)  
+<!-- ![picture 64](https://i.imgur.com/qgng56N.png)   -->
 
 ## 3D Printing
 
@@ -35,6 +35,14 @@ After designing the CAD of the chassis, save the file as `.stl`. Then slice and 
 ## Wheel and Motor Mounting
 
 ### TODO
+
+<div style="text-align: center;">
+  <img src="https://i.imgur.com/qgng56N.png" width="500">
+</div>
+
+<div style="text-align: center;">
+  <img src="https://i.imgur.com/eaGLd6G.png" width="500">
+</div>
 
 ## Battery Placement
 
