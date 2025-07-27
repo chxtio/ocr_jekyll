@@ -210,19 +210,14 @@ git config <span class="nt">--get</span> user.email
 <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">mkdir</span> <span class="nt">-p</span> training_ws/src
 </code></pre></div></div>
 
-<p>4. Create <code class="language-plaintext highlighter-rouge">ocr-docker</code> folder</p>
-
-<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">mkdir </span>ocr-docker
-</code></pre></div></div>
-
-<p>5. Verify that folders have been created inside <code class="language-plaintext highlighter-rouge">ocr</code></p>
+<p>4. Verify that folders have been created inside <code class="language-plaintext highlighter-rouge">ocr</code></p>
 
 <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">ls</span>
 </code></pre></div></div>
 
 <!-- Expected output: -->
 
-<pre><code class="language-output">dev_ws  ocr-docker  training_ws
+<pre><code class="language-output">dev_ws training_ws
 </code></pre>
 
 <h1 id="13-ocr-docker">1.3 OCR Docker</h1>
@@ -389,8 +384,11 @@ docker-pr 1001 root    4u  IPv6  26542      0t0  TCP *:6080 (LISTEN)
 
 <h2 id="enter-the-docker-container">Enter the Docker container</h2>
 <ul>
-  <li>Inside the Docker container, open a terminal (e.g., run Terminator in NoVNC)</li>
+  <li>Inside the Docker container, open a terminal (e.g., run Terminator in NoVNC), and update the GPG key used for the ROS 2 repository</li>
 </ul>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">sudo </span>curl <span class="nt">-sSL</span> https://raw.githubusercontent.com/ros/rosdistro/master/ros.key <span class="nt">-o</span> /usr/share/keyrings/ros-archive-keyring.gpg
+</code></pre></div></div>
 
 <h2 id="install-ros2_control-dependencies">Install <code class="language-plaintext highlighter-rouge">ros2_control</code> dependencies</h2>
 

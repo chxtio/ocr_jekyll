@@ -3,18 +3,10 @@
 
 @import "minima";
 
-/* override here */
-// body {
-//   background-color: #fefefe;
-// }
-
-// a {
-//   color: #e63946;
-// }
-
+/* overrides */
 .important {
-  border-left: 0.25em solid #f0b400; /* yellow border like warning blocks */
-  background-color: #fff8dc; /* light yellow bg similar to GitHub */
+  border-left: 0.25em solid #f0b400; /* Yellow border */
+  background-color: #fff8dc; /* Light yellow bg */
   padding: 1em;
   margin: 1em 0;
   border-radius: 6px;
@@ -25,7 +17,7 @@
 .important strong {
   display: block;
   margin-bottom: 0.5em;
-  color: #735c0f; /* dark gold for header */
+  color: #735c0f; /* Dark gold for header */
 }
 
 

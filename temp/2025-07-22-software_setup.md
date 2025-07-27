@@ -160,13 +160,7 @@ mkdir -p dev_ws/src
 mkdir -p training_ws/src
 ```
 
-4\. Create `ocr-docker` folder
-
-```bash
-mkdir ocr-docker
-```
-
-5\. Verify that folders have been created inside `ocr`
+4\. Verify that folders have been created inside `ocr`
 
 ```bash
 ls
@@ -175,7 +169,7 @@ ls
 <!-- Expected output: -->
 
 ```output
-dev_ws  ocr-docker  training_ws
+dev_ws training_ws
 ```
 
 
@@ -259,6 +253,7 @@ cd ~/ocr/dev_ws/src
 git clone git@github.com:oc-robotics/differential_drive_robot.git
 ```
 
+
 ## Step 3: Run the docker container
 
 - cd into `ocr-docker`
@@ -321,7 +316,11 @@ sudo kill -9 995 1001
 # 1.4 Differential Drive Robot
 
 ## Enter the Docker container
-- Inside the Docker container, open a terminal (e.g., run Terminator in NoVNC) 
+- Inside the Docker container, open a terminal (e.g., run Terminator in NoVNC), and update the GPG key used for the ROS 2 repository
+
+```bash
+sudo curl -sSL https://raw.githubusercontent.com/ros/rosdistro/master/ros.key -o /usr/share/keyrings/ros-archive-keyring.gpg
+```
 
 ## Install `ros2_control` dependencies
 
