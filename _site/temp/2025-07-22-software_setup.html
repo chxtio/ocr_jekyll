@@ -42,39 +42,17 @@
   <h1 id="table-of-contents">Table of Contents</h1>
 
 <ul>
-  <li><a href="#11-recommended-directory-structure">1.1 Recommended Directory Structure</a></li>
-  <li><a href="#12-setting-up-git-github-and-ssh">1.2 Setting Up Git, GitHub, and SSH</a></li>
-  <li><a href="#13-create-initial-directory-structure">1.3 Create Initial Directory Structure</a></li>
-  <li><a href="#14-ocr-docker">1.4 OCR Docker</a></li>
-  <li><a href="#15-differential-drive-robot">1.5 Differential Drive Robot</a></li>
-  <li><a href="#16-ros2_control">1.6 ros2_control</a></li>
-  <li><a href="#17-raspberry-pi-setup">1.7 Raspberry Pi Setup</a></li>
+  <li><a href="#11-setting-up-git-github-and-ssh">1.1 Setting Up Git, GitHub, and SSH</a></li>
+  <li><a href="#12-recommended-directory-structure">1.2 Recommended Directory Structure</a></li>
+  <li><a href="#13-ocr-docker">1.3 OCR Docker</a></li>
+  <li><a href="#14-differential-drive-robot">1.4 Differential Drive Robot</a></li>
+  <li><a href="#15-raspberry-pi-setup">1.5 Raspberry Pi Setup</a></li>
 </ul>
 
 <h1 id="1-software-setup">1. Software Setup</h1>
 <p>The configuration of Git, GitHub, and SSH and the software environment setup is described. To streamline the development process, we have created a Docker container with Ubuntu 22.04, ROS2 Humble, and dependencies.</p>
 
-<h2 id="11-recommended-directory-structure">1.1 Recommended Directory Structure</h2>
-
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>~/ocr/
-│
-├── dev_ws/
-│   ├── build/
-│   ├── install/
-│   ├── log/
-│   └── src/
-│       └── differential_drive_robot/
-│
-├── ocr-docker/
-│   ├── Dockerfile
-│   ├── README.md
-│   └── docker-compose.yml
-│
-└── training_ws/
-       └── src/
-</code></pre></div></div>
-
-<h1 id="12-setting-up-git-github-and-ssh">1.2 Setting Up Git, GitHub, and SSH</h1>
+<h1 id="11-setting-up-git-github-and-ssh">1.1 Setting Up Git, GitHub, and SSH</h1>
 
 <h2 id="install-git">Install Git</h2>
 
@@ -118,7 +96,7 @@ Write-Host <span class="s2">"Done."</span>
 <ul>
   <li>You can also install Linux for Windows via <a href="https://learn.microsoft.com/en-us/windows/wsl/install">WSL (Windows Subsystem for Linux)</a>
     <ul>
-      <li>Once setup, Git can be installed using the Linux package manager</li>
+      <li>Once setup, Git can be installed using the Linux package manager <code class="language-plaintext highlighter-rouge">apt</code> below:</li>
     </ul>
   </li>
 </ul>
@@ -185,16 +163,33 @@ git config <span class="nt">--get</span> user.email
 <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Hi username! You've successfully authenticated, but GitHub does not provide shell access.
 </code></pre></div></div>
 
-<h1 id="13-create-initial-directory-structure">1.3 Create Initial Directory Structure</h1>
+<h1 id="12-recommended-directory-structure">1.2 Recommended Directory Structure</h1>
 
-<p><em>Preview</em></p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>~/ocr/
+│
+├── dev_ws/
+│   ├── build/
+│   ├── install/
+│   ├── log/
+│   └── src/
+│       └── differential_drive_robot/
+│       └── gz_ros2_control/
+│
+├── ocr-docker/
+│   ├── Dockerfile
+│   ├── README.md
+│   └── docker-compose.yml
+│
+└── training_ws/
+       └── src/
+</code></pre></div></div>
+
+<h2 id="create-initial-directory-structure">Create Initial Directory Structure</h2>
 
 <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>~/ocr/
 │
 ├── dev_ws/
 │   └── src/
-│
-├── ocr-docker/
 │
 ├── training_ws/
 │   └── src/
@@ -230,7 +225,7 @@ git config <span class="nt">--get</span> user.email
 <pre><code class="language-output">dev_ws  ocr-docker  training_ws
 </code></pre>
 
-<h1 id="14-ocr-docker">1.4 OCR Docker</h1>
+<h1 id="13-ocr-docker">1.3 OCR Docker</h1>
 
 <div class="important">
   <strong>Important:</strong> If you have already installed the container, skip to 
@@ -253,15 +248,15 @@ git config <span class="nt">--get</span> user.email
   </li>
 </ul>
 
-<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">cd </span>ocr
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">cd</span> ~ocr
 git clone https://github.com/oc-robotics/ocr-docker.git
 <span class="nb">cd </span>ocr-docker
 </code></pre></div></div>
 
 <ul>
-  <li>Make sure the volume is mounted correctly in <code class="language-plaintext highlighter-rouge">docker-compose.yml</code>
+  <li>Make sure the volume is mounted correctly in <code class="language-plaintext highlighter-rouge">docker-compose.yml</code>.
     <ul>
-      <li>The default host path, <code class="language-plaintext highlighter-rouge">~/ocr/dev_ws/</code>, assumes the following file structure:</li>
+      <li>The volume <code class="language-plaintext highlighter-rouge">~/ocr/dev_ws/</code> assumes the following host file structure:</li>
     </ul>
   </li>
 </ul>
@@ -283,9 +278,13 @@ git clone https://github.com/oc-robotics/ocr-docker.git
 └── training_ws/
 </code></pre></div></div>
 
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>volumes:
-  # - &lt;host_path&gt;:&lt;container_path&gt;
-  - ~/ocr/dev_ws/:/ocr/dev_ws/
+<ul>
+  <li>In your <code class="language-plaintext highlighter-rouge">docker-compose.yml</code>, the volume should be mounted as:</li>
+</ul>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>    volumes:
+      # - &lt;host_path&gt;:&lt;container_path&gt;
+      - ~/ocr/dev_ws/:/ocr/dev_ws/
 </code></pre></div></div>
 
 <ul>
@@ -301,7 +300,7 @@ git clone https://github.com/oc-robotics/ocr-docker.git
 <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>docker build <span class="nt">-t</span> ocr-docker:humble <span class="nb">.</span>
 </code></pre></div></div>
 
-<h2 id="step-2-install-any-ros-pacakges">Step 2: Install any ROS pacakges</h2>
+<h2 id="step-2-install-any-ros-packages">Step 2: Install any ROS packages</h2>
 
 <ul>
   <li>As an example, we will install <a href="https://github.com/oc-robotics/differential_drive_robot">differential_drive_robot</a> in <code class="language-plaintext highlighter-rouge">src</code></li>
@@ -318,6 +317,14 @@ git clone https://github.com/oc-robotics/ocr-docker.git
 </code></pre></div></div>
 
 <h2 id="step-3-run-the-docker-container">Step 3: Run the docker container</h2>
+
+<ul>
+  <li>cd into <code class="language-plaintext highlighter-rouge">ocr-docker</code></li>
+</ul>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">cd</span> ~/ocr/ocr-docker
+</code></pre></div></div>
+
 <ul>
   <li>Start the container in the background (detached mode)</li>
 </ul>
@@ -378,67 +385,21 @@ docker-pr 1001 root    4u  IPv6  26542      0t0  TCP *:6080 (LISTEN)
 <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">sudo kill</span> <span class="nt">-9</span> 995 1001
 </code></pre></div></div>
 
-<h1 id="15-differential-drive-robot">1.5 Differential Drive Robot</h1>
+<h1 id="14-differential-drive-robot">1.4 Differential Drive Robot</h1>
 
+<h2 id="enter-the-docker-container">Enter the Docker container</h2>
 <ul>
-  <li>Open a terminal (run Terminator in NoVNC) and cd into <code class="language-plaintext highlighter-rouge">dev_ws/src</code></li>
+  <li>Inside the Docker container, open a terminal (e.g., run Terminator in NoVNC)</li>
 </ul>
 
-<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">cd </span>dev_ws/src
-</code></pre></div></div>
+<h2 id="install-ros2_control-dependencies">Install <code class="language-plaintext highlighter-rouge">ros2_control</code> dependencies</h2>
 
 <ul>
-  <li>Build the package</li>
-</ul>
-
-<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>colcon build <span class="nt">--symlink-install</span>
-</code></pre></div></div>
-
-<ul>
-  <li>Source the setup</li>
-</ul>
-
-<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">source install</span>/setup.bash
-</code></pre></div></div>
-
-<ul>
-  <li>Run the Gazebo simulation</li>
-</ul>
-
-<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>ros2 launch differential_drive_robot launch_sim.launch.py
-</code></pre></div></div>
-
-<p><img src="https://i.imgur.com/SqxKbpF.png" alt="picture 42" /></p>
-
-<ul>
-  <li>Visualize in <code class="language-plaintext highlighter-rouge">Rviz</code></li>
-</ul>
-
-<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>rviz2 <span class="nt">-d</span> src/differential_drive_robot/config/diff-drive.rviz
-</code></pre></div></div>
-
-<ul>
-  <li>Drive the Robot with Keyboard Input (open a new terminal inside Terminator and run the following command line)</li>
-</ul>
-
-<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>ros2 run teleop_twist_keyboard teleop_twist_keyboard
-</code></pre></div></div>
-
-<ul>
-  <li>Note: If using <code class="language-plaintext highlighter-rouge">ros2_control</code> plugin, /cmd_vel must be remapped as follows:</li>
-</ul>
-
-<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>ros2 run teleop_twist_keyboard teleop_twist_keyboard <span class="nt">--ros-args</span> <span class="nt">-r</span> /cmd_vel:<span class="o">=</span>/diff_cont/cmd_vel_unstamped
-</code></pre></div></div>
-
-<h1 id="16-ros2_control">1.6 ros2_control</h1>
-
-<ul>
-  <li>Install dependencies
+  <li>Install ROS 2 Humble packages required for the <a href="https://control.ros.org/rolling/index.html"><code class="language-plaintext highlighter-rouge">ros2_control</code></a> framework
     <ul>
-      <li><code class="language-plaintext highlighter-rouge">ros-humble-ros2-control</code>: Core control framework for robot hardware interfaces and controllers.</li>
-      <li><code class="language-plaintext highlighter-rouge">ros-humble-ros2-controllers</code>: Predefined controllers that can be used to control robot hardware.</li>
-      <li><code class="language-plaintext highlighter-rouge">gz_ros2_control</code>: Integration between ROS 2 control framework and Gazebo from source
+      <li><a href="https://github.com/ros-controls/ros2_control"><code class="language-plaintext highlighter-rouge">ros2_control</code></a>: Core control framework for robot hardware interfaces and controllers.</li>
+      <li><a href="https://github.com/ros-controls/ros2_controllers"><code class="language-plaintext highlighter-rouge">ros2_controllers</code></a>: Predefined controllers that can be used to control robot hardware.</li>
+      <li><a href="https://github.com/ros-controls/gz_ros2_control"><code class="language-plaintext highlighter-rouge">gz_ros2_control</code></a>: Integration between ROS 2 control framework and Gazebo from source
         <ul>
           <li>Note: this will need to be compiled from source (see below)</li>
         </ul>
@@ -469,10 +430,24 @@ rosdep resolve gz-garden
 <span class="nb">cd </span>src
 git clone https://github.com/federicociresola/gz_ros2_control.git <span class="nt">-b</span> humble-gz_garden
 rosdep <span class="nb">install</span> <span class="nt">-r</span> <span class="nt">--from-paths</span> <span class="nb">.</span> <span class="nt">--ignore-src</span> <span class="nt">--rosdistro</span> <span class="nv">$ROS_DISTRO</span> <span class="nt">-y</span>
-<span class="nb">cd</span> ..
-colcon build
 </code></pre></div></div>
 
+<ul>
+  <li>Build the package from the root of the workspace (<code class="language-plaintext highlighter-rouge">dev_ws</code>)</li>
+</ul>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">cd</span> ..
+colcon build <span class="nt">--symlink-install</span>
+</code></pre></div></div>
+
+<ul>
+  <li>Source the setup</li>
+</ul>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">source install</span>/setup.bash
+</code></pre></div></div>
+
+<h2 id="launch-the-gazebo-simulation">Launch the Gazebo Simulation</h2>
 <ul>
   <li>Run the Gazebo simulation</li>
 </ul>
@@ -480,10 +455,21 @@ colcon build
 <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>ros2 launch differential_drive_robot launch_sim.launch.py
 </code></pre></div></div>
 
+<p><img src="https://i.imgur.com/SqxKbpF.png" alt="picture 42" /></p>
+
+<h2 id="visualize-with-rviz">Visualize with <code class="language-plaintext highlighter-rouge">Rviz</code></h2>
 <ul>
-  <li>Run <code class="language-plaintext highlighter-rouge">teleop_twist_keyboard</code>
+  <li>Launch <code class="language-plaintext highlighter-rouge">Rviz</code> with the provided configuration</li>
+</ul>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>rviz2 <span class="nt">-d</span> src/differential_drive_robot/config/diff-drive.rviz
+</code></pre></div></div>
+
+<h2 id="drive-the-robot-with-keyboard">Drive the robot with keyboard</h2>
+<ul>
+  <li>Run <code class="language-plaintext highlighter-rouge">teleop_twist_keyboard</code> to control the robot
     <ul>
-      <li>Note: <code class="language-plaintext highlighter-rouge">/cmd_vel</code> topic must be remapped  to <code class="language-plaintext highlighter-rouge">/diff_cont/cmd_vel_unstamped</code></li>
+      <li>Note: is using <code class="language-plaintext highlighter-rouge">ros2_control</code>, remap the <code class="language-plaintext highlighter-rouge">/cmd_vel</code> topic to <code class="language-plaintext highlighter-rouge">/diff_cont/cmd_vel_unstamped</code></li>
     </ul>
   </li>
 </ul>
@@ -491,14 +477,7 @@ colcon build
 <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>ros2 run teleop_twist_keyboard teleop_twist_keyboard <span class="nt">--ros-args</span> <span class="nt">-r</span> /cmd_vel:<span class="o">=</span>/diff_cont/cmd_vel_unstamped
 </code></pre></div></div>
 
-<ul>
-  <li>TODO: check if need to Install ros-gz-bridge</li>
-</ul>
-
-<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">sudo </span>apt-get <span class="nb">install </span>ros-humble-ros-gz-bridge
-</code></pre></div></div>
-
-<h1 id="17-raspberry-pi-setup">1.7 Raspberry Pi Setup</h1>
+<h1 id="15-raspberry-pi-setup">1.5 Raspberry Pi Setup</h1>
 
 <p>This setup uses a Raspberry Pi 4. The OS must be configured by flashing the microSD card with Ubuntu 22.04 (see more) and installing ROS2 Humble.</p>
 

@@ -35,8 +35,8 @@ Welcome to the user manual for this project...
 ## Changelog
 
 _7/26/25_
-- Added `main.scss` for [custom CSS](https://github.com/jekyll/minima/blob/v2.5.1/README.md#customization) overrides
-- Updated [1.4 OCR Docker]({{ site.baseurl }}{% link temp/2025-07-22-software_setup.md %}#14-ocr-docker) notes
+- Added `assets\main.scss` for [custom CSS](https://github.com/jekyll/minima/blob/v2.5.1/README.md#customization) overrides
+- Updated [Software Setup]({{ site.baseurl }}{% link temp/2025-07-22-software_setup.md %}) notes 
 
 
 <!-- [Software Setup]({% link temp/2025-07-22-software_setup.md %}) -->

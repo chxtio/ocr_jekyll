@@ -5,40 +5,16 @@ date: 2025-07-25
 
 # Table of Contents
 
-- [1.1 Recommended Directory Structure](#11-recommended-directory-structure)
-- [1.2 Setting Up Git, GitHub, and SSH](#12-setting-up-git-github-and-ssh)
-- [1.3 Create Initial Directory Structure](#13-create-initial-directory-structure)
-- [1.4 OCR Docker](#14-ocr-docker)
-- [1.5 Differential Drive Robot](#15-differential-drive-robot)
-- [1.6 ros2_control](#16-ros2_control)
-- [1.7 Raspberry Pi Setup](#17-raspberry-pi-setup)
+- [1.1 Setting Up Git, GitHub, and SSH](#11-setting-up-git-github-and-ssh)
+- [1.2 Recommended Directory Structure](#12-recommended-directory-structure)
+- [1.3 OCR Docker](#13-ocr-docker)
+- [1.4 Differential Drive Robot](#14-differential-drive-robot)
+- [1.5 Raspberry Pi Setup](#15-raspberry-pi-setup)
 
 # 1. Software Setup
 The configuration of Git, GitHub, and SSH and the software environment setup is described. To streamline the development process, we have created a Docker container with Ubuntu 22.04, ROS2 Humble, and dependencies. 
 
-## 1.1 Recommended Directory Structure
-
-```
-~/ocr/
-│
-├── dev_ws/
-│   ├── build/
-│   ├── install/
-│   ├── log/
-│   └── src/
-│       └── differential_drive_robot/
-│
-├── ocr-docker/
-│   ├── Dockerfile
-│   ├── README.md
-│   └── docker-compose.yml
-│
-└── training_ws/
-       └── src/
-```
-
-
-# 1.2 Setting Up Git, GitHub, and SSH
+# 1.1 Setting Up Git, GitHub, and SSH
 
 ## Install Git
 
@@ -77,7 +53,7 @@ Write-Host "Done."
 ```
 
 - You can also install Linux for Windows via [WSL (Windows Subsystem for Linux)](https://learn.microsoft.com/en-us/windows/wsl/install)
-  - Once setup, Git can be installed using the Linux package manager 
+  - Once setup, Git can be installed using the Linux package manager `apt` below:
 
 ### *Ubuntu*
 
@@ -132,17 +108,35 @@ ssh -T git@github.com
 Hi username! You've successfully authenticated, but GitHub does not provide shell access.
 ```
 
-# 1.3 Create Initial Directory Structure
+# 1.2 Recommended Directory Structure
 
-*Preview*
+```
+~/ocr/
+│
+├── dev_ws/
+│   ├── build/
+│   ├── install/
+│   ├── log/
+│   └── src/
+│       └── differential_drive_robot/
+│       └── gz_ros2_control/
+│
+├── ocr-docker/
+│   ├── Dockerfile
+│   ├── README.md
+│   └── docker-compose.yml
+│
+└── training_ws/
+       └── src/
+```
+
+## Create Initial Directory Structure
 
 ```
 ~/ocr/
 │
 ├── dev_ws/
 │   └── src/
-│
-├── ocr-docker/
 │
 ├── training_ws/
 │   └── src/
@@ -185,7 +179,7 @@ dev_ws  ocr-docker  training_ws
 ```
 
 
-# 1.4 OCR Docker
+# 1.3 OCR Docker
 
 <div class="important">
   <strong>Important:</strong> If you have already installed the container, skip to 
@@ -206,13 +200,13 @@ dev_ws  ocr-docker  training_ws
 - Clone the [repo](https://github.com/oc-robotics/ocr-docker) and cd into it
 
 ```bash
-cd ocr
+cd ~ocr
 git clone https://github.com/oc-robotics/ocr-docker.git
 cd ocr-docker
 ```
 
-- Make sure the volume is mounted correctly in `docker-compose.yml`
-    - The default host path, `~/ocr/dev_ws/`, assumes the following file structure:
+- Make sure the volume is mounted correctly in `docker-compose.yml`. 
+    - The volume `~/ocr/dev_ws/` assumes the following host file structure:
 
 ```
 ~/ocr/
@@ -232,9 +226,13 @@ cd ocr-docker
 └── training_ws/
 ```
 
+- In your `docker-compose.yml`, the volume should be mounted as:
+
+```
     volumes:
       # - <host_path>:<container_path>
       - ~/ocr/dev_ws/:/ocr/dev_ws/
+```
 
 - Pull the base image from Docker Hub
 
@@ -247,7 +245,7 @@ docker pull mwoodward6/nekton:humble
 docker build -t ocr-docker:humble .
 ```
 
-## Step 2: Install any ROS pacakges 
+## Step 2: Install any ROS packages 
 
 - As an example, we will install [differential_drive_robot](https://github.com/oc-robotics/differential_drive_robot) in `src`
 
@@ -262,6 +260,13 @@ git clone git@github.com:oc-robotics/differential_drive_robot.git
 ```
 
 ## Step 3: Run the docker container
+
+- cd into `ocr-docker`
+
+```bash
+cd ~/ocr/ocr-docker
+```
+
 - Start the container in the background (detached mode)
 
 ```bash
@@ -313,60 +318,17 @@ docker-pr 1001 root    4u  IPv6  26542      0t0  TCP *:6080 (LISTEN)
 sudo kill -9 995 1001
 ```
 
-# 1.5 Differential Drive Robot
+# 1.4 Differential Drive Robot
 
-- Open a terminal (run Terminator in NoVNC) and cd into `dev_ws/src`
+## Enter the Docker container
+- Inside the Docker container, open a terminal (e.g., run Terminator in NoVNC) 
 
-```bash
-cd dev_ws/src
-````
+## Install `ros2_control` dependencies
 
-* Build the package
-
-```bash
-colcon build --symlink-install
-```
-
-* Source the setup
-
-```bash
-source install/setup.bash
-```
-
-* Run the Gazebo simulation
-
-```bash
-ros2 launch differential_drive_robot launch_sim.launch.py
-```
-
-![picture 42](https://i.imgur.com/SqxKbpF.png)  
-
-
-* Visualize in `Rviz`
-
-```bash
-rviz2 -d src/differential_drive_robot/config/diff-drive.rviz
-```
-
-* Drive the Robot with Keyboard Input (open a new terminal inside Terminator and run the following command line)
-
-```bash
-ros2 run teleop_twist_keyboard teleop_twist_keyboard
-```
-
-* Note: If using `ros2_control` plugin, /cmd\_vel must be remapped as follows:
-
-```bash
-ros2 run teleop_twist_keyboard teleop_twist_keyboard --ros-args -r /cmd_vel:=/diff_cont/cmd_vel_unstamped
-```
-
-
-# 1.6 ros2_control
-
-- Install dependencies
-  - `ros-humble-ros2-control`: Core control framework for robot hardware interfaces and controllers.
-  - `ros-humble-ros2-controllers`: Predefined controllers that can be used to control robot hardware.
-  - `gz_ros2_control`: Integration between ROS 2 control framework and Gazebo from source
+- Install ROS 2 Humble packages required for the [`ros2_control`](https://control.ros.org/rolling/index.html) framework
+  - [`ros2_control`](https://github.com/ros-controls/ros2_control): Core control framework for robot hardware interfaces and controllers.
+  - [`ros2_controllers`](https://github.com/ros-controls/ros2_controllers): Predefined controllers that can be used to control robot hardware.
+  - [`gz_ros2_control`](https://github.com/ros-controls/gz_ros2_control): Integration between ROS 2 control framework and Gazebo from source
     - Note: this will need to be compiled from source (see below)
 
 ```bash
@@ -390,31 +352,46 @@ rosdep resolve gz-garden
 cd src
 git clone https://github.com/federicociresola/gz_ros2_control.git -b humble-gz_garden
 rosdep install -r --from-paths . --ignore-src --rosdistro $ROS_DISTRO -y
-cd ..
-colcon build
 ```
 
+- Build the package from the root of the workspace (`dev_ws`)
+
+```bash
+cd ..
+colcon build --symlink-install
+```
+
+- Source the setup
+
+```bash
+source install/setup.bash
+```
+
+## Launch the Gazebo Simulation
 - Run the Gazebo simulation
 
 ```bash
 ros2 launch differential_drive_robot launch_sim.launch.py
 ```
 
+![picture 42](https://i.imgur.com/SqxKbpF.png)  
 
-- Run `teleop_twist_keyboard` 
-  - Note: `/cmd_vel` topic must be remapped  to `/diff_cont/cmd_vel_unstamped`
+## Visualize with `Rviz`
+- Launch `Rviz` with the provided configuration
+
+```bash
+rviz2 -d src/differential_drive_robot/config/diff-drive.rviz
+```
+
+## Drive the robot with keyboard
+- Run `teleop_twist_keyboard` to control the robot
+  - Note: is using `ros2_control`, remap the `/cmd_vel` topic to `/diff_cont/cmd_vel_unstamped`
 
 ```bash
 ros2 run teleop_twist_keyboard teleop_twist_keyboard --ros-args -r /cmd_vel:=/diff_cont/cmd_vel_unstamped
 ```
 
-- TODO: check if need to Install ros-gz-bridge
-
-```bash
-sudo apt-get install ros-humble-ros-gz-bridge
-```
-
-# 1.7 Raspberry Pi Setup
+# 1.5 Raspberry Pi Setup
 
 This setup uses a Raspberry Pi 4. The OS must be configured by flashing the microSD card with Ubuntu 22.04 (see more) and installing ROS2 Humble.
 
