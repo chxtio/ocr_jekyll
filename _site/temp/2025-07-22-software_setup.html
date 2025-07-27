@@ -14,11 +14,11 @@
 <meta property="og:url" content="http://localhost:4000/temp/2025-07-22-software_setup.html" />
 <meta property="og:site_name" content="OC Robotics" />
 <meta property="og:type" content="article" />
-<meta property="article:published_time" content="2025-07-18T00:00:00-07:00" />
+<meta property="article:published_time" content="2025-07-25T00:00:00-07:00" />
 <meta name="twitter:card" content="summary" />
 <meta property="twitter:title" content="Software Setup" />
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"Your Name"},"dateModified":"2025-07-18T00:00:00-07:00","datePublished":"2025-07-18T00:00:00-07:00","description":"Write an awesome description for your new site here. You can edit this line in _config.yml. It will appear in your document head meta (for Google search results) and in your feed.xml site description.","headline":"Software Setup","mainEntityOfPage":{"@type":"WebPage","@id":"http://localhost:4000/temp/2025-07-22-software_setup.html"},"url":"http://localhost:4000/temp/2025-07-22-software_setup.html"}</script>
+{"@context":"https://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"Your Name"},"dateModified":"2025-07-25T00:00:00-07:00","datePublished":"2025-07-25T00:00:00-07:00","description":"Write an awesome description for your new site here. You can edit this line in _config.yml. It will appear in your document head meta (for Google search results) and in your feed.xml site description.","headline":"Software Setup","mainEntityOfPage":{"@type":"WebPage","@id":"http://localhost:4000/temp/2025-07-22-software_setup.html"},"url":"http://localhost:4000/temp/2025-07-22-software_setup.html"}</script>
 <!-- End Jekyll SEO tag -->
 <link rel="stylesheet" href="/assets/main.css"><link type="application/atom+xml" rel="alternate" href="http://localhost:4000/feed.xml" title="OC Robotics" /></head>
 <body><header class="site-header" role="banner">
@@ -33,7 +33,7 @@
           </span>
         </label>
 
-        <div class="trigger"><a class="page-link" href="/temp/2025-07-22-electrical_setup.html">Electrical Setup</a><a class="page-link" href="/temp/2025-07-22-software_setup.html">Software Setup</a><a class="page-link" href="/about_new.html">About</a><a class="page-link" href="/posts/">All Posts</a></div>
+        <div class="trigger"><a class="page-link" href="/temp/2025-07-22-electrical_setup.html">Electrical Setup</a><a class="page-link" href="/temp/2025-07-22-mechanical_setup.html">Mechanical Setup</a><a class="page-link" href="/temp/2025-07-22-software_setup.html">Software Setup</a><a class="page-link" href="/about_new.html">About</a><a class="page-link" href="/posts/">All Posts</a></div>
       </nav></div>
 </header>
 <main class="page-content" aria-label="Content">
@@ -257,12 +257,16 @@ git config <span class="nt">--get</span> user.email
 git clone https://github.com/oc-robotics/ocr-docker.git
 <span class="nb">cd </span>ocr-docker
 </code></pre></div></div>
-<!-- 
-- Make sure the volume is mounted correctly in `docker-compose.yml`
-    - The default path assumes the following file structure
 
-```
-~/ocr/
+<ul>
+  <li>Make sure the volume is mounted correctly in <code class="language-plaintext highlighter-rouge">docker-compose.yml</code>
+    <ul>
+      <li>The default host path, <code class="language-plaintext highlighter-rouge">~/ocr/dev_ws/</code>, assumes the following file structure:</li>
+    </ul>
+  </li>
+</ul>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>~/ocr/
 │
 ├── dev_ws/
 │   ├── build/
@@ -277,7 +281,12 @@ git clone https://github.com/oc-robotics/ocr-docker.git
 │   └── docker-compose.yml
 │
 └── training_ws/
-``` -->
+</code></pre></div></div>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>volumes:
+  # - &lt;host_path&gt;:&lt;container_path&gt;
+  - ~/ocr/dev_ws/:/ocr/dev_ws/
+</code></pre></div></div>
 
 <ul>
   <li>Pull the base image from Docker Hub</li>

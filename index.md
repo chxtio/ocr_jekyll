@@ -18,3 +18,28 @@ Welcome to the user manual for this project...
     </li>
   {% endfor %}
 </ul>
+
+
+### Scripting
+
+<div class="flex-container">
+    <a href="google.com">
+        <div>
+            test
+            <span>Python</span>
+        </div>
+    </a>
+</div>
+
+
+# Changelog
+
+_7/26/25_
+- Added `main.scss` for [custom CSS](https://github.com/jekyll/minima/blob/v2.5.1/README.md#customization) overrides
+- Updated [1.4 OCR Docker]({% link temp/2025-07-22-software_setup.md %}#14-ocr-docker) notes
+
+
+[Software Setup]({% link temp/2025-07-22-software_setup.md %})
+
+
+

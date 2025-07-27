@@ -1,6 +1,6 @@
 ---
 title: "Software Setup"
-date: 2025-07-18
+date: 2025-07-25
 ---
 
 # Table of Contents
@@ -197,6 +197,8 @@ dev_ws  ocr-docker  training_ws
 > 
 > If you have already installed the container, skip to [Step 2: Run the docker container](#step-2-run-the-docker-container). -->
 
+
+
 ## Step 1: Install the container
 
 - Install and open [Docker Desktop](https://docs.docker.com/desktop/)
@@ -208,9 +210,9 @@ cd ocr
 git clone https://github.com/oc-robotics/ocr-docker.git
 cd ocr-docker
 ```
-<!-- 
+
 - Make sure the volume is mounted correctly in `docker-compose.yml`
-    - The default path assumes the following file structure
+    - The default host path, `~/ocr/dev_ws/`, assumes the following file structure:
 
 ```
 ~/ocr/
@@ -228,7 +230,11 @@ cd ocr-docker
 │   └── docker-compose.yml
 │
 └── training_ws/
-``` -->
+```
+
+    volumes:
+      # - <host_path>:<container_path>
+      - ~/ocr/dev_ws/:/ocr/dev_ws/
 
 - Pull the base image from Docker Hub
 

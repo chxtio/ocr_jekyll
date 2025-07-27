@@ -1,0 +1,32 @@
+---
+---
+
+@import "minima";
+
+/* override here */
+// body {
+//   background-color: #fefefe;
+// }
+
+// a {
+//   color: #e63946;
+// }
+
+.important {
+  border-left: 0.25em solid #f0b400; /* yellow border like warning blocks */
+  background-color: #fff8dc; /* light yellow bg similar to GitHub */
+  padding: 1em;
+  margin: 1em 0;
+  border-radius: 6px;
+  color: #000;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji";
+}
+
+.important strong {
+  display: block;
+  margin-bottom: 0.5em;
+  color: #735c0f; /* dark gold for header */
+}
+
+
+

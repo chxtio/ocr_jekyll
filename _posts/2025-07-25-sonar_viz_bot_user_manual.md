@@ -1,6 +1,6 @@
 ---
 title: "Sonar Viz Bot User Manual"
-date: 2025-07-10
+date: 2025-07-25
 ---
 
 <!-- # Table of Contents
