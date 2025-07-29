@@ -199,3 +199,21 @@ table td { border: 1px solid #e8e8e8; }
 .important { border-left: 0.25em solid #f0b400; /* Yellow border */ background-color: #fff8dc; /* Light yellow bg */ padding: 1em; margin: 1em 0; border-radius: 6px; color: #000; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji"; }
 
 .important strong { display: block; margin-bottom: 0.5em; color: #735c0f; /* Dark gold for header */ }
+
+.doc-embed-container { border: 1px solid #ddd; border-radius: 8px; padding: 0.5rem; background: #fafafa; box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05); margin-bottom: 1.5rem; }
+
+.doc-embed-container iframe { width: 100%; height: 700px; border: none; border-radius: 4px; }
+
+.doc-embed-container .doc-link { text-align: right; margin-top: 0.5rem; }
+
+.doc-embed-container .doc-link a { font-size: 0.9rem; color: #0366d6; text-decoration: none; }
+
+.doc-embed-container .doc-link a:hover { text-decoration: underline; }
+
+.box-grid { display: flex; flex-wrap: wrap; gap: 1rem; margin-top: 1rem; }
+
+.tech-box { display: flex; align-items: center; gap: 0.5rem; padding: 1rem 1.25rem; background: white; border: 1px solid #e1e4e8; box-shadow: 0 2px 4px rgba(0, 0, 0, 0.06); border-radius: 6px; text-decoration: none; color: #1a1a1a; font-weight: 500; transition: transform 0.15s ease, box-shadow 0.15s ease; }
+
+.tech-box:hover { transform: translateY(-2px); box-shadow: 0 4px 8px rgba(0, 0, 0, 0.08); }
+
+.tech-box span { font-size: 1rem; }

@@ -5,29 +5,26 @@ date:   2025-07-22 18:48:23 -0700
 categories: jekyll update
 ---
 
-# Welcome to Jekyll!
+# About
 
-You’ll find this post in your `_posts` directory. Go ahead and edit it and re-build the site to see your changes. You can rebuild the site in many different ways, but the most common way is to run `jekyll serve`, which launches a web server and auto-regenerates your site when a file is updated.
+## Developer Notes
 
-To add new posts, simply add a file in the `_posts` directory that follows the convention `YYYY-MM-DD-name-of-post.ext` and includes the necessary front matter. Take a look at the source for this post to get an idea about how it works.
+### Site Creation
+- [Setting up a Jekyll site](https://random-restart.vercel.app/Software-Documentation/Web-Development/Jekyll)
 
-Jekyll also offers powerful support for code snippets:
-
-{% highlight ruby %}
-def print_hi(name)
-  puts "Hi, #{name}"
-end
-print_hi('Tom')
-#=> prints 'Hi, Tom' to STDOUT.
-{% endhighlight %}
-
-Check out the [Jekyll docs][jekyll-docs] for more info on how to get the most out of Jekyll. File all bugs/feature requests at [Jekyll’s GitHub repo][jekyll-gh]. If you have questions, you can ask them on [Jekyll Talk][jekyll-talk].
-
-[jekyll-docs]: https://jekyllrb.com/docs/home
-[jekyll-gh]:   https://github.com/jekyll/jekyll
-[jekyll-talk]: https://talk.jekyllrb.com/
-
-
+### Local Development
+<!-- ## Developer Notes -->
+<!-- - [How this site was made ](https://random-restart.vercel.app/Software-Documentation/Web-Development/Jekyll) -->
+- Run site locally
+```bash
 bundle exec jekyll serve --baseurl ""
+```
 
+### Changelog
+_7/26/25_
+- Added `assets\main.scss` for [custom CSS](https://github.com/jekyll/minima/blob/v2.5.1/README.md#customization) overrides
+- Updated [Software Setup notes]({{ site.baseurl }}{% link temp/2025-07-22-software_setup.md %})  
+
+_7/28/25_
+- Added [URC post]({{ site.baseurl }}/2025/07/28/urc.html) 
 
