@@ -36,7 +36,11 @@ Welcome to the user manual for this project...
 
 _7/26/25_
 - Added `assets\main.scss` for [custom CSS](https://github.com/jekyll/minima/blob/v2.5.1/README.md#customization) overrides
-- Updated [Software Setup]({{ site.baseurl }}{% link temp/2025-07-22-software_setup.md %}) notes 
+- Updated [Software Setup notes]({{ site.baseurl }}{% link temp/2025-07-22-software_setup.md %})  
+
+_7/28/25_
+- Added [URC post]({{ site.baseurl }}/2025/07/28/urc.html) 
+
 
 
 <!-- [Software Setup]({% link temp/2025-07-22-software_setup.md %}) -->
