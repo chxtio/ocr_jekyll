@@ -28,3 +28,5 @@ _7/26/25_
 _7/28/25_
 - Added [URC post]({{ site.baseurl }}/2025/07/28/urc.html) 
 
+_7/29/25_
+- Added power calculations spreadsheet [Electrical Setup notes]({{ site.baseurl }}{% link temp/2025-07-22-electrical_setup.md %})  

@@ -89,3 +89,30 @@ void leftMotor(int speed) {
     analogWrite(ENB, abs(speed));
 }
 ```
+
+## Power calculations
+
+```
+8V Battery
+ ├──> L293D Vcc2 (motor power)
+ ├──> Arduino VIN     (OR buck converter → 5V)
+ └──> GND ─────────────┐
+                       │
+Arduino                │
+ ├──> 5V ────> L293D Vcc1 (logic power)
+ └──> GND ───────────────┘
+
+```
+
+<iframe 
+  src="https://docs.google.com/spreadsheets/d/e/2PACX-1vQC95BsIDwF3d35FrX23txHFuu1lBQMeZXjyyVrMJP-tM-H_xtL_79SU7Kmq02f7_EaCw4Phnupfcjb/pubhtml?gid=1450340132&single=true" 
+  width="100%" 
+  height="700" 
+  style="border: 1px solid #ccc;">
+</iframe>
+
+<p style="text-align: center; margin-top: 1rem;">
+  <a href="https://docs.google.com/spreadsheets/d/1_32Bc418HSQQvqX36nZn2qoxoSH50y4FPBnir4QvZx8/edit?gid=1450340132#gid=1450340132" target="_blank" rel="noopener noreferrer">
+    View spreadsheet
+  </a>
+</p>

@@ -135,6 +135,28 @@ date: 2025-07-23
 <span class="p">}</span>
 </code></pre></div></div>
 
+<h2 id="power-calculations">Power calculations</h2>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>8V Battery
+ ├──&gt; L293D Vcc2 (motor power)
+ ├──&gt; Arduino VIN     (OR buck converter → 5V)
+ └──&gt; GND ─────────────┐
+                       │
+Arduino                │
+ ├──&gt; 5V ────&gt; L293D Vcc1 (logic power)
+ └──&gt; GND ───────────────┘
+
+</code></pre></div></div>
+
+<iframe src="https://docs.google.com/spreadsheets/d/e/2PACX-1vQC95BsIDwF3d35FrX23txHFuu1lBQMeZXjyyVrMJP-tM-H_xtL_79SU7Kmq02f7_EaCw4Phnupfcjb/pubhtml?gid=1450340132&amp;single=true" width="100%" height="700" style="border: 1px solid #ccc;">
+</iframe>
+
+<p style="text-align: center; margin-top: 1rem;">
+  <a href="https://docs.google.com/spreadsheets/d/1_32Bc418HSQQvqX36nZn2qoxoSH50y4FPBnir4QvZx8/edit?gid=1450340132#gid=1450340132" target="_blank" rel="noopener noreferrer">
+    View spreadsheet
+  </a>
+</p>
+
 </main>
 
 
