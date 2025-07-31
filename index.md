@@ -8,7 +8,7 @@ layout: page
 
 # User Manual
 
-Welcome to the <a href="{{ site.baseurl }}{% post_url 2025-07-25-sonar_viz_bot_user_manual %}"> user manual </a> for this project...
+Welcome to the <a href="{{ site.baseurl }}{% post_url 2025-07-25-sonar_viz_bot_user_manual %}"> <b>user manual</b> </a> for the training project...
 
 
 <div class="box-grid">
@@ -23,6 +23,26 @@ Welcome to the <a href="{{ site.baseurl }}{% post_url 2025-07-25-sonar_viz_bot_u
   </a>
 </div>
 
+# Projects
+
+See our robots
+
+
+<div class="box-grid">
+  <a class="tech-box" href="{{ site.baseurl }}{% post_url 2025-07-30-mobile-ros-robot %}">
+    <span>Mobile ROS Robot</span>
+  </a>
+  <a class="tech-box" href="{{ site.baseurl }}{% post_url 2025-07-30-sonar-viz-bot %}">
+    <span>Sonar Viz Bot</span>
+  </a>
+  <a class="tech-box" href="{{ site.baseurl }}{% post_url 2025-07-30-mars-rover %}">
+    <span>Mars Rover</span>
+  </a>
+  <a class="tech-box" href="{{ site.baseurl }}{% post_url 2025-07-30-kiborpc %}">
+    <span>KiboRPC</span>
+  </a>
+</div>
+
 
 ## Recent Posts
 
@@ -33,18 +53,5 @@ Welcome to the <a href="{{ site.baseurl }}{% post_url 2025-07-25-sonar_viz_bot_u
     </li>
   {% endfor %}
 </ul>
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 

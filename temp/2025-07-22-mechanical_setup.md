@@ -32,6 +32,11 @@ After designing the CAD of the chassis, save the file as `.stl`. Then slice and 
   <img src="https://i.imgur.com/PoovXUC.png" width="500">
 </div>
 
+### Bambu Lab P1S
+
+### Ultimaker Cura 
+[Ultimaker S5](https://ultimaker.com/learn/the-ultimaker-s5-is-here/) has a build volume (bed size) of 330 x 240 x 300 mm (13 x 9.4 x 11.8 inches)
+
 ## Wheel and Motor Mounting
 
 ### TODO
@@ -43,6 +48,9 @@ After designing the CAD of the chassis, save the file as `.stl`. Then slice and 
 <!-- <div style="text-align: center;">
   <img src="https://i.imgur.com/eaGLd6G.png" width="500">
 </div> -->
+
+
+
 
 ## Battery Placement
 

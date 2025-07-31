@@ -1,4 +1,40 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.9.0">Jekyll</generator><link href="http://localhost:4000/ocr_jekyll/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/ocr_jekyll/" rel="alternate" type="text/html" /><updated>2025-07-30T03:55:21-07:00</updated><id>http://localhost:4000/ocr_jekyll/feed.xml</id><title type="html">OC Robotics</title><subtitle>Temporary Jekyll site for OCR documentation</subtitle><author><name>Chris Tio</name></author><entry><title type="html">University Rover Challenge</title><link href="http://localhost:4000/ocr_jekyll/2025/07/28/urc.html" rel="alternate" type="text/html" title="University Rover Challenge" /><published>2025-07-28T00:00:00-07:00</published><updated>2025-07-28T00:00:00-07:00</updated><id>http://localhost:4000/ocr_jekyll/2025/07/28/urc</id><content type="html" xml:base="http://localhost:4000/ocr_jekyll/2025/07/28/urc.html"><![CDATA[<h1 id="university-rover-challenge">University Rover Challenge</h1>
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.9.0">Jekyll</generator><link href="http://localhost:4000/ocr_jekyll/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/ocr_jekyll/" rel="alternate" type="text/html" /><updated>2025-07-31T03:27:17-07:00</updated><id>http://localhost:4000/ocr_jekyll/feed.xml</id><title type="html">OC Robotics</title><subtitle>Temporary Jekyll site for OCR documentation</subtitle><author><name>Chris Tio</name></author><entry><title type="html">KiboRPC</title><link href="http://localhost:4000/ocr_jekyll/2025/07/30/kiborpc.html" rel="alternate" type="text/html" title="KiboRPC" /><published>2025-07-30T00:00:00-07:00</published><updated>2025-07-30T00:00:00-07:00</updated><id>http://localhost:4000/ocr_jekyll/2025/07/30/kiborpc</id><content type="html" xml:base="http://localhost:4000/ocr_jekyll/2025/07/30/kiborpc.html"><![CDATA[<h1 id="kiborpc">KiboRPC</h1>
+<h2 id="simulation">Simulation</h2>
+<p><img src="https://i.imgur.com/E1uWYIb.png" alt="description" style="width: 500px; height: auto;" /></p>]]></content><author><name>Chris Tio</name></author><summary type="html"><![CDATA[KiboRPC Simulation]]></summary></entry><entry><title type="html">Mars Rover</title><link href="http://localhost:4000/ocr_jekyll/2025/07/30/mars-rover.html" rel="alternate" type="text/html" title="Mars Rover" /><published>2025-07-30T00:00:00-07:00</published><updated>2025-07-30T00:00:00-07:00</updated><id>http://localhost:4000/ocr_jekyll/2025/07/30/mars-rover</id><content type="html" xml:base="http://localhost:4000/ocr_jekyll/2025/07/30/mars-rover.html"><![CDATA[<!-- # URC Rover -->
+
+<h2 id="resources">Resources</h2>
+<ul>
+  <li>JPL Open Source Rover Project
+    <ul>
+      <li><a href="https://open-source-rover.readthedocs.io/en/latest/index.html">Documentation</a></li>
+      <li><a href="https://github.com/nasa-jpl/open-source-rover">GitHub </a></li>
+    </ul>
+  </li>
+</ul>
+
+<h2 id="mars-rover-v1">Mars Rover v1</h2>
+<h3 id="cad">CAD</h3>
+
+<p><img src="https://i.imgur.com/Oeyj2vO.png" alt="picture 1" /></p>
+
+<h3 id="prototype">Prototype</h3>
+
+<p><img src="https://i.imgur.com/R9GB4VV.jpeg" alt="picture 0" /></p>]]></content><author><name>Chris Tio</name></author><summary type="html"><![CDATA[]]></summary></entry><entry><title type="html">Mobile ROS Robot</title><link href="http://localhost:4000/ocr_jekyll/2025/07/30/mobile-ros-robot.html" rel="alternate" type="text/html" title="Mobile ROS Robot" /><published>2025-07-30T00:00:00-07:00</published><updated>2025-07-30T00:00:00-07:00</updated><id>http://localhost:4000/ocr_jekyll/2025/07/30/mobile-ros-robot</id><content type="html" xml:base="http://localhost:4000/ocr_jekyll/2025/07/30/mobile-ros-robot.html"><![CDATA[<h1 id="mobile-ros-robot">Mobile ROS Robot</h1>
+
+<h2 id="gazebo-simulation">Gazebo Simulation</h2>
+<p><img src="https://i.imgur.com/QpHcKCk.png" alt="description" style="width: 500px; height: auto;" /></p>]]></content><author><name>Chris Tio</name></author><summary type="html"><![CDATA[Mobile ROS Robot]]></summary></entry><entry><title type="html">Sonar Viz Bot</title><link href="http://localhost:4000/ocr_jekyll/2025/07/30/sonar-viz-bot.html" rel="alternate" type="text/html" title="Sonar Viz Bot" /><published>2025-07-30T00:00:00-07:00</published><updated>2025-07-30T00:00:00-07:00</updated><id>http://localhost:4000/ocr_jekyll/2025/07/30/sonar-viz-bot</id><content type="html" xml:base="http://localhost:4000/ocr_jekyll/2025/07/30/sonar-viz-bot.html"><![CDATA[<h1 id="sonar-viz-bot-v1">Sonar Viz Bot v1</h1>
+
+<p><img src="https://i.imgur.com/CW5IY0M.png" alt="description" style="width: 500px; height: auto;" /></p>
+
+<h1 id="sonar-viz-bot-v2">Sonar Viz Bot v2</h1>
+
+<h2 id="cad">CAD</h2>
+
+<p><img src="https://i.imgur.com/qgng56N.png" alt="description" style="width: 500px; height: auto;" /></p>
+
+<h2 id="prototype">Prototype</h2>
+
+<p><img src="https://i.imgur.com/QXUko01.png" alt="description" style="width: 500px; height: auto;" /></p>]]></content><author><name>Chris Tio</name></author><summary type="html"><![CDATA[Sonar Viz Bot v1]]></summary></entry><entry><title type="html">University Rover Challenge</title><link href="http://localhost:4000/ocr_jekyll/2025/07/28/urc.html" rel="alternate" type="text/html" title="University Rover Challenge" /><published>2025-07-28T00:00:00-07:00</published><updated>2025-07-28T00:00:00-07:00</updated><id>http://localhost:4000/ocr_jekyll/2025/07/28/urc</id><content type="html" xml:base="http://localhost:4000/ocr_jekyll/2025/07/28/urc.html"><![CDATA[<h1 id="university-rover-challenge">University Rover Challenge</h1>
 
 <h2 id="urc-timeline">URC Timeline</h2>
 
@@ -30,28 +66,7 @@
   <div class="doc-link">
     <a href="https://docs.google.com/document/d/1LqZX74oIm93E1AJ0NjYZ2ZcUp3Lk3aCdbMdwWOB4yWo/edit" target="_blank">Open full document ↗</a>
   </div>
-</div>
-
-<h1 id="urc-rover">URC Rover</h1>
-
-<h2 id="resources">Resources</h2>
-<ul>
-  <li>JPL Open Source Rover Project
-    <ul>
-      <li><a href="https://open-source-rover.readthedocs.io/en/latest/index.html">Documentation</a></li>
-      <li><a href="https://github.com/nasa-jpl/open-source-rover">GitHub </a></li>
-    </ul>
-  </li>
-</ul>
-
-<h2 id="urc-rover-v1">URC Rover v1</h2>
-<h3 id="cad">CAD</h3>
-
-<p><img src="https://i.imgur.com/Oeyj2vO.png" alt="picture 1" /></p>
-
-<h3 id="prototype">Prototype</h3>
-
-<p><img src="https://i.imgur.com/R9GB4VV.jpeg" alt="picture 0" /></p>]]></content><author><name>Chris Tio</name></author><summary type="html"><![CDATA[University Rover Challenge]]></summary></entry><entry><title type="html">Sonar Viz Bot User Manual</title><link href="http://localhost:4000/ocr_jekyll/2025/07/25/sonar_viz_bot_user_manual.html" rel="alternate" type="text/html" title="Sonar Viz Bot User Manual" /><published>2025-07-25T00:00:00-07:00</published><updated>2025-07-25T00:00:00-07:00</updated><id>http://localhost:4000/ocr_jekyll/2025/07/25/sonar_viz_bot_user_manual</id><content type="html" xml:base="http://localhost:4000/ocr_jekyll/2025/07/25/sonar_viz_bot_user_manual.html"><![CDATA[<!-- # Table of Contents
+</div>]]></content><author><name>Chris Tio</name></author><summary type="html"><![CDATA[University Rover Challenge]]></summary></entry><entry><title type="html">Sonar Viz Bot User Manual</title><link href="http://localhost:4000/ocr_jekyll/2025/07/25/sonar_viz_bot_user_manual.html" rel="alternate" type="text/html" title="Sonar Viz Bot User Manual" /><published>2025-07-25T00:00:00-07:00</published><updated>2025-07-25T00:00:00-07:00</updated><id>http://localhost:4000/ocr_jekyll/2025/07/25/sonar_viz_bot_user_manual</id><content type="html" xml:base="http://localhost:4000/ocr_jekyll/2025/07/25/sonar_viz_bot_user_manual.html"><![CDATA[<!-- # Table of Contents
 
 - [1. Software Setup](#1-software-setup)
     - [1.0 Join the Github Organizations](#10-join-the-github-organizations)

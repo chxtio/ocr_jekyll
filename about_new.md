@@ -30,3 +30,7 @@ _7/28/25_
 
 _7/29/25_
 - Added power calculations spreadsheet [Electrical Setup notes]({{ site.baseurl }}{% link temp/2025-07-22-electrical_setup.md %})  
+
+
+_7/30/25_
+- Added to [Projects]({{ site.baseurl }}/#projects) section to homepage
