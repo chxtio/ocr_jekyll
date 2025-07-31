@@ -9,19 +9,21 @@ layout: page
 # User Manual
 
 Welcome to the <a href="{{ site.baseurl }}{% post_url 2025-07-25-sonar_viz_bot_user_manual %}"> <b>user manual</b> </a> for the training project...
-
+<!-- <a href="{{ site.baseurl }}{% post_url 2025-07-25-sonar_viz_bot_user_manual %}#1-software-setup"> <b>Software Setup</b> </a>  -->
 
 <div class="box-grid">
-  <a class="tech-box" href="{{ site.baseurl }}{% link temp/2025-07-22-software_setup.md %}">
+  <a class="tech-box" href="{{ site.baseurl }}{% post_url 2025-07-25-sonar_viz_bot_user_manual %}#1-software-setup">
     <span>Software Setup</span>
   </a>
-  <a class="tech-box" href="{{ site.baseurl }}{% link temp/2025-07-22-mechanical_setup.md %}">
+  <a class="tech-box" href="{{ site.baseurl }}{% post_url 2025-07-25-sonar_viz_bot_user_manual %}#mechanical-assembly">
     <span>Mechanical Setup</span>
   </a>
-  <a class="tech-box" href="{{ site.baseurl }}{% link temp/2025-07-22-electrical_setup.md %}">
+  <a class="tech-box" href="{{ site.baseurl }}{% post_url 2025-07-25-sonar_viz_bot_user_manual %}#electrical-setup">
     <span>Electrical Setup</span>
   </a>
 </div>
+
+<br/>
 
 # Projects
 
@@ -38,12 +40,12 @@ See our robots
   <a class="tech-box" href="{{ site.baseurl }}{% post_url 2025-07-30-mars-rover %}">
     <span>Mars Rover</span>
   </a>
-  <a class="tech-box" href="{{ site.baseurl }}{% post_url 2025-07-30-kiborpc %}">
+  <!-- <a class="tech-box" href="{{ site.baseurl }}{% post_url 2025-07-30-kiborpc %}">
     <span>KiboRPC</span>
-  </a>
+  </a> -->
 </div>
 
-
+<!-- 
 ## Recent Posts
 
 <ul>
@@ -52,6 +54,6 @@ See our robots
       <a href="{{site.baseurl}}{{ post.url }}">{{ post.title }}</a> – {{ post.date | date: "%B %d, %Y" }}
     </li>
   {% endfor %}
-</ul>
+</ul> -->
 
 

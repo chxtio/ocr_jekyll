@@ -65,6 +65,11 @@ After designing the CAD of the chassis, save the file as `.stl`. Then slice and 
   <img src="https://i.imgur.com/PoovXUC.png" width="500">
 </div>
 
+### Bambu Lab P1S
+
+### Ultimaker Cura 
+[Ultimaker S5](https://ultimaker.com/learn/the-ultimaker-s5-is-here/) has a build volume (bed size) of 330 x 240 x 300 mm (13 x 9.4 x 11.8 inches)
+
 ## Wheel and Motor Mounting
 
 ### TODO
@@ -77,47 +82,21 @@ After designing the CAD of the chassis, save the file as `.stl`. Then slice and 
   <img src="https://i.imgur.com/eaGLd6G.png" width="500">
 </div> -->
 
+
 ## Battery Placement
 
 ### TODO
 
+---
+
 # 1. Software Setup
 The configuration of Git, GitHub, and SSH and the software environment setup is described. To streamline the development process, we have created a Docker container with Ubuntu 22.04, ROS2 Humble, and dependencies. 
 
-## 1.0 Join the Github Org
+# 1.1 Setting Up Git, GitHub, and SSH
 
-- Add your GitHub username to the [discord thread](https://discord.com/channels/1204942703243173918/1337563694032359445/1339813815394766951)
-- You will be invited to the following
-  - [https://github.com/oc-robotics](https://github.com/oc-robotics)
-  - [https://github.com/Training-Dummy](https://github.com/Training-Dummy)
+## Install Git
 
-## 1.1 Recommended Directory Structure
-
-```
-~/ocr/
-│
-├── dev_ws/
-│   ├── build/
-│   ├── install/
-│   ├── log/
-│   └── src/
-│       └── differential_drive_robot/
-│
-├── ocr-docker/
-│   ├── Dockerfile
-│   ├── README.md
-│   └── docker-compose.yml
-│
-└── training_ws/
-       └── src/
-```
-
-
-## 1.2 Setting Up Git, GitHub, and SSH
-
-### Install Git
-
-#### *Mac*
+### *Mac*
 - Install homebrew and follow the terminal instructions
 
 ```bash
@@ -130,7 +109,7 @@ The configuration of Git, GitHub, and SSH and the software environment setup is 
 brew install git
 ```
 
-#### *Windows*
+### *Windows*
 
 - Install [Git for Windows](https://gitforwindows.org/), which provides Git Bash (terminal emulator for running Git commands)
   
@@ -152,9 +131,9 @@ Write-Host "Done."
 ```
 
 - You can also install Linux for Windows via [WSL (Windows Subsystem for Linux)](https://learn.microsoft.com/en-us/windows/wsl/install)
-  - Once setup, Git can be installed using the Linux package manager 
+  - Once setup, Git can be installed using the Linux package manager `apt` below:
 
-#### *Ubuntu*
+### *Ubuntu*
 
 - Install Git
 
@@ -162,7 +141,7 @@ Write-Host "Done."
 sudo apt install git
 ```
 
-### Configure Git
+## Configure Git
 - Configure Git, replacing `"Your name"` and `"your.email@example.com"` with your info (including the quotes) to link your local Git profile with GitHub
 
 ```bash
@@ -177,7 +156,7 @@ git config --get user.name
 git config --get user.email
   ```
 
-### Set up SSH
+## Set up SSH
 - Create a new SSH key using your GitHub email as a label
 
 **Note: Press enter to skip through the 3 prompts that follow**
@@ -207,17 +186,35 @@ ssh -T git@github.com
 Hi username! You've successfully authenticated, but GitHub does not provide shell access.
 ```
 
-## 1.3 Create Initial Directory Structure
+# 1.2 Recommended Directory Structure
 
-*Preview*
+```
+~/ocr/
+│
+├── dev_ws/
+│   ├── build/
+│   ├── install/
+│   ├── log/
+│   └── src/
+│       └── differential_drive_robot/
+│       └── gz_ros2_control/
+│
+├── ocr-docker/
+│   ├── Dockerfile
+│   ├── README.md
+│   └── docker-compose.yml
+│
+└── training_ws/
+       └── src/
+```
+
+## Create Initial Directory Structure
 
 ```
 ~/ocr/
 │
 ├── dev_ws/
 │   └── src/
-│
-├── ocr-docker/
 │
 ├── training_ws/
 │   └── src/
@@ -241,13 +238,7 @@ mkdir -p dev_ws/src
 mkdir -p training_ws/src
 ```
 
-4\. Create `ocr-docker` folder
-
-```bash
-mkdir ocr-docker
-```
-
-5\. Verify that folders have been created inside `ocr`
+4\. Verify that folders have been created inside `ocr`
 
 ```bash
 ls
@@ -256,11 +247,11 @@ ls
 <!-- Expected output: -->
 
 ```output
-dev_ws  ocr-docker  training_ws
+dev_ws training_ws
 ```
 
 
-## 1.4 OCR Docker
+# 1.3 OCR Docker
 
 <div class="important">
   <strong>Important:</strong> If you have already installed the container, skip to 
@@ -272,20 +263,22 @@ dev_ws  ocr-docker  training_ws
 > 
 > If you have already installed the container, skip to [Step 2: Run the docker container](#step-2-run-the-docker-container). -->
 
-### Step 1: Install the container
+
+
+## Step 1: Install the container
 
 - Install and open [Docker Desktop](https://docs.docker.com/desktop/)
 
 - Clone the [repo](https://github.com/oc-robotics/ocr-docker) and cd into it
 
 ```bash
-cd ocr
+cd ~ocr
 git clone https://github.com/oc-robotics/ocr-docker.git
 cd ocr-docker
 ```
-<!-- 
-- Make sure the volume is mounted correctly in `docker-compose.yml`
-    - The default path assumes the following file structure
+
+- Make sure the volume is mounted correctly in `docker-compose.yml`. 
+    - The volume `~/ocr/dev_ws/` assumes the following host file structure:
 
 ```
 ~/ocr/
@@ -303,7 +296,15 @@ cd ocr-docker
 │   └── docker-compose.yml
 │
 └── training_ws/
-``` -->
+```
+
+- In your `docker-compose.yml`, the volume should be mounted as:
+
+```
+    volumes:
+      # - <host_path>:<container_path>
+      - ~/ocr/dev_ws/:/ocr/dev_ws/
+```
 
 - Pull the base image from Docker Hub
 
@@ -316,7 +317,7 @@ docker pull mwoodward6/nekton:humble
 docker build -t ocr-docker:humble .
 ```
 
-### Step 2: Install any ROS pacakges 
+## Step 2: Install any ROS packages 
 
 - As an example, we will install [differential_drive_robot](https://github.com/oc-robotics/differential_drive_robot) in `src`
 
@@ -330,7 +331,15 @@ cd ~/ocr/dev_ws/src
 git clone git@github.com:oc-robotics/differential_drive_robot.git
 ```
 
-### Step 3: Run the docker container
+
+## Step 3: Run the docker container
+
+- cd into `ocr-docker`
+
+```bash
+cd ~/ocr/ocr-docker
+```
+
 - Start the container in the background (detached mode)
 
 ```bash
@@ -360,7 +369,7 @@ docker-compose stop
 docker-compose down
 ```
 
-### Troubleshooting
+## Troubleshooting
 <!-- ### Fix "ports not available" error -->
 
 - If you encounter an error due to port 6080 being in use, check which processes are using it
@@ -382,60 +391,21 @@ docker-pr 1001 root    4u  IPv6  26542      0t0  TCP *:6080 (LISTEN)
 sudo kill -9 995 1001
 ```
 
-## 1.5 Differential Drive Robot
+# 1.4 Differential Drive Robot
 
-- Open a terminal (run Terminator in NoVNC) and cd into `dev_ws/src`
-
-```bash
-cd dev_ws/src
-````
-
-* Build the package
+## Enter the Docker container
+- Inside the Docker container, open a terminal (e.g., run Terminator in NoVNC), and update the GPG key used for the ROS 2 repository
 
 ```bash
-colcon build --symlink-install
+sudo curl -sSL https://raw.githubusercontent.com/ros/rosdistro/master/ros.key -o /usr/share/keyrings/ros-archive-keyring.gpg
 ```
 
-* Source the setup
+## Install `ros2_control` dependencies
 
-```bash
-source install/setup.bash
-```
-
-* Run the Gazebo simulation
-
-```bash
-ros2 launch differential_drive_robot launch_sim.launch.py
-```
-
-![picture 42](https://i.imgur.com/SqxKbpF.png)  
-
-
-* Visualize in `Rviz`
-
-```bash
-rviz2 -d src/differential_drive_robot/config/diff-drive.rviz
-```
-
-* Drive the Robot with Keyboard Input (open a new terminal inside Terminator and run the following command line)
-
-```bash
-ros2 run teleop_twist_keyboard teleop_twist_keyboard
-```
-
-* Note: If using `ros2_control` plugin, /cmd\_vel must be remapped as follows:
-
-```bash
-ros2 run teleop_twist_keyboard teleop_twist_keyboard --ros-args -r /cmd_vel:=/diff_cont/cmd_vel_unstamped
-```
-
-
-# 1.6 ros2_control
-
-- Install dependencies
-  - `ros-humble-ros2-control`: Core control framework for robot hardware interfaces and controllers.
-  - `ros-humble-ros2-controllers`: Predefined controllers that can be used to control robot hardware.
-  - `gz_ros2_control`: Integration between ROS 2 control framework and Gazebo from source
+- Install ROS 2 Humble packages required for the [`ros2_control`](https://control.ros.org/rolling/index.html) framework
+  - [`ros2_control`](https://github.com/ros-controls/ros2_control): Core control framework for robot hardware interfaces and controllers.
+  - [`ros2_controllers`](https://github.com/ros-controls/ros2_controllers): Predefined controllers that can be used to control robot hardware.
+  - [`gz_ros2_control`](https://github.com/ros-controls/gz_ros2_control): Integration between ROS 2 control framework and Gazebo from source
     - Note: this will need to be compiled from source (see below)
 
 ```bash
@@ -459,37 +429,52 @@ rosdep resolve gz-garden
 cd src
 git clone https://github.com/federicociresola/gz_ros2_control.git -b humble-gz_garden
 rosdep install -r --from-paths . --ignore-src --rosdistro $ROS_DISTRO -y
-cd ..
-colcon build
 ```
 
+- Build the package from the root of the workspace (`dev_ws`)
+
+```bash
+cd ..
+colcon build --symlink-install
+```
+
+- Source the setup
+
+```bash
+source install/setup.bash
+```
+
+## Launch the Gazebo Simulation
 - Run the Gazebo simulation
 
 ```bash
 ros2 launch differential_drive_robot launch_sim.launch.py
 ```
 
+![picture 42](https://i.imgur.com/SqxKbpF.png)  
 
-- Run `teleop_twist_keyboard` 
-  - Note: `/cmd_vel` topic must be remapped  to `/diff_cont/cmd_vel_unstamped`
+## Visualize with `Rviz`
+- Launch `Rviz` with the provided configuration
+
+```bash
+rviz2 -d src/differential_drive_robot/config/diff-drive.rviz
+```
+
+## Drive the robot with keyboard
+- Run `teleop_twist_keyboard` to control the robot
+  - Note: is using `ros2_control`, remap the `/cmd_vel` topic to `/diff_cont/cmd_vel_unstamped`
 
 ```bash
 ros2 run teleop_twist_keyboard teleop_twist_keyboard --ros-args -r /cmd_vel:=/diff_cont/cmd_vel_unstamped
 ```
 
-- TODO: check if need to Install ros-gz-bridge
-
-```bash
-sudo apt-get install ros-humble-ros-gz-bridge
-```
-
-## 1.7 Raspberry Pi Setup
+# 1.5 Raspberry Pi Setup
 
 This setup uses a Raspberry Pi 4. The OS must be configured by flashing the microSD card with Ubuntu 22.04 (see more) and installing ROS2 Humble.
 
 <img src="https://i.imgur.com/xJMgVJ2.png" width="500">
 
-### Setup
+## Setup
 
 - Install [Rapberry Pi Imager](https://www.raspberrypi.com/software/)  
 -  Insert the microSD card and choose OS -> other general purpose SO -> **Ubuntu Desktop 22.04 LTS (64-bit)**
@@ -500,7 +485,7 @@ This setup uses a Raspberry Pi 4. The OS must be configured by flashing the micr
 
 - Todo: Set up SSH on the pi for remote connections
 
-### Connecting Peripherals to the Raspberry Pi
+## Connecting Peripherals to the Raspberry Pi
 
 <img src="https://i.imgur.com/adBxdjT.png" width="500">
 
@@ -515,15 +500,17 @@ This setup uses a Raspberry Pi 4. The OS must be configured by flashing the micr
 
 <img src="https://piportal.digitalharbor.org/cbfe7e712c4ce6e2deed4e129812df9a/rpi-plug-in.gif" width="500">
 
-# 2. Electrical Setup
+---
 
-## 2.1 Software
+# Electrical Setup
+
+## Software
 
 - Install [Arduino IDE](https://www.arduino.cc/en/software/)
 
-## 2.2 L293D Motor Driver
+## L293D Motor Driver
 
-- Wire the [circuit](https://www.tinkercad.com/things/ehT2Jv0teTn-l293d-motor-driver?sharecode=ptKgyQ0MTZuHiNs5623u1GnzgUm6TEFuzgF3rDnG1LI) for the motor driver
+- Wire the [circuit](https://www.tinkercad.com/things/ehT2Jv0teTn-l293d-motor-driver?sharecode=ptKgyQ0MTZuHiNs5623u1GnzgUm6TEFuzgF3rDnG1LI) for the motor driver.
 
 ![picture 0](https://i.imgur.com/1gINfhA.png)  
 
@@ -602,3 +589,30 @@ void leftMotor(int speed) {
     analogWrite(ENB, abs(speed));
 }
 ```
+
+## Power calculations
+
+```
+8V Battery
+ ├──> L293D Vcc2 (motor power)
+ ├──> Arduino VIN     (OR buck converter → 5V)
+ └──> GND ─────────────┐
+                       │
+Arduino                │
+ ├──> 5V ────> L293D Vcc1 (logic power)
+ └──> GND ───────────────┘
+
+```
+
+<iframe 
+  src="https://docs.google.com/spreadsheets/d/e/2PACX-1vQC95BsIDwF3d35FrX23txHFuu1lBQMeZXjyyVrMJP-tM-H_xtL_79SU7Kmq02f7_EaCw4Phnupfcjb/pubhtml?gid=1450340132&single=true" 
+  width="100%" 
+  height="700" 
+  style="border: 1px solid #ccc;">
+</iframe>
+
+<p style="text-align: center; margin-top: 1rem;">
+  <a href="https://docs.google.com/spreadsheets/d/e/2PACX-1vQC95BsIDwF3d35FrX23txHFuu1lBQMeZXjyyVrMJP-tM-H_xtL_79SU7Kmq02f7_EaCw4Phnupfcjb/pubhtml?gid=1450340132&single=true" target="_blank" rel="noopener noreferrer">
+    View spreadsheet
+  </a>
+</p>

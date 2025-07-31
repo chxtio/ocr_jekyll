@@ -4,7 +4,8 @@ date: 2025-07-30
 ---
 
 
-<!-- # URC Rover -->
+# University Rover Challenge
+We are currently building the 2nd prototype of our Mars rover in preparation of [2026 URC]({{ site.baseurl }}/2025/07/28/urc.html).
 
 ## Resources
 - JPL Open Source Rover Project

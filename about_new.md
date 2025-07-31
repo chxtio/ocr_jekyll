@@ -27,6 +27,7 @@ _7/26/25_
 
 _7/28/25_
 - Added [URC post]({{ site.baseurl }}/2025/07/28/urc.html) 
+- Created modals for user manual navigation
 
 _7/29/25_
 - Added power calculations spreadsheet [Electrical Setup notes]({{ site.baseurl }}{% link temp/2025-07-22-electrical_setup.md %})  
@@ -34,3 +35,5 @@ _7/29/25_
 
 _7/30/25_
 - Added to [Projects]({{ site.baseurl }}/#projects) section to homepage
+- Removed recent posts view
+- Merged individual files into the user manual
